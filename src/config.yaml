@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Amatör Radyocular Derneği (ARC)
+  site: 'https://www.radio.org.tr'
   base: '/'
   trailingSlash: false
 
@@ -9,26 +9,26 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Amatör Radyocular Derneği (ARC)
+    template: '%s — ARC'
+  description: "İstanbul merkezli kâr amacı gütmeyen bu dernek, amatör telsizciliği yaygınlaştırmak, eğitim vermek ve röle-beacon altyapıları işletmek amacıyla kurulmuştur."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Amatör Radyocular Derneği (ARC)
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png'
+        width: 1024
+        height: 1024
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@YM1KTC'
+    site: '@YM1KTC'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: tr
   textDirection: ltr
 
 apps:

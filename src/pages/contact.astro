@@ -5,74 +5,119 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'İletişim - ARC',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="İletişim" title="Bizimle İletişime Geçin!" />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Bugün bize mesaj gönderin!"
+    subtitle="Hızlı yanıtlar için SSS bölümümüze göz atın. Aradığınız çözümü orada bulabilirsiniz! Bulamazsanız, destek ekibimiz size yardımcı olmaktan mutluluk duyar."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Ad Soyad',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'E-posta',
+      },
+      {
+        type: 'text',
+        name: 'callsign',
+        label: 'Çağrı İşareti (İsteğe bağlı)',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Mesaj',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'Bu iletişim formunu göndererek, kişisel bilgilerinizin toplanmasını kabul etmiş olursunuz.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="Destek ekibimiz genellikle 24 iş saati içinde yanıt verir."
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="We are here to help!"
+    title="Size yardımcı olmak için buradayız!"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'Genel Destek',
+        description: `Dernek faaliyetleri, web sitesi navigasyonu, etkinlik bilgileri veya genel sorularınız için bizimle iletişime geçin.`,
       },
       {
-        title: 'Contact sales',
+        title: 'Eğitim Programları',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'Amatör telsiz eğitimi, lisans sınav hazırlığı ve teknik kurslar hakkında sorularınız için bizimle iletişime geçin.',
       },
       {
-        title: 'Technical support',
+        title: 'Teknik Destek',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+          'Röle sistemleri, anten kurulumu, frekans ayarları ve diğer teknik konularda destek almak için bizimle iletişime geçin.',
       },
       {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
+        title: 'Telefon',
+        description: '+90 510 220 50 24 (dernek hattı)',
         icon: 'tabler:headset',
       },
       {
-        title: 'Email',
-        description: 'contact@support.com',
+        title: 'E-posta',
+        description: 'bilgi@radio.org.tr',
         icon: 'tabler:mail',
+        href: 'mailto:bilgi@radio.org.tr',
       },
       {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        title: 'Adres',
+        description: 'Kılıçali Paşa Mah. Altın Bilezik Sk. No: 2/9, 34433 Beyoğlu – İstanbul',
         icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <!-- Social Media Links -->
+  <Features2
+    title="Sosyal Medya"
+    tagline="Takip Edin"
+    columns={3}
+    items={[
+      {
+        title: 'Facebook',
+        description: 'Facebook sayfamızdan güncel haberler ve etkinliklerimizi takip edin.',
+        icon: 'tabler:brand-facebook',
+      },
+      {
+        title: 'YouTube',
+        description: 'YouTube kanalımızdan eğitim videoları ve canlı yayınları izleyin.',
+        icon: 'tabler:brand-youtube',
+      },
+      {
+        title: 'Instagram',
+        description: 'Instagram hesabımızdan fotoğraf ve video paylaşımlarımızı görün.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'X (Twitter)',
+        description: 'X (Twitter) hesabımızdan anlık güncellemeler ve duyurular.',
+        icon: 'tabler:brand-x',
+      },
+      {
+        title: 'LinkedIn',
+        description: 'LinkedIn sayfamızdan profesyonel güncellemeler ve iş birliği fırsatları.',
+        icon: 'tabler:brand-linkedin',
+      },
+      {
+        title: 'E-posta',
+        description: 'Doğrudan e-posta ile bizimle iletişime geçin: bilgi@radio.org.tr',
+        icon: 'tabler:mail',
       },
     ]}
   />

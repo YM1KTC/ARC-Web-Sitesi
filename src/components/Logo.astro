@@ -1,9 +1,18 @@
 ---
 import { SITE } from 'astrowind:config';
+import { Image } from 'astro:assets';
+import logoImage from '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
-</span>
+<div class="flex items-center">
+  <Image
+    src={logoImage}
+    alt="ARC Logo"
+    width={40}
+    height={40}
+    class="mr-2"
+  />
+  <span class="self-center text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
+    ARC
+  </span>
+</div>

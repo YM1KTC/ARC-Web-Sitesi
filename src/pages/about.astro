@@ -7,7 +7,7 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Hakkımızda - ARC',
 };
 ---
 
@@ -15,61 +15,62 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="Hakkımızda"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
+      alt: 'ARC Logo',
+      width: 1024,
+      height: 1024,
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Amatör radyo dünyasında <br />
+      <span class="text-accent dark:text-white"> Güçlü bir topluluk</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Amatör Radyocular Derneği (ARC), YM1KTC çağrı işaretiyle faaliyet gösteren, İstanbul merkezli kâr amacı gütmeyen
+      bir dernektir. 31 Mayıs 2024 tarihinde kurulmuş olan derneğimiz, amatör telsizciliği yaygınlaştırmak, eğitim
+      vermek ve röle-beacon altyapıları işletmek amacıyla faaliyet göstermektedir.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="Derneğimizle ilgili istatistikler"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Kuruluş Yılı', amount: '2024' },
+      { title: 'Aktif Üye', amount: '100+' },
+      { title: 'Eğitim Programı', amount: '25+' },
+      { title: 'Teknik Proje', amount: '10+' },
     ]}
   />
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="Faaliyet Alanlarımız"
+    subtitle="Amatör radyo dünyasında geniş bir yelpazede hizmet sunan derneğimiz, üyelerimize kapsamlı destek sağlamaktadır."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Eğitim ve Öğretim',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'Amatör telsiz lisans sınavlarına hazırlık, teknik eğitim programları ve sürekli gelişim kursları düzenliyoruz.',
+        icon: 'tabler:school',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Teknik Altyapı',
+        description: 'VHF/UHF röle sistemleri, beacon istasyonları ve teknik altyapı projeleri geliştirip işletiyoruz.',
+        icon: 'tabler:antenna',
       },
       {
-        title: 'Photography',
+        title: 'Acil Haberleşme',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          'Acil durumlarda güvenilir haberleşme sistemleri geliştirerek toplumsal sorumluluğumuzu yerine getiriyoruz.',
+        icon: 'tabler:phone-call',
       },
     ]}
   />
@@ -81,68 +82,68 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'E-commerce',
+        title: 'Araştırma ve Geliştirme',
         description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+          'Amatör radyo teknolojileri üzerine araştırma projeleri yürütüyor ve yenilikçi çözümler geliştiriyoruz.',
+        icon: 'tabler:microscope',
       },
       {
-        title: 'Blog',
+        title: 'Topluluk Etkinlikleri',
         description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+          'Yarışmalar, sergiler, seminerler ve sosyal etkinlikler düzenleyerek amatör radyocuları bir araya getiriyoruz.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+        title: 'Uluslararası İşbirliği',
+        description: "Dünya çapında amatör radyo kuruluşlarıyla işbirliği yaparak Türkiye'yi temsil ediyoruz.",
+        icon: 'tabler:world',
       },
       {
-        title: 'Branding',
+        title: 'Genç Radyocular',
         description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
+          'Gençlerin amatör radyo dünyasına katılımını teşvik eden özel programlar ve etkinlikler düzenliyoruz.',
+        icon: 'tabler:user-plus',
       },
       {
-        title: 'Medical',
+        title: 'Teknik Danışmanlık',
         description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
+          'Anten kurulumu, ekipman seçimi ve teknik konularda üyelerimize uzman danışmanlık hizmeti sunuyoruz.',
+        icon: 'tabler:tool',
       },
       {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Dijital Modlar',
+        description: 'DMR, APRS, FT8 gibi dijital mod teknolojileri konusunda eğitim ve uygulama desteği sağlıyoruz.',
+        icon: 'tabler:device-laptop',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
+      alt: 'ARC Logo',
+      width: 1024,
+      height: 1024,
     }}
   />
 
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Değerlerimiz"
+    subtitle="Derneğimizin temel değerleri, tüm faaliyetlerimizin ve üyelerimizle ilişkilerimizin temelini oluşturmaktadır."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Üye Odaklı Yaklaşım',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'Üyelerimizin ihtiyaçlarını önceleyerek, onların gelişimini desteklemek ve amatör radyo yolculuklarında rehberlik etmek en önemli amacımızdır.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Sürekli Gelişim',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'Teknolojideki gelişmeleri takip ederek, eğitim programlarımızı ve hizmetlerimizi sürekli güncelliyor ve geliştiriyoruz.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Etik Değerler',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Amatör radyo etiğini benimser, şeffaflık, dürüstlük ve toplumsal sorumluluk bilinciyle hareket ederiz.',
       },
     ]}
   />
@@ -150,29 +151,30 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="Başarılarımız"
+    subtitle="Kurulduğumuz günden bu yana elde ettiğimiz başarılar ve topluma katkılarımız."
     isReversed={true}
     callToAction={{
-      text: 'See more',
-      href: '/',
+      text: 'Daha fazla bilgi',
+      href: '/contact',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
+        title: 'Türkiye çapında erişim',
+        description:
+          'Röle sistemlerimiz ve eğitim programlarımız ile Türkiye genelinde amatör radyoculara hizmet veriyoruz.',
+        icon: 'tabler:map-pin',
       },
       {
-        title: 'Positive customer feedback and reviews',
+        title: 'Pozitif üye geri bildirimleri',
         description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
+          'Üyelerimizden aldığımız olumlu geri bildirimler ve yüksek memnuniyet oranları bizi motive ediyor.',
         icon: 'tabler:message-star',
       },
       {
-        title: 'Awards and recognition as industry experts',
+        title: 'Sektörel tanınırlık',
         description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
+          'Amatör radyo camiasında saygın bir konuma sahip olup, diğer kuruluşlar tarafından referans alınıyoruz.',
         icon: 'tabler:award',
       },
     ]}
@@ -181,25 +183,13 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
+    title="Yönetim Kurulu"
+    tagline="Liderlik"
+    columns={1}
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Başkan',
+        description: 'Cüneyt Şahna (TA1CUN) - +90 532 311 17 66',
       },
     ]}
   />
@@ -207,20 +197,18 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="Teknik Destek"
+    tagline="İletişim"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+        title: 'E-posta ile iletişim',
+        description: 'Teknik sorularınız, üyelik başvurunuz veya genel bilgi almak için e-posta gönderebilirsiniz.',
+        icon: 'tabler:mail',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
+        title: 'Telefon desteği',
+        description: 'Acil durumlar ve önemli konular için telefon hattımızdan bize ulaşabilirsiniz.',
         icon: 'tabler:headset',
       },
     ]}
