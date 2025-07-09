@@ -4,35 +4,57 @@
 
 This website uses Decap CMS (formerly Netlify CMS) for content management. It allows authorized users to create, edit, and manage blog posts through a web interface.
 
+## Current Setup Status
+
+**Error**: "Unable to access identity settings. When using git-gateway backend make sure to enable Identity service and Git Gateway."
+
+This means Netlify Identity and Git Gateway need to be properly configured.
+
 ## Setup Instructions
 
 ### 1. Enable Netlify Identity
 
-1. Go to your Netlify dashboard
-2. Navigate to your site settings
-3. Go to "Identity" tab
-4. Click "Enable Identity"
+1. Go to your Netlify dashboard: https://app.netlify.com/
+2. Select your site (ym1ktc.netlify.app)
+3. Navigate to **Site settings** → **Identity**
+4. Click **"Enable Identity"**
 5. In Identity settings, configure:
-   - Registration: "Invite only" (recommended)
-   - External providers: Enable GitHub, Google, etc. as needed
-   - Git Gateway: Enable this service
+   - **Registration**: Set to "Invite only" (recommended for security)
+   - **External providers**: Optionally enable GitHub, Google, etc.
+   - **Field validation**: No changes needed for basic setup
 
 ### 2. Configure Git Gateway
 
+**This is the crucial step that's currently missing:**
+
 1. In your site's Identity settings
-2. Go to "Services" tab
-3. Enable "Git Gateway"
+2. Go to **"Services"** tab
+3. Click **"Enable Git Gateway"**
 4. This allows Decap CMS to commit directly to your GitHub repository
+5. **Important**: Git Gateway requires the Identity service to be enabled first
 
-### 3. Invite Users
+### 3. Configure Custom Domain Access
 
-1. In Identity tab, click "Invite users"
+Since you're using https://taslak.radio.org.tr/, ensure:
+
+1. The custom domain is properly configured in Netlify
+2. Identity service works on both domains:
+   - https://ym1ktc.netlify.app/admin/
+   - https://taslak.radio.org.tr/admin/
+
+### 4. Invite Users
+
+After Identity and Git Gateway are enabled:
+
+1. In Identity tab, click **"Invite users"**
 2. Enter email addresses of content editors
 3. They will receive invitation emails
+4. Users must accept invitations to access the CMS
 
-### 4. Access the CMS
+### 5. Access the CMS
 
-- CMS URL: `https://your-site.netlify.app/admin/`
+- Primary URL: `https://taslak.radio.org.tr/admin/`
+- Backup URL: `https://ym1ktc.netlify.app/admin/`
 - Users can log in with their invited credentials
 - The CMS will redirect to `/decapcms/` for the actual interface
 
@@ -96,13 +118,38 @@ Netlify redirect rules for admin routing
 
 ## Troubleshooting
 
+### Current Error: "Unable to access identity settings"
+
+**This specific error means:**
+- Netlify Identity service is not enabled on your site
+- Git Gateway is not enabled 
+- Or both services need to be configured
+
+**Solution steps:**
+1. Go to https://app.netlify.com/sites/ym1ktc/settings/identity
+2. If Identity is not enabled, click "Enable Identity"
+3. Go to Services tab and enable "Git Gateway"
+4. Wait a few minutes for services to activate
+5. Try accessing `/admin/` again
+
 ### Common Issues:
 
-1. **Can't log in**: Check if Identity is enabled and user is invited
-2. **Can't save posts**: Ensure Git Gateway is enabled
-3. **Images not uploading**: Check media folder permissions
-4. **Changes not deploying**: Verify GitHub Actions workflow
+1. **"Unable to access identity settings"**: Enable Identity service and Git Gateway in Netlify dashboard
+2. **Can't log in**: Check if Identity is enabled and user is invited
+3. **Can't save posts**: Ensure Git Gateway is enabled and connected to GitHub
+4. **Images not uploading**: Check media folder permissions in repository
+5. **Custom domain issues**: Ensure Identity works on both netlify.app and custom domain
+6. **404 on /admin/**: Check that _redirects file is deployed correctly
+
+### Quick Verification Steps:
+
+1. Check Identity status: https://app.netlify.com/sites/ym1ktc/settings/identity
+2. Check Git Gateway: Should show "Connected" status when properly configured
+3. Test admin access: https://taslak.radio.org.tr/admin/
+4. Check browser console for JavaScript errors
 
 ### Support
 
 For technical issues, contact the development team or check the Decap CMS documentation at https://decapcms.org/docs/
+
+**Netlify-specific help:** https://docs.netlify.com/visitor-access/identity/

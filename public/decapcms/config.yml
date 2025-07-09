@@ -5,8 +5,8 @@ backend:
 media_folder: 'src/assets/images'
 public_folder: '/_astro'
 
-site_url: https://ym1ktc.github.io/ARC-Web-Sitesi
-display_url: https://ym1ktc.github.io/ARC-Web-Sitesi
+site_url: https://taslak.radio.org.tr
+display_url: https://taslak.radio.org.tr
 
 collections:
   - name: 'post'
