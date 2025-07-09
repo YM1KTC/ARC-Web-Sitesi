@@ -1,5 +1,5 @@
 ---
-title: "Amatör Band Planı: UHF (Ultra High Frequency)"
+title: 'Amatör Band Planı: UHF (Ultra High Frequency)'
 date: 2025-04-21 16:23:29
 author: TA1SPH
 categories: ['Frekanslar ve Band Planları']
@@ -9,8 +9,10 @@ image: ~/assets/images/2025/04/Amator-Band-Plani-UHF-Ultra-High-Frequency.png
 ---
 
 ## 🔍 UHF Bandı Nedir?
+
 UHF (Ultra High Frequency), **300 MHz ile 3 GHz** arasındaki frekansları kapsar. Amatör telsizcilere ayrılan kısmı ise Türkiye'de **430 MHz – 440 MHz** aralığındadır.
 📌 **Kısa Bilgi:** UHF sinyalleri, kısa dalga boyları nedeniyle genellikle **görüş hattı (Line-of-Sight)** üzerinden yayılır.
+
 ### 📈 UHF Bandının Teknik Özellikleri
 
 Özellik
@@ -53,7 +55,7 @@ Röle (Repeater) çıkış frekansları
 
 ### 📡 UHF Simplex Kullanımı
 
- .table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
+.table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
 
 UHF Simplex Frekans Tablosu
 
@@ -124,14 +126,16 @@ U285
 433.575,00
 U286
 
-🔸 **433.450 MHz**, Türkiye’de amatör telsizciler için  ***D.M.R*** **UHF simplex çağrı frekansı** olarak kullanılır.
+🔸 **433.450 MHz**, Türkiye’de amatör telsizciler için  **_D.M.R_** **UHF simplex çağrı frekansı** olarak kullanılır.
 🔸 **433.500 MHz**, Türkiye’de amatör telsizciler için ***F.M. *UHF simplex çağrı frekansı** olarak kullanılır.
 🔸 Bu frekans üzerinden doğrudan telsiz-telsiz görüşmeler (Simplex QSO) yapılabilir.
 🎯 **İpucu:** Görüşme öncesi 30-60 saniye dinleme yaparak frekansın boş olduğundan emin olun.
+
 ### 🔁 Röle (Repeater) Kullanımı
+
 UHF röleler, sinyali alıp güçlendirerek geniş kapsama alanlarına iletir.
 
- .table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
+.table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
 
 UHF Repeater Frekans Tablosu
 
@@ -284,7 +288,9 @@ RU754
 🔹 Genellikle **-7.6 MHz shift** uygulanır.
 🔸 Örnek: **RX: 439.200 MHz / TX: 431.600 MHz**
 🔒 Röleler çoğu zaman **CTCSS (88.5 Hz gibi)** ya da **DCS tonları** ile çalışır.
+
 ### 🛰️ UHF Bandında Uydu Haberleşmesi
+
 Amatör telsizciler, UHF üzerinden birçok uyduyla iletişim kurabilir:
 
 Uplink (Gönderim)
@@ -296,6 +302,7 @@ Modülasyon Türleri
 FM, SSB, CW
 
 📌 **ISS, AO-91, SO-50 gibi uydular**, UHF bandını aktif olarak kullanan örneklerdendir.
+
 ### 🔊 Kullanılan Modülasyon Türleri
 
 Modülasyon
@@ -314,6 +321,7 @@ Mors koduyla uzun menzilli ve düşük bant kullanımı sağlar
 DMR, D-Star, C4FM, Packet Radio gibi modlarla dijital ses/veri iletimi
 
 ### 📌 Sonuç ve Tavsiyeler
+
 UHF bandı, özellikle **şehir içi haberleşme**, **röle kullanımı** ve **dijital modlar** için çok elverişlidir. Ancak sinyal yayılımı **görüş hattına** dayandığından, **yüksek konumlandırılmış antenler** tercih edilmelidir.
 📌 Röleler ve uydular sayesinde **daha uzun mesafelerde etkili haberleşme** mümkündür.
 📌 Telsizciliğe yeni başlayanlar için, UHF bandı düşük gürültü seviyesi ve teknik çeşitliliği ile ideal bir öğrenme alanıdır.

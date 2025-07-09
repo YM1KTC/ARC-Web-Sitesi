@@ -12,10 +12,15 @@ body {
   font-size: 18px;
   line-height: 1.6;
   color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   font-weight: 600;
@@ -35,7 +40,9 @@ a:hover {
 }
 
 /* Better content spacing */
-p, ul, ol {
+p,
+ul,
+ol {
   margin-bottom: 1.5em;
 }
 
@@ -65,7 +72,7 @@ p, ul, ol {
     padding-right: 15px;
     padding-left: 15px;
   }
-  
+
   body {
     font-size: 16px;
   }
@@ -80,7 +87,8 @@ p, ul, ol {
 }
 
 /* Better code blocks */
-pre, code {
+pre,
+code {
   background-color: #f6f8fa;
   border: 1px solid #eaecef;
   border-radius: 3px;
@@ -105,7 +113,8 @@ table {
   margin-bottom: 1.5em;
 }
 
-table th, table td {
+table th,
+table td {
   border: 1px solid #e8e8e8;
   padding: 8px 12px;
 }

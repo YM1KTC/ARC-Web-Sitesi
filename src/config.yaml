@@ -11,7 +11,7 @@ metadata:
   title:
     default: Amatör Radyocular Derneği (ARC)
     template: '%s — ARC'
-  description: "İstanbul merkezli kâr amacı gütmeyen bu dernek, amatör telsizciliği yaygınlaştırmak, eğitim vermek ve röle-beacon altyapıları işletmek amacıyla kurulmuştur."
+  description: 'İstanbul merkezli kâr amacı gütmeyen bu dernek, amatör telsizciliği yaygınlaştırmak, eğitim vermek ve röle-beacon altyapıları işletmek amacıyla kurulmuştur.'
   robots:
     index: true
     follow: true

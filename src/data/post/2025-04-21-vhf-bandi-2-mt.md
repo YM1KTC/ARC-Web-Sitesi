@@ -1,5 +1,5 @@
 ---
-title: "VHF Bandı (2 mt.)"
+title: 'VHF Bandı (2 mt.)'
 date: 2025-04-21 03:14:32
 author: TA1SPH
 categories: ['Frekanslar ve Band Planları']
@@ -14,6 +14,7 @@ image: ~/assets/images/2025/04/VHF-Bandi-2mt.png
 Bu yazıda, VHF dalga boyunun ne anlama geldiğini, şehir içi ve kırsal kullanım farklarını ve VHF'nin avantajları ile dezavantajlarını detaylı şekilde ele alıyoruz.
 
 ### 📏 VHF’nin Dalga Boyu Nedir?
+
 Dalga boyu, ışık hızının (yaklaşık 299,792,458 m/s) frekansa bölünmesiyle hesaplanır:
 
 - **144 MHz frekansta dalga boyu ≈ 2.08 metre**
@@ -25,6 +26,7 @@ Dalga boyu, ışık hızının (yaklaşık 299,792,458 m/s) frekansa bölünmesi
 VHF frekans bandının dalga boyu yaklaşık **2 metre civarındadır.** Bu sebeple "2 metre bandı" ifadesi, amatör telsizciler arasında sıkça kullanılır.
 
 ### 🌊 Dalga Boyu Ne Anlama Gelir?
+
 Dalga boyu, bir elektromanyetik dalganın bir tam salınım yaptığı mesafedir.
 
 Daha uzun dalga boyu genellikle şu avantajları sağlar:
@@ -36,6 +38,7 @@ Daha uzun dalga boyu genellikle şu avantajları sağlar:
 ✅ Atmosferik olaylardan daha az etkilenme
 
 ### 🏙️ Şehir İçi Kullanımda VHF’nin Avantaj ve Dezavantajları
+
 #### ✅ Avantajları:
 
 - **Uzun Menzil Sağlar:** Açık alanlarda VHF daha uzak mesafelere erişebilir.

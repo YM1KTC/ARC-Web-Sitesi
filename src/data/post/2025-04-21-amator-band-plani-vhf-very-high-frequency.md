@@ -1,15 +1,24 @@
 ---
-title: "Amatör Band Planı: VHF (Very High Frequency)"
+title: 'Amatör Band Planı: VHF (Very High Frequency)'
 date: 2025-04-21 14:35:48
 author: TA1SPH
 categories: ['Frekanslar ve Band Planları']
-tags: ['acil durum haberleşmesi', 'amatör uydu haberleşmesi', 'vhf bandı', 'vhf röle frekansları', 'vhf simplex frekansları']
+tags:
+  [
+    'acil durum haberleşmesi',
+    'amatör uydu haberleşmesi',
+    'vhf bandı',
+    'vhf röle frekansları',
+    'vhf simplex frekansları',
+  ]
 layout: post
 image: ~/assets/images/2025/04/Amator-Band-Plani-VHF-Very-High-Frequency.png
 ---
 
 ## 📶 VHF Bandı Nedir?
+
 VHF (Very High Frequency), **30 MHz ile 300 MHz** arasını kapsayan radyo frekans aralığıdır. Amatör telsizciler için özel olarak ayrılan 144 MHz – 146 MHz bölümü, hem teknik deneyler hem de günlük haberleşme için **en çok kullanılan VHF aralığıdır**.
+
 ### 🌍 VHF Bandının Temel Özellikleri
 
 Özellik
@@ -28,7 +37,9 @@ VHF sinyalleri, UHF’ye göre binalar ve ağaçlar gibi engellere daha dayanık
 Endüstriyel parazitlere (elektrik hatları vb.) daha az maruz kalır.
 
 ### 🇹🇷 Türkiye’de Amatör Telsizciler İçin VHF Band Planı
+
 Aşağıda, 144.000 MHz – 146.000 MHz arasındaki amatör VHF bandı kullanım planını görebilirsiniz:
+
 #### 📊 Frekans Planı (144 - 146 MHz)
 
 Frekans Aralığı (MHz)
@@ -59,9 +70,10 @@ FM Simplex Kanalları
 Uydu Downlink (Alım)
 
 ### 1️⃣ Simplex Görüşmeler (Doğrudan İletişim)
+
 Simplex haberleşme, röleye ihtiyaç duymadan iki telsizin aynı frekansta karşılıklı iletişim kurmasıdır.
 
- .table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
+.table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
 
 Simplex Frekans Tablosu
 
@@ -197,18 +209,21 @@ V45
 
 #### 🔹 Yaygın Simplex Frekansları:
 
- 	- 145.350 MHz
+- 145.350 MHz
 
- 	- 145.375 MHz D.M.R Simplex
+- 145.375 MHz D.M.R Simplex
 
- 	- **144.500 MHz** (VHF çağrı frekansı)
+- **144.500 MHz** (VHF çağrı frekansı)
 
-📝 *İpucu: Açık alanlarda veya kısa mesafede doğrudan iletişim kurmak için idealdir.*
+📝 _İpucu: Açık alanlarda veya kısa mesafede doğrudan iletişim kurmak için idealdir._
+
 ### 2️⃣ Röle (Repeater) Frekansları
+
 Röleler, sinyali alıp daha geniş alanlara ulaştırarak kapsama alanını genişletir.
+
 #### 📡 Röle Örnekleri:
 
- .table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
+.table_component {overflow:auto;width:100%;} .table_component table {border:1px solid #dededf;height:100%;width:100%;table-layout:auto;border-collapse:collapse;border-spacing:1px;text-align:left;} .table_component caption {caption-side:top;text-align:left;} .table_component th {border:1px solid #dededf;background-color:#eceff1;color:#a82e2e;padding:5px;} .table_component td {border:1px solid #dededf;padding:5px;} .table_component tr:nth-child(even) td {background-color:#ffffff;color:#000000;} .table_component tr:nth-child(odd) td {background-color:#ededed;color:#000000;}
 
 Röle Frekans Tablosu
 
@@ -314,8 +329,10 @@ V15
 RV63
 145.787,50
 
-💡 *Röleler genellikle **CTCSS** veya **DCS** tonları ile erişime açılır. Kullanıcı telsizinizde bu tonu girmeniz gerekebilir. Türkiyede **VHF** rölelerin **Offset** değeri 0,600 kHz dir.*
+💡 _Röleler genellikle **CTCSS** veya **DCS** tonları ile erişime açılır. Kullanıcı telsizinizde bu tonu girmeniz gerekebilir. Türkiyede **VHF** rölelerin **Offset** değeri 0,600 kHz dir._
+
 ### 3️⃣ Amatör Uydu Haberleşmesi (Satcom)
+
 VHF bandı, amatör uydularla iletişim için aktif olarak kullanılır. **Uluslararası Uzay İstasyonu (ISS)** dahil pek çok uydu, bu bant üzerinden haberleşme sağlar.
 
 Uplink (Gönderim)
@@ -326,7 +343,8 @@ Modülasyonlar
 145.800 – 146.000 MHz
 FM, SSB, CW
 
-🌌 *APRS mesajları, SSTV görüntü aktarımları ve ISS ile görüşmeler bu bantta yapılır.*
+🌌 _APRS mesajları, SSTV görüntü aktarımları ve ISS ile görüşmeler bu bantta yapılır._
+
 ### 🎙️ Kullanılan Modülasyon Türleri
 
 Modülasyon
@@ -345,11 +363,14 @@ Mors alfabesi ile iletişim. Uzun mesafede güçlüdür.
 APRS, DMR, D-Star, C4FM, Packet Radio vb.
 
 ### 🚨 Acil Durumlarda VHF’nin Önemi
+
 VHF bandı, özellikle şehir içi, dağlık alan ve afet bölgelerinde **acil haberleşme altyapısı** sağlar. Röle sistemleri sayesinde ekipler arası iletişim sürdürülebilir.
 
 ✅ **Afet ve Acil Durum Haberleşmesinde**
 ✅ **ARAMA-KURTARMA Operasyonlarında**
 ✅ **Etkinlik ve Organizasyon Koordinasyonunda** kullanılır.
+
 ### 🧭 Sonuç: VHF Bandı Bilinçli Kullanıldığında Hayat Kurtarır
+
 Amatör telsizciler için VHF bandı sadece bir frekans değil, **iletişimin en aktif damarlarından biridir**. Rölelerle uzaklara ulaşabilir, simplex görüşmelerle pratik yapabilir, uydularla dünya ötesi istasyonlara bağlanabilirsiniz.
 🔧 **Teknik bilginizi geliştirin, frekans planına sadık kalın, haberleşmeyi etik kurallar çerçevesinde yürütün.**
