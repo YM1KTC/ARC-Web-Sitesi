@@ -18,8 +18,31 @@ collections:
       - { label: 'Başlık', name: 'title', widget: 'string' }
       - { label: 'Yayın Tarihi', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD HH:mm:ss' }
       - { label: 'Yazar', name: 'author', widget: 'string', default: 'TA1SPH' }
-      - { label: 'Kategoriler', name: 'categories', widget: 'list', allow_add: true, allow_delete: true, collapsed: false, field: { label: 'Kategori', name: 'category', widget: 'string' } }
-      - { label: 'Etiketler', name: 'tags', widget: 'list', allow_add: true, allow_delete: true, collapsed: false, field: { label: 'Etiket', name: 'tag', widget: 'string' } }
+      - {
+          label: 'Kategoriler',
+          name: 'categories',
+          widget: 'list',
+          allow_add: true,
+          allow_delete: true,
+          collapsed: false,
+          field: { label: 'Kategori', name: 'category', widget: 'string' },
+        }
+      - {
+          label: 'Etiketler',
+          name: 'tags',
+          widget: 'list',
+          allow_add: true,
+          allow_delete: true,
+          collapsed: false,
+          field: { label: 'Etiket', name: 'tag', widget: 'string' },
+        }
       - { label: 'Düzen', name: 'layout', widget: 'string', default: 'post' }
-      - { label: 'Öne Çıkan Görsel', name: 'image', widget: 'image', media_folder: '/src/assets/images', public_folder: '~/assets/images', required: false }
+      - {
+          label: 'Öne Çıkan Görsel',
+          name: 'image',
+          widget: 'image',
+          media_folder: '/src/assets/images',
+          public_folder: '~/assets/images',
+          required: false,
+        }
       - { label: 'İçerik', name: 'body', widget: 'markdown' }
