@@ -11,15 +11,38 @@
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      // Initialize Netlify Identity widget
+      // Initialize Netlify Identity widget with role checking
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {
             window.netlifyIdentity.on('login', () => {
               document.location.href = '/admin/';
             });
+          } else {
+            // Check if user has required roles
+            checkUserRole(user);
           }
         });
+        
+        window.netlifyIdentity.on('login', (user) => {
+          checkUserRole(user);
+        });
+      }
+      
+      function checkUserRole(user) {
+        const allowedRoles = ['admin', 'editor'];
+        const userRoles = user.app_metadata?.roles || [];
+        
+        // Check if user has any of the allowed roles
+        const hasAccess = allowedRoles.some(role => userRoles.includes(role));
+        
+        if (!hasAccess) {
+          // User doesn't have required roles
+          alert('Erişim reddedildi. Bu alanı kullanmak için yönetici izni gereklidir.');
+          window.netlifyIdentity.logout();
+          window.location.href = '/';
+          return;
+        }
       }
     </script>
   </body>

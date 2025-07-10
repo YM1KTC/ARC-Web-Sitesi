@@ -5,6 +5,8 @@ backend:
   accept_roles:          #  ← the magic line
     - admin
     - editor
+  # Explicitly block users without roles
+  squash_merges: true
 
 media_folder: 'src/assets/images'
 public_folder: '/_astro'
