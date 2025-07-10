@@ -1,9 +1,15 @@
 ---
-title: '&#x1f4e1; λ/4 Groundplane Anten: VHF ve UHF İçin Basit ve Etkili Çözüm'
+title: "📡 λ/4 Groundplane Anten: VHF ve UHF İçin Basit ve Etkili Çözüm"
 date: 2025-04-22 10:41:39
 author: TA1SPH
-categories: ['Antenler ve Anten Yapımı']
-tags: ['amatör anten projeleri', 'çeyrek dalga anten', 'groundplane anten', 'lambda 4 anten', 'vhf uhf anten yapımı']
+categories:
+  - Antenler ve Anten Yapımı
+tags:
+  - amatör anten projeleri
+  - çeyrek dalga anten
+  - groundplane anten
+  - lambda 4 anten
+  - vhf uhf anten yapımı
 layout: post
 image: ~/assets/images/2025/04/GroundPlane-Anten.png
 ---
