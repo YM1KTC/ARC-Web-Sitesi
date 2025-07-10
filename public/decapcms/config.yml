@@ -1,17 +1,15 @@
-# admin/config.yml
 backend:
   name: git-gateway
   branch: main
-  accept_roles:          #  ← the magic line
+  accept_roles:
     - admin
     - editor
-  # Explicitly block users without roles
   squash_merges: true
 
-media_folder: 'public/images'
-public_folder: '/images'
+media_folder: 'src/assets/images'
+public_folder: '~/assets/images'
 
-locale: 'tr'  # Türkçe olarak ayarlandı
+locale: 'tr'
 
 site_url: https://taslak.radio.org.tr
 display_url: https://taslak.radio.org.tr
@@ -23,32 +21,45 @@ collections:
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - { label: 'Başlık', name: 'title', widget: 'string' }
-      - { label: 'Yayın Tarihi', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD HH:mm:ss' }
-      - { label: 'Yazar', name: 'author', widget: 'string', default: 'TA1SPH' }
-      - {
-          label: 'Kategoriler',
-          name: 'categories',
-          widget: 'list',
-          allow_add: true,
-          allow_delete: true,
-          collapsed: false,
-          field: { label: 'Kategori', name: 'category', widget: 'string' },
-        }
-      - {
-          label: 'Etiketler',
-          name: 'tags',
-          widget: 'list',
-          allow_add: true,
-          allow_delete: true,
-          collapsed: false,
-          field: { label: 'Etiket', name: 'tag', widget: 'string' },
-        }
-      - { label: 'Düzen', name: 'layout', widget: 'string', default: 'post' }
-      - {
-          label: 'Öne Çıkan Görsel',
-          name: 'image',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'İçerik', name: 'body', widget: 'markdown' }
+      - label: 'Başlık'
+        name: 'title'
+        widget: 'string'
+      - label: 'Yayın Tarihi'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD HH:mm:ss'
+      - label: 'Yazar'
+        name: 'author'
+        widget: 'string'
+        default: 'TA1SPH'
+      - label: 'Kategoriler'
+        name: 'categories'
+        widget: 'list'
+        allow_add: true
+        allow_delete: true
+        collapsed: false
+        field:
+          label: 'Kategori'
+          name: 'category'
+          widget: 'string'
+      - label: 'Etiketler'
+        name: 'tags'
+        widget: 'list'
+        allow_add: true
+        allow_delete: true
+        collapsed: false
+        field:
+          label: 'Etiket'
+          name: 'tag'
+          widget: 'string'
+      - label: 'Düzen'
+        name: 'layout'
+        widget: 'string'
+        default: 'post'
+      - label: 'Öne Çıkan Görsel'
+        name: 'image'
+        widget: 'image'
+        required: false
+      - label: 'İçerik'
+        name: 'body'
+        widget: 'markdown'
