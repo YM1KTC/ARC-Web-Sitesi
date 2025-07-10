@@ -1,1 +1,7 @@
+# Handle Netlify Identity authentication flows
+/#confirmation_token=* /auth?confirmation_token=:splat 200
+/#recovery_token=* /auth?recovery_token=:splat 200
+/#invite_token=* /auth?invite_token=:splat 200
+
+# Admin panel redirect
 /admin/* /decapcms/index.html 200

@@ -118,19 +118,23 @@ Netlify redirect rules for admin routing
 
 ## Troubleshooting
 
-### Current Error: "Unable to access identity settings"
+### Fixed Issues:
 
-**This specific error means:**
-- Netlify Identity service is not enabled on your site
-- Git Gateway is not enabled 
-- Or both services need to be configured
+✅ **"Unable to access identity settings"** - This was fixed by enabling Identity and Git Gateway in Netlify
+✅ **Confirmation email links not working** - Created `/auth` page to handle authentication tokens
 
-**Solution steps:**
+### Current Setup Status:
+
+The site now has:
+- Custom authentication handler at `/auth`
+- Proper redirect handling for confirmation emails
+- Automatic routing from hash-based tokens to query parameters
+
+**If you're still getting confirmation email issues:**
 1. Go to https://app.netlify.com/sites/ym1ktc/settings/identity
-2. If Identity is not enabled, click "Enable Identity"
-3. Go to Services tab and enable "Git Gateway"
-4. Wait a few minutes for services to activate
-5. Try accessing `/admin/` again
+2. Check that Identity is enabled
+3. Go to Services tab and ensure "Git Gateway" is enabled
+4. The confirmation links should now work properly
 
 ### Common Issues:
 

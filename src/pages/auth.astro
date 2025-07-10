@@ -1,0 +1,150 @@
+---
+// Authentication handler page for Netlify Identity
+---
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kimlik Doğrulama - ARC</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #f8fafc;
+        color: #334155;
+      }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .logo {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1rem;
+        background: #3b82f6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .spinner {
+        border: 3px solid #f3f4f6;
+        border-top: 3px solid #3b82f6;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+        margin: 1rem auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+      }
+      .button:hover {
+        background: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">ARC</div>
+      <h1>Kimlik Doğrulama</h1>
+      <div id="status">
+        <div class="spinner"></div>
+        <p>Kimlik doğrulama işlemi yapılıyor...</p>
+      </div>
+    </div>
+
+    <script>
+      // Handle Netlify Identity authentication
+      if (window.netlifyIdentity) {
+        // Handle the confirmation/recovery tokens
+        window.netlifyIdentity.on('init', (user) => {
+          if (user) {
+            // User is already logged in, redirect to admin
+            document.getElementById('status').innerHTML = `
+              <p>✅ Giriş başarılı!</p>
+              <p>Yönetim paneline yönlendiriliyorsunuz...</p>
+            `;
+            setTimeout(() => {
+              window.location.href = '/admin/';
+            }, 2000);
+          } else {
+            // Check for confirmation/recovery tokens in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            
+            const confirmationToken = urlParams.get('confirmation_token') || hashParams.get('confirmation_token');
+            const recoveryToken = urlParams.get('recovery_token') || hashParams.get('recovery_token');
+            const inviteToken = urlParams.get('invite_token') || hashParams.get('invite_token');
+            
+            if (confirmationToken || recoveryToken || inviteToken) {
+              document.getElementById('status').innerHTML = `
+                <p>Hesabınız doğrulanıyor...</p>
+                <div class="spinner"></div>
+              `;
+              
+              // The widget will automatically handle the tokens
+              // Just wait for the user to be confirmed
+              window.netlifyIdentity.on('login', (user) => {
+                document.getElementById('status').innerHTML = `
+                  <p>✅ Hesap doğrulandı!</p>
+                  <p>Yönetim paneline yönlendiriliyorsunuz...</p>
+                `;
+                setTimeout(() => {
+                  window.location.href = '/admin/';
+                }, 2000);
+              });
+              
+              window.netlifyIdentity.on('error', (err) => {
+                console.error('Identity error:', err);
+                document.getElementById('status').innerHTML = `
+                  <p>❌ Doğrulama hatası</p>
+                  <p>Lütfen tekrar deneyin veya yeni bir davet isteyin.</p>
+                  <a href="/admin/" class="button">Yönetim Paneli</a>
+                `;
+              });
+            } else {
+              // No tokens, show login option
+              document.getElementById('status').innerHTML = `
+                <p>Giriş yapmak için aşağıdaki butona tıklayın.</p>
+                <a href="/admin/" class="button">Yönetim Paneli</a>
+              `;
+            }
+          }
+        });
+        
+        // Initialize the widget
+        window.netlifyIdentity.init();
+      } else {
+        document.getElementById('status').innerHTML = `
+          <p>❌ Kimlik doğrulama servisi yüklenemedi</p>
+          <a href="/admin/" class="button">Tekrar Dene</a>
+        `;
+      }
+    </script>
+  </body>
+</html>
