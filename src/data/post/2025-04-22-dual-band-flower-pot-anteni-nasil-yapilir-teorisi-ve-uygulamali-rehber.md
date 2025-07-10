@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Antenler ve Anten Yapımı']
 tags: ['dual band anten', 'flower pot anten', 'koaksiyel dipol', 'omni anten yapımı', 'vhf uhf anten']
 layout: post
-image: ~/assets/images/2025/04/Flowerpod-Anten-web-banner.png
+image: /images/2025/04/Flowerpod-Anten-web-banner.png
 ---
 
 ## Giriş

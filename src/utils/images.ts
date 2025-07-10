@@ -30,11 +30,16 @@ export const findImage = async (
     return imagePath;
   }
 
-  // Absolute paths
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/')) {
-    return imagePath;
+  // Convert /images/ paths to ~/assets/images for optimization  
+  if (imagePath.startsWith('/images/')) {
+    imagePath = imagePath.replace('/images/', '~/assets/images/');
   }
 
+  // Absolute paths (except /images/ which we convert above)
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || (imagePath.startsWith('/') && !imagePath.startsWith('~/assets/images'))) {
+    return imagePath;
+  }
+  
   // Relative paths or not "~/assets/"
   if (!imagePath.startsWith('~/assets/images')) {
     return imagePath;

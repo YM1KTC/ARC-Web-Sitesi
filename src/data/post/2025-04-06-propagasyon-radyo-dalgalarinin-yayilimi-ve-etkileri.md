@@ -12,7 +12,7 @@ tags:
     'vhf uhf propagasyon etkisi',
   ]
 layout: post
-image: ~/assets/images/2025/01/0fef68bcca4de66faed712b9f02c66dd.jpg
+image: /images/2025/01/0fef68bcca4de66faed712b9f02c66dd.jpg
 ---
 
 ## **1. Propagasyon Nedir?**

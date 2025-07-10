@@ -12,7 +12,7 @@ tags:
     'rst raporu nedir',
   ]
 layout: post
-image: ~/assets/images/2025/04/RST-Raporu.png
+image: /images/2025/04/RST-Raporu.png
 ---
 
 ## RST Raporunun Tanımı
@@ -25,7 +25,7 @@ Amatör telsizcilikte "RST Raporu", bir istasyonun sinyal kalitesini belirlemek 
 
 - **T (Tone - Ton - Yalnızca CW ve Dijital Modlar için)**: 1 ile 9 arasında değerlendirilir ve sinyalin ton kalitesini ifade eder.
 
-![RST Level Metre Kenwood TS-2000E Amatör Sabit Telsiz](~/assets/images/2025/04/kenwood-ts-2000e-sabit-telsiz-300x122.webp)
+![RST Level Metre Kenwood TS-2000E Amatör Sabit Telsiz](/images/2025/04/kenwood-ts-2000e-sabit-telsiz-300x122.webp)
 
 ## RST Raporunun Detaylı Açıklaması
 

@@ -12,7 +12,7 @@ tags:
     'ta tb çağrı işareti farkı',
   ]
 layout: post
-image: ~/assets/images/2025/04/Amator-telsiz-lisansalri-1.png
+image: /images/2025/04/Amator-telsiz-lisansalri-1.png
 ---
 
 ## **Amatör Telsizcilik Lisansları: A, B ve C Sınıfları Arasındaki Farklar**

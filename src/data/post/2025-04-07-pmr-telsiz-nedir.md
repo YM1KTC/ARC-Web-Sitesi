@@ -12,7 +12,7 @@ tags:
     'pmr telsiz yasal sınırlar',
   ]
 layout: post
-image: ~/assets/images/2025/04/P.M.R-Telsiz-Nedir.png
+image: /images/2025/04/P.M.R-Telsiz-Nedir.png
 ---
 
 ## **PMR Telsizler: Türkiye’de Kullanım, Frekans Aralığı ve Yasal Düzenlemeler**

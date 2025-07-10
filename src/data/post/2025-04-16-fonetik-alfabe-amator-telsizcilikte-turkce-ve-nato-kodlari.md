@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Temel Amatör Telsiz Bilgisi']
 tags: ['amatör telsiz iletişimi', 'çağrı işareti okunuşu', 'fonetik alfabe', 'nato alfabe', 'türkçe fonetik']
 layout: post
-image: ~/assets/images/2025/04/Amator-Telsizcilikte-Fonetik-Alfabe.png
+image: /images/2025/04/Amator-Telsizcilikte-Fonetik-Alfabe.png
 ---
 
 Amatör telsizcilik dünyasına yeni adım atan operatörler için iletişimi doğru ve anlaşılır kılmak büyük önem taşır. Telsiz haberleşmesi sırasında harfleri tek, tek söylemek yerine, anlaşıla bilirliği artıran uluslar arası "Fonetik Alfabe" kullanılır. Bu makalede, hem Türkçe hem de Uluslararası Fonetik Alfabe (NATO Fonetik Alfabesi) hakkında bilgi vereceğiz.

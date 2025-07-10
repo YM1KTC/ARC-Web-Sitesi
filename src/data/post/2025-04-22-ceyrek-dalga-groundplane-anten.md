@@ -11,7 +11,7 @@ tags:
   - lambda 4 anten
   - vhf uhf anten yapımı
 layout: post
-image: ~/assets/images/2025/04/GroundPlane-Anten.png
+image: /images/2025/04/GroundPlane-Anten.png
 ---
 
 ### 📌 Kısa Tanım
@@ -22,7 +22,7 @@ image: ~/assets/images/2025/04/GroundPlane-Anten.png
 
 Radyo frekanslarında kullanılan antenlerin boyları genellikle sinyalin dalga boyuna göre belirlenir. Bir sinyalin dalga boyu (λ), ışık hızının (yaklaşık 300.000.000 m/s) frekansa bölünmesiyle hesaplanır :
 
-![Formül](~/assets/images/2025/04/Formul.png)
+![Formül](/images/2025/04/Formul.png)
 
 Burada :
 
@@ -42,7 +42,7 @@ f: Frekans (Hz)
 
 - **Malzemeler:** Bakır tel, lehim, basit montaj aparatı
 
-![GroundPlane Anten Tasarım Şeması](~/assets/images/2025/04/GroundPlane-Anten-Tasarim-Semasi-1.png)
+![GroundPlane Anten Tasarım Şeması](/images/2025/04/GroundPlane-Anten-Tasarim-Semasi-1.png)
 
 📐 **Ölçü Örnekleri:**
 

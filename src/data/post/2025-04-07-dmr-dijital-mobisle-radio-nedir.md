@@ -12,14 +12,14 @@ tags:
     'dmr röle ve hotspot',
   ]
 layout: post
-image: ~/assets/images/2025/04/D.M.R-Digital-Mobile-Radio-Nedir.png
+image: /images/2025/04/D.M.R-Digital-Mobile-Radio-Nedir.png
 ---
 
 ## **Giriş**
 
 DMR (Digital Mobile Radio), ETSI (European Telecommunications Standards Institute) tarafından geliştirilen ve dünya çapında kullanılan dijital bir telsiz iletişim standardıdır. Analog telsiz sistemlerine kıyasla daha net ses kalitesi, daha geniş kapsama alanı ve daha fazla kullanıcı kapasitesi sunar. Amatör telsizciler arasında da giderek daha popüler hale gelen DMR, özellikle dünya genelinde internet destekli ağları sayesinde geniş bir erişim imkanı sağlamaktadır.
 
-![D.M.R](~/assets/images/2025/04/log_plot_country_flags_2_HD-300x188.png)
+![D.M.R](/images/2025/04/log_plot_country_flags_2_HD-300x188.png)
 
 ## **DMR’nin Avantajları**
 
@@ -61,7 +61,7 @@ DMR sisteminde her kullanıcıya özgü bir **DMR ID** atanır. Bu ID, dünya ç
 
 DMR röleleri, geniş alan kapsama sağlamak için kullanılır. Ancak, bazı amatör telsizciler **hotspot** cihazları ile internet üzerinden DMR ağına bağlanabilir. Popüler hotspot cihazları arasında **MMDVM**, **OpenSpot**, ve **Pi-Star tabanlı çözümler** yer alır.
 
-![D.MR. Hot Spot](~/assets/images/2025/04/DMR-HS-300x300.png)
+![D.MR. Hot Spot](/images/2025/04/DMR-HS-300x300.png)
 *Örnek D.M.R. HotSpot*
 
 ## **Popüler DMR Cihazları**

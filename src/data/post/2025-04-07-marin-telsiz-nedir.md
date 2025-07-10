@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Diğer Telsiz Türleri']
 tags: ['gmdss sistemi', 'kanal 16 acil frekans', 'marin telsiz', 'telsiz lisansı denizcilik', 'vhf deniz frekansları']
 layout: post
-image: ~/assets/images/2025/04/Marin-Telsiz-Nedir.png
+image: /images/2025/04/Marin-Telsiz-Nedir.png
 ---
 
 ## **Marin Telsizler: Kullanım Alanları, Yasal Düzenlemeler ve Frekanslar**

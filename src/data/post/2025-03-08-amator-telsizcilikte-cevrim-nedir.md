@@ -11,7 +11,7 @@ tags:
   - radyo operatörü eğitimi
   - telegram çevrim grupları
 layout: post
-image: ~/assets/images/2025/03/CEvrim.png
+image: /images/2025/03/CEvrim.png
 ---
 ## 🛰️ Amatör Telsizcilikte Çevrimler Nedir? Nasıl Katılım Sağlanır?
 

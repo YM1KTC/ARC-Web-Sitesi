@@ -12,7 +12,7 @@ tags:
     'vhf röle sistemi',
   ]
 layout: post
-image: ~/assets/images/2025/03/tabolgeharita-1.jpg
+image: /images/2025/03/tabolgeharita-1.jpg
 ---
 
 **VHF ve UHF Röle Sistemleri Nedir? Amatör Telsizcilikte Kullanımı ve Önemi\*\***VHF ve UHF röle sistemleri\*\*, amatör telsizcilikte sinyal menzilini artırmak ve net iletişim sağlamak için kullanılan en yaygın haberleşme araçlarıdır. Bu röleler (repeaterlar), telsiz sinyallerini yüksek bir noktadan alıp farklı bir frekansta yeniden yayınlayarak, düşük güçlü cihazlarla bile geniş alanlarda iletişim kurulmasına olanak tanır. Amatör telsizciliğe ilgi duyanlar için VHF ve UHF rölelerin nasıl çalıştığı, nerelerde kullanıldığı ve kurulumu hakkında temel bilgileri bu yazıda bulabilirsiniz.

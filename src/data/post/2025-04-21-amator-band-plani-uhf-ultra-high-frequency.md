@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Frekanslar ve Band Planları']
 tags: ['amatör telsiz uhf', 'uhf bandı', 'uhf röle frekansları', 'uhf simplex frekansları', 'uhf uydu haberleşmesi']
 layout: post
-image: ~/assets/images/2025/04/Amator-Band-Plani-UHF-Ultra-High-Frequency.png
+image: /images/2025/04/Amator-Band-Plani-UHF-Ultra-High-Frequency.png
 ---
 
 ## 🔍 UHF Bandı Nedir?

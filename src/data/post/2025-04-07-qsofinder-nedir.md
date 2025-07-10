@@ -12,7 +12,7 @@ tags:
     'qsofinder nedir nasıl kullanılır',
   ]
 layout: post
-image: ~/assets/images/2025/04/QSOfinder-Nedir.png
+image: /images/2025/04/QSOfinder-Nedir.png
 ---
 
 ## **CW Bağlantılarını Kolaylaştırıyor**
