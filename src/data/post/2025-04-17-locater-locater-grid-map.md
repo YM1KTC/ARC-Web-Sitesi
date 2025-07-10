@@ -5,12 +5,12 @@ author: TA1SPH
 categories: ['Mobil ve Dijital Uygulamalar']
 tags: ['amatör telsiz konumlama', 'grid square sistemi', 'maidenhead grid', 'qth locator', 'vhf uhf grid']
 layout: post
-image: /images/2025/04/QTH-Locater-Maidenhead-Grid-Square-Konum-Sistemi.png
+image: ~/assets/images/2025/04/QTH-Locater-Maidenhead-Grid-Square-Konum-Sistemi.png
 ---
 
 Amatör telsizcilikte, istasyonlar arasındaki konum belirleme ihtiyacı, etkili bir haberleşme için önemli bir faktördür. Bu ihtiyacı karşılamak için geliştirilen **Maidenhead Grid Square** sistemi, telsizcilerin dünya çapında standart bir konumlama yapmasını sağlar. Bu makalede, Maidenhead Grid Square sisteminin ne olduğu, nasıl kullanıldığı ve amatör telsizcilikteki önemi ele alınacaktır.
 
-![](/images/2025/04/Maidenhead_Locator_Map.png)
+![](~/assets/images/2025/04/Maidenhead_Locator_Map.png)
 
 ## Maidenhead Grid Square Sistemi Nedir?
 
@@ -66,6 +66,6 @@ Amatör telsizciler, konumlarını belirlemek ve haberleşme yaptıkları bölge
 
 Maidenhead Grid Square sistemi, amatör telsizciler için basit, etkili ve evrensel bir konum belirleme yöntemidir. Özellikle VHF/UHF haberleşmelerinde, QSO kayıtlarında ve amatör radyo yarışmalarında yaygın olarak kullanılması, bu sistemin önemini daha da artırmaktadır.
 
-[![](/images/2025/04/QTH-Locater.png)](https://k7fry.com/grid/)
+[![](~/assets/images/2025/04/QTH-Locater.png)](https://k7fry.com/grid/)
 
 Eğer amatör telsizcilikle ilgileniyorsanız, kendi grid locator kodunuzu öğrenerek haberleşmelerde daha hassas ve etkili bir şekilde konum belirleyebilirsiniz!

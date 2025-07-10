@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Diğer Telsiz Türleri']
 tags: ['27 mhz halk bandı', 'cb frekansları', 'cb telsiz kullanım kuralları', 'cb telsiz nedir', 'lisanssız telsiz']
 layout: post
-image: /images/2025/04/CB-Telsiz-Nedir.png
+image: ~/assets/images/2025/04/CB-Telsiz-Nedir.png
 ---
 
 ## **CB (Citizen Band) Telsiz Nedir?**

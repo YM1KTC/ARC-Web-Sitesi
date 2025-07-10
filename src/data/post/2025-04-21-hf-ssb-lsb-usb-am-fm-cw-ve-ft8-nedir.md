@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Telsiz Teknolojileri ve Sistemler']
 tags: ['amatör radyo bantları', 'dijital modlar', 'fm cw ft8', 'hf ssb usb lsb', 'modülasyon türleri']
 layout: post
-image: /images/2025/04/HF-SSB-LSB-USB-AM-FM-CW-ve-FT8-Nedir.png
+image: ~/assets/images/2025/04/HF-SSB-LSB-USB-AM-FM-CW-ve-FT8-Nedir.png
 ---
 
 ## 🎙️ Amatör Telsizcilikte Modülasyon Türleri ve Frekans Bantları

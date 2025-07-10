@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Kayıt ve Belgeleme']
 tags: ['amatör telsiz qsl takibi', 'dxcc log yazılımları', 'logbook nedir', 'qrz logbook', 'qso kayıt sistemi']
 layout: post
-image: /images/2025/04/Amator-Telsizcilikte-Fonetik-Alfabe.png
+image: ~/assets/images/2025/04/Amator-Telsizcilikte-Fonetik-Alfabe.png
 ---
 
 ## **Amatör Telsizcilikte LogBook (QSO Kütüğü) Nedir ve Nasıl Kullanılır?**

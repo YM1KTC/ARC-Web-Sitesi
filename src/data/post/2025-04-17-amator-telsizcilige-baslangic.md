@@ -12,7 +12,7 @@ tags:
     'telsiz lisansı',
   ]
 layout: post
-image: /images/2025/04/Amator-Telsizcilige-baslangic-rehberi.png
+image: ~/assets/images/2025/04/Amator-Telsizcilige-baslangic-rehberi.png
 ---
 
 ## 🎙️ Amatör Telsizcilik Nedir?

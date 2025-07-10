@@ -12,7 +12,7 @@ tags:
     'telsiz görüşme kısaltmaları',
   ]
 layout: post
-image: /images/2025/04/Amator-Telsizcilikte-Q-Kodlari.png
+image: ~/assets/images/2025/04/Amator-Telsizcilikte-Q-Kodlari.png
 ---
 
 Amatör telsizcilikte, iletişimde hız ve anlaşıla bilirlik önemlidir. Bunun için, uluslararası olarak kabul edilen "Q Kodları" kullanılır. Bu kısaltmalar, özellikle CW (Mors) haberleşmede yaygın olsa da, sesli görüşmelerde de kullanılabilir. Yeni başlayanlar için en çok kullanılan Q kodlarını ve anlamlarını aşağıda bir tablo halinde derledik.

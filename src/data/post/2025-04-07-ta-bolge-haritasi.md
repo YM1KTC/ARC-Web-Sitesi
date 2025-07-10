@@ -12,7 +12,7 @@ tags:
     'türkiye amatör telsiz bölge haritası',
   ]
 layout: post
-image: /images/2025/03/tabolgeharita-1.jpg
+image: ~/assets/images/2025/03/tabolgeharita-1.jpg
 ---
 
 ## **Amatör Telsizcilikte Bölge Numaraları ve Çağrı İşaretleri**
@@ -23,7 +23,7 @@ Amatör telsizcilik, küresel ve yerel haberleşme ağı oluşturan, teknik bilg
 
 Amatör telsiz çağrı işaretleri genellikle 3 ana bölümden oluşur:
 
-![Çağrı işareti bölümleri](/images/2025/04/Amator_Telsiz_Cagri_isareti-600x390.png)
+![Çağrı işareti bölümleri](~/assets/images/2025/04/Amator_Telsiz_Cagri_isareti-600x390.png)
 
 - **Sınıf**: Amatör telsizcilik sınavı sonucunda elde edilen lisans seviyesine göre belirlenir.
 
@@ -35,7 +35,7 @@ Amatör telsiz çağrı işaretleri genellikle 3 ana bölümden oluşur:
 
 - **Benzersiz Harf Grubu**: Genellikle rastgele tahsis edilen 3 karakterden oluşur.
 
-![TA Bölge Haritası](/images/2025/04/Turkiye-TA-Bolge-Haritasi-600x400.png)
+![TA Bölge Haritası](~/assets/images/2025/04/Turkiye-TA-Bolge-Haritasi-600x400.png)
 
 ### **Amatör Telsiz Bölge Numaraları**
 

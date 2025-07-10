@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Temel Amatör Telsiz Bilgisi']
 tags: ['73 nedir', 'amatör telsiz selamlaşma kodları', 'amatör telsiz terimleri', 'mors kodu 73', 'qso kapanış ifadesi']
 layout: post
-image: /images/2025/04/Amator-Telsizcilikte-Seventy-Three-73-Ifadesinin-Anlami-Kullanimi-ve-Kokeni.png
+image: ~/assets/images/2025/04/Amator-Telsizcilikte-Seventy-Three-73-Ifadesinin-Anlami-Kullanimi-ve-Kokeni.png
 ---
 
 Amatör telsizcilikte yaygın olarak kullanılan "73" ifadesi, iyi dilekleri ifade eden bir selamlama kodudur. Genellikle bir QSO' nun (telsiz görüşmesinin) sonunda "en iyi dileklerimle" anlamında kullanılır. Telsizcilikte, kısa ve anlaşılır iletişim önemli olduğundan, bu tür kısaltmalar zaman kazandırır ve haberleşmeyi daha verimli hale getirir.

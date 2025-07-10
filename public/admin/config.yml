@@ -6,8 +6,8 @@ backend:
     - editor
   squash_merges: true
 
-media_folder: 'public/images'
-public_folder: '/images'
+media_folder: 'src/assets/images'
+public_folder: '~/assets/images'
 
 locale: 'tr'
 

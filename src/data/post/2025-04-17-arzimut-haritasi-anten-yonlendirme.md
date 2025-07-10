@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Temel Amatör Telsiz Bilgisi']
 tags: ['amatör telsiz yön tayini', 'anten yönlendirme', 'azimut haritası', 'azimut nedir', 'uydu iletişimi']
 layout: post
-image: /images/2025/04/Arzimut-Haritasi.png
+image: ~/assets/images/2025/04/Arzimut-Haritasi.png
 ---
 
 Azimut haritası, belirli bir konumdan dünyanın diğer noktalarına olan yönleri ve mesafeleri doğru bir şekilde gösteren özel projeksiyonlu haritalardır. Bu haritalar, özellikle amatör telsizcilik ve uydu iletişimi gibi alanlarda, yönlü antenlerin doğru yönlendirilmesi için kritik öneme sahiptir.
