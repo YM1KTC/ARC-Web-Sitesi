@@ -1,6 +1,6 @@
 # 📡 Amatör Radyocular Derneği (ARC)
 
-<img src="/public/images/logo.png" align="right" alt="ARC Logo" width="150">
+<img src="/public/images/2024/12/ARC_2024_bayrak_logo-Large-150x150.png" align="right" alt="ARC Logo" width="150">
 
 **Amatör Radyocular Derneği (ARC)** resmi web sitesi, amatör telsiz topluluğumuz için **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)** kullanılarak geliştirilmiştir. Bu platform, amatör telsiz meraklıları için kaynaklar, etkinlik bilgileri ve iletişim araçları sunan bir merkez görevi görmektedir.
 
@@ -8,13 +8,17 @@
 - 🗓️ **Etkinlik Takvimi** - Yaklaşan toplantılar, yarışmalar ve özel telsiz etkinlikleri
 - 📰 **Haberler ve Blog** - Amatör telsiz topluluğundan en son güncellemeler, **Kategoriler ve Etiketler** ile
 - 📱 **DMR İletişim Rehberi** - Bölgesel çağrı işaretleri ve doğrudan iletişim için DMR kimlikleri
+- 🛠️ **DMR Liste Düzenleyici** - CSV dosyalarını yükleyin, düzenleyin ve dışa aktarın
+- 📧 **İletişim Formu** - Netlify Forms ile güvenli e-posta gönderimi
 - 🔄 **Çevrim Bilgileri** - Düzenli telsiz kontrolleri ve iletişim çevrimleri hakkında detaylar
 - 🌐 **Çoklu Dil Desteği** - Türkçe ve İngilizce içerikler
 - 📊 **SEO Optimizasyonu** - Hızlı yükleme süreleri ve arama motoru dostu yapı
 
 <br>
 
-![ARC Website Screenshot](/public/images/screenshot.png)
+![ARC Website Screenshot](https://radio.org.tr/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png)
+
+> 📸 Website ekran görüntüsü yakında güncellenecek
 
 [![Amateur Radio Club](https://img.shields.io/badge/Amateur%20Radio-Club-blue?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTExIDdoMnYyaC0yem0wIDRoMnY2aC0yeiIvPjwvc3ZnPg==)](https://radio.org.tr)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE.md)
@@ -28,6 +32,7 @@
 - [Web Sitesi](#web-sitesi)
 - [Özellikler](#özellikler)
 - [DMR İletişim Bilgileri](#dmr-i̇leti̇şi̇m-bi̇lgi̇leri̇)
+- [Geliştirme](#geliştirme)
 - [Lisans](#lisans)
 
 </details>
@@ -49,8 +54,9 @@ Web sitemiz amatör telsiz meraklıları için kapsamlı özellikler sunmaktadı
 - **Etkinlik Takvimi**: Yaklaşan yarışmalar, toplantılar ve özel etkinlikler
 - **Haberler Bölümü**: Amatör telsiz dünyasından en son güncellemeler
 - **DMR Rehberi**: Bölgesel operatörler için iletişim bilgileri
+- **DMR Liste Düzenleyici**: CSV dosyalarını kolayca düzenleme ve dışa aktarma aracı
+- **İletişim Formu**: Netlify Forms entegrasyonu ile güvenli e-posta gönderimi
 - **Çevrim Bilgileri**: Düzenli telsiz kontrol programları ve frekansları
-- **Üye Alanı**: Sadece dernek üyelerine özel kaynaklar
 
 <br>
 
@@ -70,6 +76,33 @@ Bölgesel operatörlerimize aşağıdaki DMR kimlikleri üzerinden ulaşabilirsi
 | YM8KTC        | 2867239 | 8      |
 | YM9KTC        | 2867240 | 9      |
 | YM0KTC        | 2867241 | 0      |
+
+<br>
+
+## Geliştirme
+
+### Yerel Geliştirme
+
+```bash
+# Depoyu klonlayın
+git clone https://github.com/bugracanata/arc-astro.git
+cd arc-astro
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Geliştirme sunucusunu başlatın
+npm run dev
+```
+
+### Özellikler
+
+- **Astro 5.0** - Modern statik site oluşturucu
+- **Tailwind CSS** - Utility-first CSS framework
+- **TypeScript** - Tip güvenliği
+- **Netlify Forms** - Sunucusuz form işleme
+- **DMR Liste Düzenleyici** - CSV yönetim aracı
+- **Responsive Design** - Mobil uyumlu tasarım
 
 <br>
 
