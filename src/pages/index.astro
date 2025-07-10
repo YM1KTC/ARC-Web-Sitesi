@@ -39,14 +39,6 @@ const metadata = {
         icon: 'tabler:brand-whatsapp',
         target: '_blank',
       },
-      {
-        text: 'DMR TG: 28690',
-        icon: 'tabler:radio',
-        attrs: {
-          class: 'cursor-default pointer-events-none',
-          'aria-label': 'DMR Talk Group Information',
-        },
-      },
       { text: 'Hakkımızda', href: '/hakkimizda' },
     ]}
     image={{
@@ -71,6 +63,23 @@ const metadata = {
       Kâr amacı gütmeyen derneğimiz, röle-beacon altyapıları işletmek ve teknik projeler yürütmek konularında çalışmaktadır.
     </Fragment>
   </Hero>
+
+  <!-- DMR TG Info ******************* -->
+  <div class="flex justify-center -mt-4 mb-4">
+    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 dark:bg-gray-800 dark:border-gray-700">
+      <span class="mr-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-radio w-5 h-5 text-blue-600 dark:text-blue-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M14 3l-9.371 3.749a1 1 0 0 0 -.629 .928v11.323a1 1 0 0 0 1 1h14a1 1 0 0 0 1 -1v-11a1 1 0 0 0 -1 -1h-14.5" />
+          <path d="M4 12h16" />
+          <path d="M7 12v-2" />
+          <path d="M17 16v.01" />
+          <path d="M13 16v.01" />
+        </svg>
+      </span>
+      <span class="font-medium text-blue-800 dark:text-blue-300">DMR TG: <span class="font-bold">28690</span></span>
+    </div>
+  </div>
 
   <!-- Note Widget ******************* -->
 
