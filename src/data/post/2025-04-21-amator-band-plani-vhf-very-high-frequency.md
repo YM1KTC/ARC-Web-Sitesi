@@ -12,7 +12,7 @@ tags:
     'vhf simplex frekansları',
   ]
 layout: post
-image: ~/assets/images/2025/04/Amator-Band-Plani-VHF-Very-High-Frequency.png
+image: /images/2025/04/Amator-Band-Plani-VHF-Very-High-Frequency.png
 ---
 
 ## 📶 VHF Bandı Nedir?

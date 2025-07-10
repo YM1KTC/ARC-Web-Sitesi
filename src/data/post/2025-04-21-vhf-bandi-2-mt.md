@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Frekanslar ve Band Planları']
 tags: ['2 metre bandı', 'amatör telsiz frekansları', 'vhf nedir', 'vhf şehir içi kullanımı', 'vhf uhf farkı']
 layout: post
-image: ~/assets/images/2025/04/VHF-Bandi-2mt.png
+image: /images/2025/04/VHF-Bandi-2mt.png
 ---
 
 [fusion_builder_container type="flex" hundred_percent="yes" equal_height_columns="no" hide_on_mobile="small-visibility,medium-visibility,large-visibility" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" parallax_speed="0.3" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" border_style="solid" flex_align_items="flex-start" flex_justify_content="center" container_tag="article"][fusion_builder_row][fusion_builder_column type="1_1" type="1_1" background_position="left top" border_style="solid" border_position="all" spacing="yes" background_repeat="no-repeat" margin_top="0px" margin_bottom="0px" animation_speed="0.3" animation_direction="left" hide_on_mobile="small-visibility,medium-visibility,large-visibility" center_content="no" last="no" hover_type="none" min_height="" link=""][fusion_text]## 📡 VHF Nedir? Dalga Boyu, Kullanım Alanları ve Şehir İçi Haberleşmedeki Yeri

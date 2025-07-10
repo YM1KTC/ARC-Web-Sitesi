@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Antenler ve Anten Yapımı']
 tags: ['amatör telsiz antenleri', 'kübik quad anten', 'quad anten yapımı', 'uhf yönlü anten', 'yüksek kazançlı anten']
 layout: post
-image: ~/assets/images/2025/04/Kubik-Kuad-Anten-2.png
+image: /images/2025/04/Kubik-Kuad-Anten-2.png
 ---
 
 ## 📡 Giriş
@@ -31,7 +31,7 @@ Kübik Quad anteni, ilk kez **1942 yılında Clarence C. Moore** tarafından gel
 
 **Yagi-Uda antenlere alternatif** olarak tasarlanmış; özellikle tropikal iklimlerde, Yagi antenlerin kırılganlığına çözüm olarak ortaya çıkmıştır.
 
-![λ Tam Dalga Boyu UHF Kübik Quad Anten](~/assets/images/2025/04/λ-Tam-Dalga-Boyu-UHF-Kubik-Quad-Anten.png)
+![λ Tam Dalga Boyu UHF Kübik Quad Anten](/images/2025/04/λ-Tam-Dalga-Boyu-UHF-Kubik-Quad-Anten.png)
 
 ### 📘 Anten Teorisi
 
@@ -43,7 +43,7 @@ Kübik Quad, **tam dalga boyunda** kapalı döngülerden oluşur. Bu döngüler:
 
 🔍 _Teorik yapı: her çerçeve 4 kenarlı (quad) bir halka oluşturur._
 
-![λ Tam Dalga Boyu UHF Kübik Quad Anten](~/assets/images/2025/04/Kubik-Kuad-Anten-2.png)
+![λ Tam Dalga Boyu UHF Kübik Quad Anten](/images/2025/04/Kubik-Kuad-Anten-2.png)
 
 ### 📈 Anten Kazancı
 
@@ -55,7 +55,7 @@ Kübik Quad antenler:
 
 - Çok elemanlı modellerde **12–15 dBi’ye kadar** çıkabilir.
 
-![](~/assets/images/2025/04/Kubik-Kuad-Anten-Yagi-karsilastirma.png)
+![](/images/2025/04/Kubik-Kuad-Anten-Yagi-karsilastirma.png)
 
 ### 🧩 “Kübik Quad” Ne Demek?
 

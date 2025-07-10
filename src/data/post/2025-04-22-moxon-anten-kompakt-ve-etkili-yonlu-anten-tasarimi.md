@@ -5,7 +5,7 @@ author: TA1SPH
 categories: ['Antenler ve Anten Yapımı']
 tags: ['amatör anten projeleri', 'kompakt anten tasarımı', 'moxon anten', 'vhf uhf moxon', 'yönlü anten yapımı']
 layout: post
-image: ~/assets/images/2025/04/Moxon-Anten.png
+image: /images/2025/04/Moxon-Anten.png
 ---
 
 ## 🎯 Giriş: Moxon Anten Nedir?
@@ -23,7 +23,7 @@ Moxon anten, klasik bir **Yagi anten** mantığında çalışır ancak daha komp
 Bu iki eleman, uçları bükülerek dikdörtgen formu oluşturur. Bu form, fazladan kazanç ve yönlü performans sağlar.
 🧠 **Not:** İdeal bir Moxon anten, yönlü performans ile birlikte düşük parazit alımı sunar.
 
-![Moxon anten Şeması](~/assets/images/2025/04/Schema-Moxon.gif)![Moxgen](~/assets/images/2025/04/Moxgen.gif)
+![Moxon anten Şeması](/images/2025/04/Schema-Moxon.gif)![Moxgen](/images/2025/04/Moxgen.gif)
 
 ### ✅ Moxon Antenin Avantajları
 

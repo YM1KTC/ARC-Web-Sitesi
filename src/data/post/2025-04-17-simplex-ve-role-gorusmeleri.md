@@ -6,7 +6,7 @@ categories: ['Temel Amatör Telsiz Bilgisi']
 tags:
   ['amatör telsiz başlangıç', 'röle frekansı örnekleri', 'röle kullanımı', 'simplex görüşme', 'telsiz frekans ayarları']
 layout: post
-image: ~/assets/images/2025/04/Simplex-Gorusme-ve-Roleden-Gorusme-Nedir.png
+image: /images/2025/04/Simplex-Gorusme-ve-Roleden-Gorusme-Nedir.png
 ---
 
 Amatör telsizcilik dünyasına hoş geldiniz! Elinize ilk kez bir telsiz aldığınızda, “Şimdi ne yapacağım?”, “Nereden konuşacağım?” veya “Kimi dinleyeceğim?” gibi birçok soru aklınıza takılmış olabilir. Bu makalede, telsizle **nerede** ve **nasıl** konuşabileceğinizi öğrenmeniz için iki temel kavramı açıklayacağız: **Simplex Görüşme** ve **Röle Üzerinden Görüşme**.
@@ -100,7 +100,7 @@ Siz röleye bir frekanstan (TX) sinyal gönderirsiniz, röle bunu alır ve başk
 
 Telsizinize bu ayarları girerek röle üzerinden görüşmelere katılabilirsiniz. Bölgenizde size en yakın röle bilgilerine ulaşmak için [TA-Röle](http://ta-role.com) sitesini ziyaret edebilirsiniz.
 
-[![ta-role](~/assets/images/2025/04/ta-role.png)](http://ta-role.com)
+[![ta-role](/images/2025/04/ta-role.png)](http://ta-role.com)
 
 ### Basit Karşılaştırma Tablosu
 

@@ -12,7 +12,7 @@ tags:
     'telsiz konuşma adabı',
   ]
 layout: post
-image: ~/assets/images/2025/04/Amator-Telsizle-Dogru-ve-Etik-Konusma-Usulleri.png
+image: /images/2025/04/Amator-Telsizle-Dogru-ve-Etik-Konusma-Usulleri.png
 ---
 
 Amatör telsizcilik, sadece teknik bir uğraş değil; aynı zamanda disiplinli, kurallı ve saygılı bir iletişim şeklidir. Özellikle röle (tekrarlayıcı, repeater) istasyonlar üzerinden yapılan görüşmelerde belirli kurallara uymak, hem iletişimin kalitesini hem de telsiz altyapısının sağlığını korumak açısından oldukça önemlidir.
