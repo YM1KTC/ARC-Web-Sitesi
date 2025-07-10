@@ -11,7 +11,7 @@ tags:
   - azimut nedir
   - uydu iletişimi
 layout: post
-image: /images/2025/04/Arzimut-Haritasi.png
+image: /images/azimut-haritası.png
 ---
 Azimut haritası, belirli bir konumdan dünyanın diğer noktalarına olan yönleri ve mesafeleri doğru bir şekilde gösteren özel projeksiyonlu haritalardır. Bu haritalar, özellikle amatör telsizcilik ve uydu iletişimi gibi alanlarda, yönlü antenlerin doğru yönlendirilmesi için kritik öneme sahiptir.
 
