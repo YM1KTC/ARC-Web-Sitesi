@@ -1,6 +1,10 @@
+# admin/config.yml
 backend:
   name: git-gateway
   branch: main
+  accept_roles:          #  ← the magic line
+    - admin
+    - editor
 
 media_folder: 'src/assets/images'
 public_folder: '/_astro'

@@ -20,15 +20,13 @@ DMR ağlarını kullanabilmek için öncelikle bir DMR ID’ye sahip olmanız ge
 
 [https://www.radioid.net/](https://www.radioid.net/) adresine girip kayıt olup "**_DMR ID_**" alabiliriz.
 
-![Şekil-01 - radioid.net](~/assets/images/2025/04/Sekil-01-1024x491.png)
-*Şekil-01 - radioid.net*
+[caption id="attachment_432" align="alignnone" width="1024"]![Şekil-01 - radioid.net](~/assets/images/2025/04/Sekil-01-1024x491.png) Şekil-01 - radioid.net[/caption]
 
 #### **Hesap oluşturun:**
 
 Sayfanın sağ üst köşesindeki "**_Register_**" butonuna tıklayarak bir hesap oluşturun.
 
-![Şekil-02 - radioid.net kayıt butonu](~/assets/images/2025/04/Sekil-02-1024x247.png)
-*Şekil-02 - radioid.net kayıt butonu*
+[caption id="attachment_434" align="alignnone" width="1024"]![Şekil-02 - radioid.net kayıt butonu](~/assets/images/2025/04/Sekil-02-1024x247.png) Şekil-02 - radioid.net kayıt butonu[/caption]
 
 ![](~/assets/images/2025/04/Sekil-03-1-1024x220.png)
 

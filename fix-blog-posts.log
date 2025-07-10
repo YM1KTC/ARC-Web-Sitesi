@@ -1,0 +1,59 @@
+[2025-07-10T01:31:43.514Z] INFO: Starting blog post processing...
+[2025-07-10T01:31:43.525Z] INFO: Creating backup of blog posts...
+[2025-07-10T01:31:43.546Z] INFO: Backup created: 38 files backed up to ./blog-posts-backup
+[2025-07-10T01:31:43.546Z] INFO: Scanning for existing images...
+[2025-07-10T01:31:43.661Z] INFO: Found 5043 images in assets directory
+[2025-07-10T01:31:43.661Z] INFO: Processing markdown files...
+[2025-07-10T01:31:43.663Z] INFO: No changes needed (src/data/post/2025-03-08-amator-telsizcilikte-cevrim-nedir.md)
+[2025-07-10T01:31:43.664Z] INFO: No changes needed (src/data/post/2025-04-06-propagasyon-radyo-dalgalarinin-yayilimi-ve-etkileri.md)
+[2025-07-10T01:31:43.665Z] INFO: No changes needed (src/data/post/2025-04-06-vhf-ve-uhf-role-sistemleri-nedir.md)
+[2025-07-10T01:31:43.666Z] INFO: No changes needed (src/data/post/2025-04-07-amator-telsiz-lisanslari.md)
+[2025-07-10T01:31:43.667Z] INFO: No changes needed (src/data/post/2025-04-07-cb-citizen-band-halk-bandi-telsiz-nedir.md)
+[2025-07-10T01:31:43.669Z] INFO: Processed file with changes: WordPress caption shortcodes converted to Markdown (src/data/post/2025-04-07-dmr-dijital-mobisle-radio-nedir.md)
+[2025-07-10T01:31:43.670Z] INFO: No changes needed (src/data/post/2025-04-07-logbook-nedir.md)
+[2025-07-10T01:31:43.671Z] INFO: No changes needed (src/data/post/2025-04-07-marin-telsiz-nedir.md)
+[2025-07-10T01:31:43.672Z] INFO: No changes needed (src/data/post/2025-04-07-pmr-telsiz-nedir.md)
+[2025-07-10T01:31:43.672Z] INFO: No changes needed (src/data/post/2025-04-07-qsofinder-nedir.md)
+[2025-07-10T01:31:43.673Z] INFO: No changes needed (src/data/post/2025-04-07-rst-raporu.md)
+[2025-07-10T01:31:43.674Z] INFO: No changes needed (src/data/post/2025-04-07-ta-bolge-haritasi.md)
+[2025-07-10T01:31:43.674Z] INFO: No changes needed (src/data/post/2025-04-16-amator-telsiz-q-kodlari.md)
+[2025-07-10T01:31:43.675Z] INFO: No changes needed (src/data/post/2025-04-16-fonetik-alfabe-amator-telsizcilikte-turkce-ve-nato-kodlari.md)
+[2025-07-10T01:31:43.676Z] INFO: No changes needed (src/data/post/2025-04-17-amator-telsizcilige-baslangic.md)
+[2025-07-10T01:31:43.677Z] INFO: No changes needed (src/data/post/2025-04-17-amator-telsizcilikte-seventy-three-73-ifadesinin-anlami-kullanimi-ve-kokeni.md)
+[2025-07-10T01:31:43.678Z] INFO: No changes needed (src/data/post/2025-04-17-arzimut-haritasi-anten-yonlendirme.md)
+[2025-07-10T01:31:43.678Z] INFO: No changes needed (src/data/post/2025-04-17-locater-locater-grid-map.md)
+[2025-07-10T01:31:43.679Z] INFO: No changes needed (src/data/post/2025-04-17-simplex-ve-role-gorusmeleri.md)
+[2025-07-10T01:31:43.680Z] INFO: No changes needed (src/data/post/2025-04-21-amator-band-plani-uhf-ultra-high-frequency.md)
+[2025-07-10T01:31:43.681Z] INFO: No changes needed (src/data/post/2025-04-21-amator-band-plani-vhf-very-high-frequency.md)
+[2025-07-10T01:31:43.682Z] INFO: No changes needed (src/data/post/2025-04-21-amator-telsizle-dogru-ve-etik-konusma-usulleri.md)
+[2025-07-10T01:31:43.683Z] INFO: No changes needed (src/data/post/2025-04-21-hf-ssb-lsb-usb-am-fm-cw-ve-ft8-nedir.md)
+[2025-07-10T01:31:43.684Z] INFO: No changes needed (src/data/post/2025-04-21-tam-dalga-boyu-uhf-kubik-quad-anteni-yuksek-kazancli-anten-rehberi.md)
+[2025-07-10T01:31:43.684Z] INFO: No changes needed (src/data/post/2025-04-21-uhf-bandi-70-cm.md)
+[2025-07-10T01:31:43.685Z] INFO: No changes needed (src/data/post/2025-04-21-vhf-bandi-2-mt.md)
+[2025-07-10T01:31:43.686Z] INFO: No changes needed (src/data/post/2025-04-22-ceyrek-dalga-groundplane-anten.md)
+[2025-07-10T01:31:43.687Z] INFO: No changes needed (src/data/post/2025-04-22-dual-band-flower-pot-anteni-nasil-yapilir-teorisi-ve-uygulamali-rehber.md)
+[2025-07-10T01:31:43.687Z] INFO: No changes needed (src/data/post/2025-04-22-moxon-anten-kompakt-ve-etkili-yonlu-anten-tasarimi.md)
+[2025-07-10T01:31:43.689Z] INFO: Processed file with changes: WordPress caption shortcodes converted to Markdown (src/data/post/2025-04-28-cep-telefonundan-aprs-aprsdroid.md)
+[2025-07-10T01:31:43.690Z] INFO: Processed file with changes: WordPress caption shortcodes converted to Markdown (src/data/post/2025-04-29-amator-telsizlere-role-ve-simplex-frekansi-ekleme-rehberi.md)
+[2025-07-10T01:31:43.692Z] INFO: Processed file with changes: WordPress caption shortcodes converted to Markdown (src/data/post/2025-05-19-cep-telefonunda-dmr-droidstar.md)
+[2025-07-10T01:31:43.693Z] INFO: No changes needed (src/data/post/astrowind-template-in-depth.mdx)
+[2025-07-10T01:31:43.694Z] INFO: No changes needed (src/data/post/get-started-website-with-astro-tailwind-css.md)
+[2025-07-10T01:31:43.695Z] INFO: No changes needed (src/data/post/how-to-customize-astrowind-to-your-brand.md)
+[2025-07-10T01:31:43.696Z] INFO: No changes needed (src/data/post/landing.md)
+[2025-07-10T01:31:43.698Z] INFO: No changes needed (src/data/post/markdown-elements-demo-post.mdx)
+[2025-07-10T01:31:43.699Z] INFO: No changes needed (src/data/post/useful-resources-to-create-websites.md)
+[2025-07-10T01:31:43.699Z] INFO: Processing complete:
+[2025-07-10T01:31:43.699Z] INFO:   - Total files processed: 38
+[2025-07-10T01:31:43.699Z] INFO:   - Files with changes: 4
+[2025-07-10T01:31:43.699Z] INFO:   - Files with errors: 0
+[2025-07-10T01:31:43.699Z] INFO:   - Files unchanged: 34
+[2025-07-10T01:31:43.699Z] INFO: 
+Summary of changes:
+[2025-07-10T01:31:43.699Z] INFO:   2025-04-07-dmr-dijital-mobisle-radio-nedir.md:
+[2025-07-10T01:31:43.699Z] INFO:     - WordPress caption shortcodes converted to Markdown
+[2025-07-10T01:31:43.699Z] INFO:   2025-04-28-cep-telefonundan-aprs-aprsdroid.md:
+[2025-07-10T01:31:43.699Z] INFO:     - WordPress caption shortcodes converted to Markdown
+[2025-07-10T01:31:43.699Z] INFO:   2025-04-29-amator-telsizlere-role-ve-simplex-frekansi-ekleme-rehberi.md:
+[2025-07-10T01:31:43.699Z] INFO:     - WordPress caption shortcodes converted to Markdown
+[2025-07-10T01:31:43.699Z] INFO:   2025-05-19-cep-telefonunda-dmr-droidstar.md:
+[2025-07-10T01:31:43.699Z] INFO:     - WordPress caption shortcodes converted to Markdown

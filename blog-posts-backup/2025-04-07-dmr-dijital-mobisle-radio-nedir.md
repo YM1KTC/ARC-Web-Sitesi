@@ -61,8 +61,7 @@ DMR sisteminde her kullanıcıya özgü bir **DMR ID** atanır. Bu ID, dünya ç
 
 DMR röleleri, geniş alan kapsama sağlamak için kullanılır. Ancak, bazı amatör telsizciler **hotspot** cihazları ile internet üzerinden DMR ağına bağlanabilir. Popüler hotspot cihazları arasında **MMDVM**, **OpenSpot**, ve **Pi-Star tabanlı çözümler** yer alır.
 
-![D.MR. Hot Spot](~/assets/images/2025/04/DMR-HS-300x300.png)
-*Örnek D.M.R. HotSpot*
+[caption id="attachment_223" align="aligncenter" width="300"]![D.MR. Hot Spot](~/assets/images/2025/04/DMR-HS-300x300.png) Örnek D.M.R. HotSpot[/caption]
 
 ## **Popüler DMR Cihazları**
 
