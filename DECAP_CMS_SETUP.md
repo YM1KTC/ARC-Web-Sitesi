@@ -152,7 +152,7 @@ If this works, the issue is custom domain configuration.
 3. **Can't save posts**: Ensure Git Gateway is enabled and connected to GitHub
 4. **Images not uploading**: Check media folder permissions in repository
 5. **Custom domain issues**: Ensure Identity works on both netlify.app and custom domain
-6. **404 on /admin/**: Check that _redirects file is deployed correctly
+6. **404 on /admin/**: Check that _redirects file is deployed correctly.
 
 ### Quick Verification Steps:
 
