@@ -1,6 +1,22 @@
 [build]
   publish = "dist"
 
+[context.production.environment]
+  NETLIFY_SITE_URL = "https://taslak.radio.org.tr"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/decapcms/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+
 [[redirects]]
   from = "/#confirmation_token=*"
   to = "/auth?confirmation_token=:splat"

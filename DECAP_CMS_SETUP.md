@@ -118,23 +118,32 @@ Netlify redirect rules for admin routing
 
 ## Troubleshooting
 
-### Fixed Issues:
+### Current Issue: CORS Error
 
-✅ **"Unable to access identity settings"** - This was fixed by enabling Identity and Git Gateway in Netlify
-✅ **Confirmation email links not working** - Created `/auth` page to handle authentication tokens
+❌ **CORS Error**: `Access to script at 'https://identity.netlify.com/v1/netlify-identity-widget.js' from origin 'https://taslak.radio.org.tr' has been blocked by CORS policy`
 
-### Current Setup Status:
+**This means**: Netlify Identity is not properly configured for your custom domain `taslak.radio.org.tr`
 
-The site now has:
-- Custom authentication handler at `/auth`
-- Proper redirect handling for confirmation emails
-- Automatic routing from hash-based tokens to query parameters
+### Solutions (Try in order):
 
-**If you're still getting confirmation email issues:**
+#### Solution 1: Configure Custom Domain in Netlify Identity
 1. Go to https://app.netlify.com/sites/ym1ktc/settings/identity
-2. Check that Identity is enabled
-3. Go to Services tab and ensure "Git Gateway" is enabled
-4. The confirmation links should now work properly
+2. Check **"Site domains"** section
+3. Add `taslak.radio.org.tr` to allowed domains
+4. Save and wait 5-10 minutes for DNS propagation
+
+#### Solution 2: Use Primary Netlify Domain for Admin
+- Use https://ym1ktc.netlify.app/admin/ instead of custom domain for CMS access
+- This should work immediately as it's the primary domain
+
+#### Solution 3: Alternative Git-based Workflow (Recommended)
+- Use GitHub-based editing instead of Netlify CMS
+- Content editors can edit markdown files directly in GitHub
+- Changes auto-deploy to Netlify
+
+### Quick Test:
+Try accessing: https://ym1ktc.netlify.app/admin/
+If this works, the issue is custom domain configuration.
 
 ### Common Issues:
 

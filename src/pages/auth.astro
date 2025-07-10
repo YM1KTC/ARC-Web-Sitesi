@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kimlik Doğrulama - ARC</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <script>
+    <script is:inline>
       // Handle Netlify Identity authentication
       if (window.netlifyIdentity) {
         // Handle the confirmation/recovery tokens

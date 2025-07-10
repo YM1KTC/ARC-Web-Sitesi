@@ -5,6 +5,8 @@ backend:
 media_folder: 'src/assets/images'
 public_folder: '/_astro'
 
+locale: 'tr'  # Türkçe olarak ayarlandı
+
 site_url: https://taslak.radio.org.tr
 display_url: https://taslak.radio.org.tr
 

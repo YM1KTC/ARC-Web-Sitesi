@@ -37,7 +37,7 @@ const { language, textDirection } = I18N;
     <Analytics />
 
     <!-- Netlify Identity for Decap CMS -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
@@ -49,7 +49,7 @@ const { language, textDirection } = I18N;
     <BasicScripts />
 
     <!-- Netlify Identity initialization -->
-    <script>
+    <script is:inline>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           // Check if we're on a page that needs authentication handling
