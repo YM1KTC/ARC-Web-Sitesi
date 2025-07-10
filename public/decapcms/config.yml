@@ -8,8 +8,8 @@ backend:
   # Explicitly block users without roles
   squash_merges: true
 
-media_folder: 'src/assets/images'
-public_folder: '/_astro'
+media_folder: 'public/images'
+public_folder: '/images'
 
 locale: 'tr'  # Türkçe olarak ayarlandı
 
@@ -49,8 +49,8 @@ collections:
           label: 'Öne Çıkan Görsel',
           name: 'image',
           widget: 'image',
-          media_folder: '/src/assets/images',
-          public_folder: '~/assets/images',
+          media_folder: '/public/images',
+          public_folder: '/images',
           required: false,
         }
       - { label: 'İçerik', name: 'body', widget: 'markdown' }
