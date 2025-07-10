@@ -1,6 +1,7 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  ignore = "git log -1 --pretty=format:'%ae' | grep -v 'bcanata@hotmail.com'"
 [build.processing.html]
   pretty_urls = false
 [[headers]]
