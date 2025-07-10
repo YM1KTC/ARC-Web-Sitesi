@@ -2,7 +2,7 @@
   publish = "dist"
 
 [context.production.environment]
-  NETLIFY_SITE_URL = "https://taslak.radio.org.tr"
+  NETLIFY_SITE_URL = "https://radio.org.tr"
 
 [[headers]]
   for = "/*"

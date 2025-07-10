@@ -11,8 +11,8 @@ public_folder: '/images'
 
 locale: 'tr'
 
-site_url: https://taslak.radio.org.tr
-display_url: https://taslak.radio.org.tr
+site_url: https://radio.org.tr
+display_url: https://radio.org.tr
 
 collections:
   - name: 'post'

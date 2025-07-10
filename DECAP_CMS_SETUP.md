@@ -35,12 +35,12 @@ This means Netlify Identity and Git Gateway need to be properly configured.
 
 ### 3. Configure Custom Domain Access
 
-Since you're using https://taslak.radio.org.tr/, ensure:
+Since you're using https://radio.org.tr/, ensure:
 
 1. The custom domain is properly configured in Netlify
 2. Identity service works on both domains:
    - https://ym1ktc.netlify.app/admin/
-   - https://taslak.radio.org.tr/admin/
+   - https://radio.org.tr/admin/
 
 ### 4. Invite Users
 
@@ -53,7 +53,7 @@ After Identity and Git Gateway are enabled:
 
 ### 5. Access the CMS
 
-- Primary URL: `https://taslak.radio.org.tr/admin/`
+- Primary URL: `https://radio.org.tr/admin/`
 - Backup URL: `https://ym1ktc.netlify.app/admin/`
 - Users can log in with their invited credentials
 - The CMS will redirect to `/decapcms/` for the actual interface
@@ -120,16 +120,16 @@ Netlify redirect rules for admin routing
 
 ### Current Issue: CORS Error
 
-❌ **CORS Error**: `Access to script at 'https://identity.netlify.com/v1/netlify-identity-widget.js' from origin 'https://taslak.radio.org.tr' has been blocked by CORS policy`
+❌ **CORS Error**: `Access to script at 'https://identity.netlify.com/v1/netlify-identity-widget.js' from origin 'https://radio.org.tr' has been blocked by CORS policy`
 
-**This means**: Netlify Identity is not properly configured for your custom domain `taslak.radio.org.tr`
+**This means**: Netlify Identity is not properly configured for your custom domain `radio.org.tr`
 
 ### Solutions (Try in order):
 
 #### Solution 1: Configure Custom Domain in Netlify Identity
 1. Go to https://app.netlify.com/sites/ym1ktc/settings/identity
 2. Check **"Site domains"** section
-3. Add `taslak.radio.org.tr` to allowed domains
+3. Add `radio.org.tr` to allowed domains
 4. Save and wait 5-10 minutes for DNS propagation
 
 #### Solution 2: Use Primary Netlify Domain for Admin
@@ -158,7 +158,7 @@ If this works, the issue is custom domain configuration.
 
 1. Check Identity status: https://app.netlify.com/sites/ym1ktc/settings/identity
 2. Check Git Gateway: Should show "Connected" status when properly configured
-3. Test admin access: https://taslak.radio.org.tr/admin/
+3. Test admin access: https://radio.org.tr/admin/
 4. Check browser console for JavaScript errors
 
 ### Support
