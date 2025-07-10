@@ -5,66 +5,76 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'İletişim - ARC',
+  title: '📡 İletişim - ARC YM1KTC',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="İletişim" title="Bizimle İletişime Geçin!" />
+  <HeroText tagline="📡 İletişim" title="📻 73! Bizimle İletişime Geçin!" />
 
   <ContactUs
     id="form"
-    title="Bugün bize mesaj gönderin!"
-    subtitle="Hızlı yanıtlar için SSS bölümümüze göz atın. Aradığınız çözümü orada bulabilirsiniz! Bulamazsanız, destek ekibimiz size yardımcı olmaktan mutluluk duyar."
+    title="📨 CQ CQ CQ - Bugün bize mesaj gönderin!"
+    subtitle="📻 Hızlı yanıtlar için SSS bölümümüze göz atın. Aradığınız çözümü orada bulabilirsiniz! Bulamazsanız, destek ekibimiz size yardımcı olmaktan mutluluk duyar. 73!"
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Ad Soyad',
+        label: '👤 Ad Soyad',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'E-posta',
+        label: '📮 E-posta',
       },
       {
         type: 'text',
         name: 'callsign',
-        label: 'Çağrı İşareti (İsteğe bağlı)',
+        label: '📻 Çağrı İşareti (İsteğe bağlı)',
       },
     ]}
     textarea={{
-      label: 'Mesaj',
+      label: '📝 Mesaj',
     }}
     disclaimer={{
       label: 'Bu iletişim formunu göndererek, kişisel bilgilerinizin toplanmasını kabul etmiş olursunuz.',
     }}
-    description="Destek ekibimiz genellikle 24 iş saati içinde yanıt verir."
+    description="🚀 Destek ekibimiz genellikle 24 iş saati içinde yanıt verir. QSL!"
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Size yardımcı olmak için buradayız!"
+    title="🛠️ Size yardımcı olmak için buradayız - 73!"
     items={[
       {
-        title: 'Genel Destek',
+        title: '📞 Genel Destek',
         description: `Dernek faaliyetleri, web sitesi navigasyonu, etkinlik bilgileri veya genel sorularınız için bizimle iletişime geçin.`,
       },
       {
-        title: 'Eğitim Programları',
+        title: '📚 Eğitim Programları',
         description:
           'Amatör telsiz eğitimi, lisans sınav hazırlığı ve teknik kurslar hakkında sorularınız için bizimle iletişime geçin.',
+        callToAction: {
+          text: 'Sınav Hazırlık',
+          href: 'https://sinav.radio.org.tr/',
+          target: '_blank',
+        },
       },
       {
-        title: 'Teknik Destek',
+        title: '⚙️ Teknik Destek',
         description:
           'Röle sistemleri, anten kurulumu, frekans ayarları ve diğer teknik konularda destek almak için bizimle iletişime geçin.',
+        callToAction: {
+          text: 'DMR Editor',
+          href: 'https://dmr.radio.org.tr/',
+          target: '_blank',
+        },
       },
       {
-        title: 'Telefon',
+        title: '📞 Telefon',
         description: '+90 510 220 50 24 (dernek hattı)',
         icon: 'tabler:headset',
       },
@@ -75,7 +85,7 @@ const metadata = {
         href: 'mailto:bilgi@radio.org.tr',
       },
       {
-        title: 'Adres',
+        title: '📍 Adres',
         description: 'Kılıçali Paşa Mah. Altın Bilezik Sk. No: 2/9, 34433 Beyoğlu – İstanbul',
         icon: 'tabler:map-pin',
       },
@@ -84,39 +94,74 @@ const metadata = {
 
   <!-- Social Media Links -->
   <Features2
-    title="Sosyal Medya"
-    tagline="Takip Edin"
+    title="📱 Sosyal Medya"
+    tagline="👀 Takip Edin"
     columns={3}
     items={[
       {
-        title: 'Facebook',
+        title: '📸 Facebook',
         description: 'Facebook sayfamızdan güncel haberler ve etkinliklerimizi takip edin.',
         icon: 'tabler:brand-facebook',
+        callToAction: {
+          text: 'Sayfayı Ziyaret Et',
+          href: 'https://facebook.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
       },
       {
-        title: 'YouTube',
+        title: '🎥 YouTube',
         description: 'YouTube kanalımızdan eğitim videoları ve canlı yayınları izleyin.',
         icon: 'tabler:brand-youtube',
+        callToAction: {
+          text: 'Kanalı Ziyaret Et',
+          href: 'https://www.youtube.com/@YM1KTC',
+          target: '_blank',
+          variant: 'link',
+        },
       },
       {
-        title: 'Instagram',
+        title: '📷 Instagram',
         description: 'Instagram hesabımızdan fotoğraf ve video paylaşımlarımızı görün.',
         icon: 'tabler:brand-instagram',
+        callToAction: {
+          text: 'Hesabı Ziyaret Et',
+          href: 'https://www.instagram.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
       },
       {
-        title: 'X (Twitter)',
+        title: '🐦 X (Twitter)',
         description: 'X (Twitter) hesabımızdan anlık güncellemeler ve duyurular.',
         icon: 'tabler:brand-x',
+        callToAction: {
+          text: 'Hesabı Takip Et',
+          href: 'https://x.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
       },
       {
-        title: 'LinkedIn',
+        title: '📋 LinkedIn',
         description: 'LinkedIn sayfamızdan profesyonel güncellemeler ve iş birliği fırsatları.',
         icon: 'tabler:brand-linkedin',
+        callToAction: {
+          text: 'Sayfayı Ziyaret Et',
+          href: 'https://www.linkedin.com/company/arctr/',
+          target: '_blank',
+          variant: 'link',
+        },
       },
       {
-        title: 'E-posta',
+        title: '📧 E-posta',
         description: 'Doğrudan e-posta ile bizimle iletişime geçin: bilgi@radio.org.tr',
         icon: 'tabler:mail',
+        callToAction: {
+          text: 'E-posta Gönder',
+          href: 'mailto:bilgi@radio.org.tr',
+          variant: 'link',
+        },
       },
     ]}
   />

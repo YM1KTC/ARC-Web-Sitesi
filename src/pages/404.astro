@@ -1,23 +1,55 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
-const title = `Error 404`;
+const title = `Hata 404`;
 ---
 
 <Layout metadata={{ title }}>
   <section class="flex items-center h-full p-16">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
+      <div class="max-w-lg text-center">
+        <!-- Radio Tower Icon -->
+        <div class="mb-6">
+          <Icon name="tabler:antenna" class="w-24 h-24 mx-auto text-primary opacity-80" />
+        </div>
+
+        <h2 class="mb-4 font-bold text-9xl">
           <span class="sr-only">Error</span>
           <span class="text-primary">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
+
+        <!-- Ham Radio themed message -->
+        <div class="mb-6 p-4 bg-gray-100 dark:bg-slate-800 rounded-lg border-l-4 border-primary">
+          <p class="text-lg font-mono text-gray-700 dark:text-gray-300 mb-2">
+            <strong>CQ CQ CQ... Sinyal bulunamadı!</strong>
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Frekans: 404 MHz • Güç: 0 Watt • SWR: ∞</p>
+        </div>
+
+        <p class="text-2xl font-semibold md:text-3xl mb-4">📡 Sinyal menzil dışında!</p>
+
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
+          Aradığınız sayfa stratosferde kaybolmuş gibi görünüyor. <br />
+          Ana istasyona (sayfaya) geri dönün veya frekansı yeniden ayarlayın.
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">
+            <Icon name="tabler:home" class="w-5 h-5 mr-2" />
+            Ana İstasyon (QTH)
+          </a>
+          <a rel="noopener noreferrer" href="/blog" class="btn btn-outline">
+            <Icon name="tabler:radio" class="w-5 h-5 mr-2" />
+            Blog Yayınları
+          </a>
+        </div>
+
+        <!-- Fun Ham Radio callsign -->
+        <div class="mt-8 text-sm text-gray-500 dark:text-gray-400">
+          <p>73 de YM1KTC - Amatör Radyocular Derneği</p>
+        </div>
       </div>
     </div>
   </section>

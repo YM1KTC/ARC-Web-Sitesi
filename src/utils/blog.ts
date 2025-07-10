@@ -52,6 +52,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     image,
     tags: rawTags = [],
     category: rawCategory,
+    categories: rawCategories = [],
     author,
     draft = false,
     metadata = {},
@@ -61,10 +62,12 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
 
-  const category = rawCategory
+  // Handle both category (singular) and categories (plural array) formats
+  const categoryTitle = rawCategory || (rawCategories.length > 0 ? rawCategories[0] : undefined);
+  const category = categoryTitle
     ? {
-        slug: cleanSlug(rawCategory),
-        title: rawCategory,
+        slug: cleanSlug(categoryTitle),
+        title: categoryTitle,
       }
     : undefined;
 

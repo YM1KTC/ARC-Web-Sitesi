@@ -24,10 +24,10 @@ const metadata = {
       {
         variant: 'primary',
         text: 'İletişim',
-        href: '/contact',
+        href: '/iletisim',
         icon: 'tabler:mail',
       },
-      { text: 'Hakkımızda', href: '/about' },
+      { text: 'Hakkımızda', href: '/hakkimizda' },
     ]}
     image={{
       src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
@@ -37,8 +37,9 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white">Amatör Radyocular Derneği</span>
+      <span class="text-accent dark:text-white">📡 Amatör Radyocular Derneği</span>
       <span class="hidden xl:inline"> (ARC)</span>
+      <span class="block text-sm text-gray-600 dark:text-gray-300 mt-2">YM1KTC • 73 QRT</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -54,48 +55,58 @@ const metadata = {
   <!-- Note Widget ******************* -->
 
   <Note
-    title="Misyonumuz:"
-    description="Amatör telsizciliği yaygınlaştırmak, eğitim vermek ve teknik projeler geliştirmek"
+    title="📻 CQ CQ CQ - Misyonumuz:"
+    description="Amatör telsizciliği yaygınlaştırmak, eğitim vermek ve teknik projeler geliştirmek • 73 de YM1KTC"
   />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    tagline="Hizmetlerimiz"
-    title="ARC ile Neler Yapabilirsiniz"
-    subtitle="Amatör radyocular derneği olarak sunduğumuz hizmetler ve faaliyet alanlarımız hakkında bilgi edinebilirsiniz."
+    tagline="📡 Hizmetlerimiz"
+    title="QSL - ARC ile Neler Yapabilirsiniz"
+    subtitle="Amatör radyocular derneği olarak sunduğumuz hizmetler ve faaliyet alanlarımız hakkında bilgi edinebilirsiniz. 73!"
     items={[
       {
-        title: 'Amatör Telsiz Eğitimi',
+        title: '📚 Amatör Telsiz Eğitimi',
         description:
           'Amatör telsizciliğe yeni başlayanlar için temel eğitim programları ve ileri seviye teknik kurslar düzenliyoruz.',
         icon: 'tabler:school',
       },
       {
-        title: 'Lisans Sınavı Hazırlığı',
+        title: '📋 Lisans Sınavı Hazırlığı',
         description:
           'Amatör telsiz lisans sınavlarına hazırlık kursları ve deneme sınavları ile üyelerimizi destekliyoruz.',
         icon: 'tabler:certificate',
+        callToAction: {
+          text: 'Sınav Sitesine Git',
+          href: 'https://sinav.radio.org.tr/',
+          target: '_blank',
+        },
       },
       {
-        title: 'Röle ve Beacon İşletmeciliği',
+        title: '📡 Röle ve Beacon İşletmeciliği',
         description:
           'VHF/UHF röle sistemi ve beacon altyapıları kurarak amatör radyocuların haberleşmesini kolaylaştırıyoruz.',
         icon: 'tabler:antenna',
       },
       {
-        title: 'Acil Haberleşme',
-        description: 'Acil durumlarda güvenilir haberleşme sistemleri geliştiriyoruz.',
+        title: '🌐 Akıllı İletişim',
+        description: 'Modern ve yenilikçi iletişim çözümleri geliştiriyoruz.',
         icon: 'tabler:phone-call',
+        callToAction: {
+          text: 'DMR Editor',
+          href: 'https://dmr.radio.org.tr/',
+          target: '_blank',
+        },
       },
       {
-        title: 'Teknik Projeler',
+        title: '⚙️ Teknik Projeler',
         description: 'Amatör radyo teknolojileri üzerine araştırma ve geliştirme projeleri yürütüyoruz.',
         icon: 'tabler:settings',
       },
       {
-        title: 'Etkinlik ve Yarışmalar',
+        title: '🏆 Etkinlik ve Yarışmalar',
         description: 'Amatör radyocular arası bağları güçlendirmek için yarışmalar ve sosyal etkinlikler düzenliyoruz.',
         icon: 'tabler:trophy',
       },
@@ -106,20 +117,20 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Hakkımızda"
-    title="ARC'nin Temelleri: Gelişim ve İşbirliği!"
+    tagline="📻 Hakkımızda"
+    title="ARC'nin Temelleri: QSO Gelişim ve İşbirliği!"
     items={[
       {
-        title: '31 Mayıs 2024 tarihinde kuruldu',
+        title: '📅 31 Mayıs 2024 tarihinde kuruldu',
         description:
           'İstanbul merkezli derneğimiz, amatör telsizciliği yaygınlaştırmak amacıyla modern bir yaklaşımla kurulmuştur.',
       },
       {
-        title: 'YM1KTC çağrı işareti',
+        title: '📻 YM1KTC çağrı işareti',
         description: 'Derneğimizin resmi çağrı işareti ile tüm amatör radyo faaliyetlerimizi sürdürmekteyiz.',
       },
       {
-        title: 'Geniş üyelik ağı',
+        title: '🌐 Geniş üyelik ağı',
         description: 'Türkiye genelinde amatör radyocularımızı bir araya getirerek güçlü bir topluluk oluşturmaktayız.',
       },
     ]}
@@ -132,7 +143,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Modern temeller üzerine kurulan derneğimiz
+        📡 Modern temeller üzerine kurulan derneğimiz
       </h3>
       Amatör radyo dünyasında öncü bir yaklaşım benimsiyor, teknoloji ve geleneksel değerleri harmanlıyoruz.
     </Fragment>
@@ -145,7 +156,7 @@ const metadata = {
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
-    title="Blog'umuzda Daha Fazla İçerik Keşfedin"
+    title="📖 Blog'umuzda Daha Fazla İçerik Keşfedin"
     information={`Blog'umuzda amatör telsizciliğe dair güncel bilgiler, teknik makaleler ve eğitim içerikleri bulabilirsiniz.
                         Her yeni makale, amatör radyo konusunda uzmanlaşmanız için önemli bir adım olacaktır.
                         Amatör radyo dünyasındaki gelişmeleri takip etmek için blog'umuzu ziyaret edin.
@@ -155,9 +166,9 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Sıkça Sorulan Sorular"
+    title="❓ Sıkça Sorulan Sorular"
     subtitle="ARC hakkında merak ettikleriniz ve amatör telsizciliği konusunda sık sorulan sorular ve cevapları."
-    tagline="SSS"
+    tagline="🔍 SSS"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
@@ -206,20 +217,20 @@ const metadata = {
       {
         variant: 'primary',
         text: 'İletişim',
-        href: '/contact',
+        href: '/iletisim',
         icon: 'tabler:mail',
       },
     ]}
   >
     <Fragment slot="title">
-      Amatör Radyocular<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Derneği</span>
+      📡 Amatör Radyocular<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Derneği</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       Amatör radyo dünyasında yerinizi alın ve bizimle birlikte büyüyen toplulukta yer alın. <br
         class="hidden md:inline"
       />
-      Bizimle iletişime geçin ve amatör radyo yolculuğunuza başlayın!
+      Bizimle iletişime geçin ve amatör radyo yolculuğunuza başlayın! 73 de YM1KTC
     </Fragment>
   </CallToAction>
 </Layout>

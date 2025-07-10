@@ -7,7 +7,7 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Hakkımızda - ARC',
+  title: '📻 Hakkımızda - ARC YM1KTC',
 };
 ---
 
@@ -15,16 +15,16 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Hakkımızda"
+    tagline="📡 Hakkımızda"
     image={{
       src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
       alt: 'ARC Logo',
-      width: 1024,
-      height: 1024,
+      width: 256,
+      height: 256,
     }}
   >
     <Fragment slot="title">
-      Amatör radyo dünyasında <br />
+      📻 Amatör radyo dünyasında <br />
       <span class="text-accent dark:text-white"> Güçlü bir topluluk</span>
     </Fragment>
 
@@ -38,7 +38,7 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Derneğimizle ilgili istatistikler"
+    title="📈 Derneğimizle ilgili istatistikler - QSL"
     stats={[
       { title: 'Kuruluş Yılı', amount: '2024' },
       { title: 'Aktif Üye', amount: '100+' },
@@ -50,24 +50,29 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Faaliyet Alanlarımız"
+    title="📡 Faaliyet Alanlarımız"
     subtitle="Amatör radyo dünyasında geniş bir yelpazede hizmet sunan derneğimiz, üyelerimize kapsamlı destek sağlamaktadır."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Eğitim ve Öğretim',
+        title: '📚 Eğitim ve Öğretim',
         description:
           'Amatör telsiz lisans sınavlarına hazırlık, teknik eğitim programları ve sürekli gelişim kursları düzenliyoruz.',
         icon: 'tabler:school',
+        callToAction: {
+          text: 'Sınav Hazırlık Sitesi',
+          href: 'https://sinav.radio.org.tr/',
+          target: '_blank',
+        },
       },
       {
-        title: 'Teknik Altyapı',
+        title: '📡 Teknik Altyapı',
         description: 'VHF/UHF röle sistemleri, beacon istasyonları ve teknik altyapı projeleri geliştirip işletiyoruz.',
         icon: 'tabler:antenna',
       },
       {
-        title: 'Acil Haberleşme',
+        title: '🚨 Acil Haberleşme',
         description:
           'Acil durumlarda güvenilir haberleşme sistemleri geliştirerek toplumsal sorumluluğumuzu yerine getiriyoruz.',
         icon: 'tabler:phone-call',
@@ -82,66 +87,65 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Araştırma ve Geliştirme',
+        title: '🔬 Araştırma ve Geliştirme',
         description:
           'Amatör radyo teknolojileri üzerine araştırma projeleri yürütüyor ve yenilikçi çözümler geliştiriyoruz.',
         icon: 'tabler:microscope',
       },
       {
-        title: 'Topluluk Etkinlikleri',
+        title: '🎉 Topluluk Etkinlikleri',
         description:
           'Yarışmalar, sergiler, seminerler ve sosyal etkinlikler düzenleyerek amatör radyocuları bir araya getiriyoruz.',
         icon: 'tabler:users',
       },
       {
-        title: 'Uluslararası İşbirliği',
+        title: '🌍 Uluslararası İşbirliği',
         description: "Dünya çapında amatör radyo kuruluşlarıyla işbirliği yaparak Türkiye'yi temsil ediyoruz.",
         icon: 'tabler:world',
       },
       {
-        title: 'Genç Radyocular',
+        title: '👨‍👩‍👧‍👦 Genç Radyocular',
         description:
           'Gençlerin amatör radyo dünyasına katılımını teşvik eden özel programlar ve etkinlikler düzenliyoruz.',
         icon: 'tabler:user-plus',
       },
       {
-        title: 'Teknik Danışmanlık',
+        title: '⚙️ Teknik Danışmanlık',
         description:
           'Anten kurulumu, ekipman seçimi ve teknik konularda üyelerimize uzman danışmanlık hizmeti sunuyoruz.',
         icon: 'tabler:tool',
       },
       {
-        title: 'Dijital Modlar',
+        title: '📶 Dijital Modlar',
         description: 'DMR, APRS, FT8 gibi dijital mod teknolojileri konusunda eğitim ve uygulama desteği sağlıyoruz.',
         icon: 'tabler:device-laptop',
+        callToAction: {
+          text: 'DMR Editor',
+          href: 'https://dmr.radio.org.tr/',
+          target: '_blank',
+        },
       },
     ]}
-    image={{
-      src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
-      alt: 'ARC Logo',
-      width: 1024,
-      height: 1024,
-    }}
   />
 
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Değerlerimiz"
+    title="✨ Değerlerimiz"
     subtitle="Derneğimizin temel değerleri, tüm faaliyetlerimizin ve üyelerimizle ilişkilerimizin temelini oluşturmaktadır."
     items={[
       {
-        title: 'Üye Odaklı Yaklaşım',
+        title: '🎯 Üye Odaklı Yaklaşım',
         description:
           'Üyelerimizin ihtiyaçlarını önceleyerek, onların gelişimini desteklemek ve amatör radyo yolculuklarında rehberlik etmek en önemli amacımızdır.',
       },
       {
-        title: 'Sürekli Gelişim',
+        title: '📈 Sürekli Gelişim',
         description:
           'Teknolojideki gelişmeleri takip ederek, eğitim programlarımızı ve hizmetlerimizi sürekli güncelliyor ve geliştiriyoruz.',
       },
       {
-        title: 'Etik Değerler',
+        title: '🌟 Etik Değerler',
         description:
           'Amatör radyo etiğini benimser, şeffaflık, dürüstlük ve toplumsal sorumluluk bilinciyle hareket ederiz.',
       },
@@ -151,28 +155,28 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Başarılarımız"
+    title="🏆 Başarılarımız"
     subtitle="Kurulduğumuz günden bu yana elde ettiğimiz başarılar ve topluma katkılarımız."
     isReversed={true}
     callToAction={{
       text: 'Daha fazla bilgi',
-      href: '/contact',
+      href: '/iletisim',
     }}
     items={[
       {
-        title: 'Türkiye çapında erişim',
+        title: '🇹🇷 Türkiye çapında erişim',
         description:
           'Röle sistemlerimiz ve eğitim programlarımız ile Türkiye genelinde amatör radyoculara hizmet veriyoruz.',
         icon: 'tabler:map-pin',
       },
       {
-        title: 'Pozitif üye geri bildirimleri',
+        title: '😊 Pozitif üye geri bildirimleri',
         description:
           'Üyelerimizden aldığımız olumlu geri bildirimler ve yüksek memnuniyet oranları bizi motive ediyor.',
         icon: 'tabler:message-star',
       },
       {
-        title: 'Sektörel tanınırlık',
+        title: '🏅 Sektörel tanınırlık',
         description:
           'Amatör radyo camiasında saygın bir konuma sahip olup, diğer kuruluşlar tarafından referans alınıyoruz.',
         icon: 'tabler:award',
@@ -183,13 +187,13 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Yönetim Kurulu"
-    tagline="Liderlik"
+    title="💼 Yönetim Kurulu"
+    tagline="👑 Liderlik"
     columns={1}
     items={[
       {
-        title: 'Başkan',
-        description: 'Cüneyt Şahna (TA1CUN) - +90 532 311 17 66',
+        title: '📻 Başkan',
+        description: 'Cüneyt Şahna (TA1CUN)',
       },
     ]}
   />
@@ -197,17 +201,17 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Teknik Destek"
-    tagline="İletişim"
+    title="🛠️ Teknik Destek"
+    tagline="📡 İletişim"
     columns={2}
     items={[
       {
-        title: 'E-posta ile iletişim',
+        title: '📮 E-posta ile iletişim',
         description: 'Teknik sorularınız, üyelik başvurunuz veya genel bilgi almak için e-posta gönderebilirsiniz.',
         icon: 'tabler:mail',
       },
       {
-        title: 'Telefon desteği',
+        title: '📞 Telefon desteği',
         description: 'Acil durumlar ve önemli konular için telefon hattımızdan bize ulaşabilirsiniz.',
         icon: 'tabler:headset',
       },
