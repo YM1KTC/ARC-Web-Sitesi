@@ -49,8 +49,6 @@ collections:
           label: 'Öne Çıkan Görsel',
           name: 'image',
           widget: 'image',
-          media_folder: '/public/images',
-          public_folder: '/images',
           required: false,
         }
       - { label: 'İçerik', name: 'body', widget: 'markdown' }
