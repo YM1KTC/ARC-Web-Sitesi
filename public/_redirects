@@ -4,4 +4,5 @@
 /#invite_token=* /auth?invite_token=:splat 200
 
 # Admin panel redirect
-/admin/* /decapcms/index.html 200
+/admin/ /decapcms/index.html 200
+/admin/index.html /decapcms/index.html 200
