@@ -11,7 +11,7 @@ tags:
   - qrz logbook
   - qso kayıt sistemi
 layout: post
-image: ""
+image: "/images/logbook.png"
 ---
 
 ## **Amatör Telsizcilikte LogBook (QSO Kütüğü) Nedir ve Nasıl Kullanılır?**
