@@ -1,11 +1,17 @@
 ---
-title: 'LogBook Nedir?'
+title: LogBook Nedir?
 date: 2025-04-07 03:51:08
 author: TA1SPH
-categories: ['Kayıt ve Belgeleme']
-tags: ['amatör telsiz qsl takibi', 'dxcc log yazılımları', 'logbook nedir', 'qrz logbook', 'qso kayıt sistemi']
+categories:
+  - Kayıt ve Belgeleme
+tags:
+  - amatör telsiz qsl takibi
+  - dxcc log yazılımları
+  - logbook nedir
+  - qrz logbook
+  - qso kayıt sistemi
 layout: post
-image: /images/2025/04/Amator-Telsizcilikte-Fonetik-Alfabe.png
+image: /images/logbook.png
 ---
 
 ## **Amatör Telsizcilikte LogBook (QSO Kütüğü) Nedir ve Nasıl Kullanılır?**
