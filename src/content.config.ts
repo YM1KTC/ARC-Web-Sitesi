@@ -7,8 +7,6 @@ const post = defineCollection({
     title: z.string(),
     date: z.date(),
     author: z.string().default('TA1SPH'),
-    published: z.boolean().default(true),
-    featured: z.boolean().default(false),
     categories: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     layout: z.string().default('post'),
