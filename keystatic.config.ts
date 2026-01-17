@@ -19,10 +19,6 @@ export default config({
       label: 'Blog Yazıları',
       slugField: 'title',
       path: 'src/data/post/*',
-      format: {
-        contentField: 'body',
-        frontmatter: 'yaml',
-      },
       columns: ['title', 'date', 'author'],
       schema: {
         title: fields.text({
