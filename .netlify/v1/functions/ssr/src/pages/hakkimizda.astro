@@ -1,0 +1,220 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: '📻 Hakkımızda - ARC YM1KTC',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="📡 Hakkımızda"
+    image={{
+      src: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
+      alt: 'ARC Logo',
+      width: 256,
+      height: 256,
+    }}
+  >
+    <Fragment slot="title">
+      📻 Amatör radyo dünyasında <br />
+      <span class="text-accent dark:text-white"> Güçlü bir topluluk</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Amatör Radyocular Derneği (ARC), YM1KTC çağrı işaretiyle faaliyet gösteren, İstanbul merkezli kâr amacı gütmeyen
+      bir dernektir. 31 Mayıs 2024 tarihinde kurulmuş olan derneğimiz, amatör telsizciliği yaygınlaştırmak, eğitim
+      vermek ve röle-beacon altyapıları işletmek amacıyla faaliyet göstermektedir.
+    </Fragment>
+  </Hero>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="📈 Derneğimizle ilgili istatistikler - QSL"
+    stats={[
+      { title: 'Kuruluş Yılı', amount: '2024' },
+      { title: 'Aktif Üye', amount: '100+' },
+      { title: 'Eğitim Programı', amount: '25+' },
+      { title: 'Teknik Proje', amount: '10+' },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="📡 Faaliyet Alanlarımız"
+    subtitle="Amatör radyo dünyasında geniş bir yelpazede hizmet sunan derneğimiz, üyelerimize kapsamlı destek sağlamaktadır."
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: '📚 Eğitim ve Öğretim',
+        description:
+          'Amatör telsiz lisans sınavlarına hazırlık, teknik eğitim programları ve sürekli gelişim kursları düzenliyoruz.',
+        icon: 'tabler:school',
+        callToAction: {
+          text: 'Sınav Hazırlık Sitesi',
+          href: 'https://sinav.radio.org.tr/',
+          target: '_blank',
+        },
+      },
+      {
+        title: '📡 Teknik Altyapı',
+        description: 'VHF/UHF röle sistemleri, beacon istasyonları ve teknik altyapı projeleri geliştirip işletiyoruz.',
+        icon: 'tabler:antenna',
+      },
+      {
+        title: '🚨 Acil Haberleşme',
+        description:
+          'Acil durumlarda güvenilir haberleşme sistemleri geliştirerek toplumsal sorumluluğumuzu yerine getiriyoruz.',
+        icon: 'tabler:phone-call',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: '🔬 Araştırma ve Geliştirme',
+        description:
+          'Amatör radyo teknolojileri üzerine araştırma projeleri yürütüyor ve yenilikçi çözümler geliştiriyoruz.',
+        icon: 'tabler:microscope',
+      },
+      {
+        title: '🎉 Topluluk Etkinlikleri',
+        description:
+          'Yarışmalar, sergiler, seminerler ve sosyal etkinlikler düzenleyerek amatör radyocuları bir araya getiriyoruz.',
+        icon: 'tabler:users',
+      },
+      {
+        title: '🌍 Uluslararası İşbirliği',
+        description: "Dünya çapında amatör radyo kuruluşlarıyla işbirliği yaparak Türkiye'yi temsil ediyoruz.",
+        icon: 'tabler:world',
+      },
+      {
+        title: '👨‍👩‍👧‍👦 Genç Radyocular',
+        description:
+          'Gençlerin amatör radyo dünyasına katılımını teşvik eden özel programlar ve etkinlikler düzenliyoruz.',
+        icon: 'tabler:user-plus',
+      },
+      {
+        title: '⚙️ Teknik Danışmanlık',
+        description:
+          'Anten kurulumu, ekipman seçimi ve teknik konularda üyelerimize uzman danışmanlık hizmeti sunuyoruz.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: '📶 Dijital Modlar',
+        description: 'DMR, APRS, FT8 gibi dijital mod teknolojileri konusunda eğitim ve uygulama desteği sağlıyoruz.',
+        icon: 'tabler:device-laptop',
+        callToAction: {
+          text: 'DMR Editor',
+          href: 'https://dmr.radio.org.tr/',
+          target: '_blank',
+        },
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="✨ Değerlerimiz"
+    subtitle="Derneğimizin temel değerleri, tüm faaliyetlerimizin ve üyelerimizle ilişkilerimizin temelini oluşturmaktadır."
+    items={[
+      {
+        title: '🎯 Üye Odaklı Yaklaşım',
+        description:
+          'Üyelerimizin ihtiyaçlarını önceleyerek, onların gelişimini desteklemek ve amatör radyo yolculuklarında rehberlik etmek en önemli amacımızdır.',
+      },
+      {
+        title: '📈 Sürekli Gelişim',
+        description:
+          'Teknolojideki gelişmeleri takip ederek, eğitim programlarımızı ve hizmetlerimizi sürekli güncelliyor ve geliştiriyoruz.',
+      },
+      {
+        title: '🌟 Etik Değerler',
+        description:
+          'Amatör radyo etiğini benimser, şeffaflık, dürüstlük ve toplumsal sorumluluk bilinciyle hareket ederiz.',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="🏆 Başarılarımız"
+    subtitle="Kurulduğumuz günden bu yana elde ettiğimiz başarılar ve topluma katkılarımız."
+    isReversed={true}
+    callToAction={{
+      text: 'Daha fazla bilgi',
+      href: '/iletisim',
+    }}
+    items={[
+      {
+        title: '🇹🇷 Türkiye çapında erişim',
+        description:
+          'Röle sistemlerimiz ve eğitim programlarımız ile Türkiye genelinde amatör radyoculara hizmet veriyoruz.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: '😊 Pozitif üye geri bildirimleri',
+        description:
+          'Üyelerimizden aldığımız olumlu geri bildirimler ve yüksek memnuniyet oranları bizi motive ediyor.',
+        icon: 'tabler:message-star',
+      },
+      {
+        title: '🏅 Sektörel tanınırlık',
+        description:
+          'Amatör radyo camiasında saygın bir konuma sahip olup, diğer kuruluşlar tarafından referans alınıyoruz.',
+        icon: 'tabler:award',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="💼 Yönetim Kurulu"
+    tagline="👑 Liderlik"
+    columns={1}
+    items={[
+      {
+        title: '📻 Başkan',
+        description: 'Cüneyt Şahna (TA1GP)',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="🛠️ Teknik Destek"
+    tagline="📡 İletişim"
+    columns={2}
+    items={[
+      {
+        title: '📮 E-posta ile iletişim',
+        description: 'Teknik sorularınız, üyelik başvurunuz veya genel bilgi almak için e-posta gönderebilirsiniz.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: '📞 Telefon desteği',
+        description: 'Acil durumlar ve önemli konular için telefon hattımızdan bize ulaşabilirsiniz.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+</Layout>

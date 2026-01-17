@@ -1,0 +1,266 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: '📡 İletişim - ARC YM1KTC',
+};
+
+// Check for success/error parameters
+const url = Astro.url;
+const success = url.searchParams.get('success');
+const error = url.searchParams.get('error');
+---
+
+<Layout metadata={metadata}>
+  <!-- Success/Error Messages -->
+  {success && (
+    <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg mb-6 mx-6 mt-6">
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <strong>Başarılı!</strong> Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız. 73!
+      </div>
+    </div>
+  )}
+
+  {error && (
+    <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg mb-6 mx-6 mt-6">
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+        </svg>
+        <strong>Hata!</strong> Mesaj gönderilirken bir sorun oluştu. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.
+      </div>
+    </div>
+  )}
+
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="📡 İletişim" title="📻 73! Bizimle İletişime Geçin!" />
+
+  <ContactUs
+    id="form"
+    title="📨 CQ CQ CQ - Bugün bize mesaj gönderin!"
+    subtitle="📻 Hızlı yanıtlar için SSS bölümümüze göz atın. Aradığınız çözümü orada bulabilirsiniz! Bulamazsanız, destek ekibimiz size yardımcı olmaktan mutluluk duyar. 73!"
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: '👤 Ad Soyad',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: '📮 E-posta',
+      },
+      {
+        type: 'text',
+        name: 'callsign',
+        label: '📻 Çağrı İşareti (İsteğe bağlı)',
+      },
+    ]}
+    textarea={{
+      label: '📝 Mesaj',
+    }}
+    disclaimer={{
+      label: 'Bu iletişim formunu göndererek, kişisel bilgilerinizin toplanmasını kabul etmiş olursunuz.',
+    }}
+    description="🚀 Destek ekibimiz genellikle 24 iş saati içinde yanıt verir. QSL!"
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="🛠️ Size yardımcı olmak için buradayız - 73!"
+    items={[
+      {
+        title: '📞 Genel Destek',
+        description: `Dernek faaliyetleri, web sitesi navigasyonu, etkinlik bilgileri veya genel sorularınız için bizimle iletişime geçin.`,
+      },
+      {
+        title: '📚 Eğitim Programları',
+        description:
+          'Amatör telsiz eğitimi, lisans sınav hazırlığı ve teknik kurslar hakkında sorularınız için bizimle iletişime geçin.',
+        callToAction: {
+          text: 'Sınav Hazırlık',
+          href: 'https://sinav.radio.org.tr/',
+          target: '_blank',
+        },
+      },
+      {
+        title: '⚙️ Teknik Destek',
+        description:
+          'Röle sistemleri, anten kurulumu, frekans ayarları ve diğer teknik konularda destek almak için bizimle iletişime geçin.',
+        callToAction: {
+          text: 'DMR Editor',
+          href: 'https://dmr.radio.org.tr/',
+          target: '_blank',
+        },
+      },
+      {
+        title: '📞 Telefon',
+        description: '+90 510 220 50 24 (dernek hattı)',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'E-posta',
+        description: 'bilgi@radio.org.tr',
+        icon: 'tabler:mail',
+        href: 'mailto:bilgi@radio.org.tr',
+      },
+      {
+        title: '📍 Adres',
+        description: '34433 Beyoğlu – İstanbul',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <!-- DMR IDs Section -->
+  <Features2
+    title="📻 DMR ID'ler"
+    tagline="🔊 DMR İletişim"
+    columns={3}
+    items={[
+      {
+        title: 'YM0KTC',
+        description: '2867241 (Bölge 0)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM1KTC',
+        description: '2866808 (Bölge 1)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM2KTR', 
+        description: '2867887 (Bölge 2)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM3KTC',
+        description: '2867234 (Bölge 3)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM4KTC',
+        description: '2867235 (Bölge 4)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM5KTC',
+        description: '2867187 (Bölge 5)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM6KTB',
+        description: '2867237 (Bölge 6)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM7KTC',
+        description: '2867238 (Bölge 7)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM8KTC',
+        description: '2867239 (Bölge 8)',
+        icon: 'tabler:radio',
+      },
+      {
+        title: 'YM9KTC',
+        description: '2867240 (Bölge 9)',
+        icon: 'tabler:radio',
+      },
+    ]}
+  />
+
+  <!-- Social Media Links -->
+  <Features2
+    title="📱 Sosyal Medya"
+    tagline="👀 Takip Edin"
+    columns={3}
+    items={[
+      {
+        title: '📸 Facebook',
+        description: 'Facebook sayfamızdan güncel haberler ve etkinliklerimizi takip edin.',
+        icon: 'tabler:brand-facebook',
+        callToAction: {
+          text: 'Sayfayı Ziyaret Et',
+          href: 'https://facebook.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '🎥 YouTube',
+        description: 'YouTube kanalımızdan eğitim videoları ve canlı yayınları izleyin.',
+        icon: 'tabler:brand-youtube',
+        callToAction: {
+          text: 'Kanalı Ziyaret Et',
+          href: 'https://www.youtube.com/@YM1KTC',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '📷 Instagram',
+        description: 'Instagram hesabımızdan fotoğraf ve video paylaşımlarımızı görün.',
+        icon: 'tabler:brand-instagram',
+        callToAction: {
+          text: 'Hesabı Ziyaret Et',
+          href: 'https://www.instagram.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '💬 Telegram',
+        description: 'Telegram grubumuzda güncel tartışmalara katılın ve haberleşin.',
+        icon: 'tabler:brand-telegram',
+        callToAction: {
+          text: 'Gruba Katıl',
+          href: 'https://t.me/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '🐦 X (Twitter)',
+        description: 'X (Twitter) hesabımızdan anlık güncellemeler ve duyurular.',
+        icon: 'tabler:brand-x',
+        callToAction: {
+          text: 'Hesabı Takip Et',
+          href: 'https://x.com/ym1ktc',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '📋 LinkedIn',
+        description: 'LinkedIn sayfamızdan profesyonel güncellemeler ve iş birliği fırsatları.',
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          text: 'Sayfayı Ziyaret Et',
+          href: 'https://www.linkedin.com/company/arctr/',
+          target: '_blank',
+          variant: 'link',
+        },
+      },
+      {
+        title: '📧 E-posta',
+        description: 'Doğrudan e-posta ile bizimle iletişime geçin: bilgi@radio.org.tr',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'E-posta Gönder',
+          href: 'mailto:bilgi@radio.org.tr',
+          variant: 'link',
+        },
+      },
+    ]}
+  />
+</Layout>

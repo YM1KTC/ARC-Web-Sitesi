@@ -2,7 +2,9 @@ import { config, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'github',
+    repo: 'YM1KTC/ARC-Web-Sitesi',
+    branch: 'main',
   },
   collections: {
     post: collection({

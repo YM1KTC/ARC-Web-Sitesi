@@ -20,6 +20,8 @@ import react from '@astrojs/react';
 import markdoc from '@astrojs/markdoc';
 import keystatic from '@keystatic/astro';
 
+import netlify from '@astrojs/netlify';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = true;
@@ -27,7 +29,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  output: 'static',
+  output: 'server',
 
   integrations: [tailwind({
     applyBaseStyles: false,
@@ -63,7 +65,7 @@ export default defineConfig({
     Logger: 1,
   }), astrowind({
     config: './src/config.yaml',
-  }), react(), markdoc(), ...(process.env.SKIP_KEYSTATIC ? [] : [keystatic()])],
+  }), react(), markdoc(), keystatic()],
 
   i18n: {
     defaultLocale: 'tr',
@@ -86,4 +88,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: netlify(),
 });

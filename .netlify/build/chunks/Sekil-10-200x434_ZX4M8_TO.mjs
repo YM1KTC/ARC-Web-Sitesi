@@ -1,0 +1,14 @@
+const Sekil10200x434 = new Proxy({"src":"/_astro/Sekil-10-200x434.BgOuz0XZ.jpeg","width":200,"height":434,"format":"jpg"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/bugracanata/Developer/[Telsiz]/ARC-Web-Sitesi/src/assets/images/2025/04/Sekil-10-200x434.jpeg";
+							}
+							
+							return target[name];
+						}
+					});
+
+export { Sekil10200x434 as default };
