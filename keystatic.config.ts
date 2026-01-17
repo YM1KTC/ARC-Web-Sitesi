@@ -69,7 +69,7 @@ export default config({
         'Medya': ['image'],
         'Sınıflandırma': ['categories', 'tags', 'layout'],
         'Özet': ['excerpt'],
-        'İçerik': ['body', 'relatedPosts'],
+        'İçerik': ['body'],
       },
       schema: {
         title: fields.slug({
@@ -130,12 +130,6 @@ export default config({
           label: 'Kısa Özet',
           description: 'Blog listesinde gösterilecek özet (isteğe bağlı)',
           multiline: true,
-        }),
-        relatedPosts: fields.relationship({
-          label: 'İlgili Yazılar',
-          description: 'Bu yazıyla ilgili diğer blog yazıları',
-          collection: 'post',
-          validation: { length: { min: 0, max: 5 } },
         }),
         body: fields.markdoc({
           label: 'İçerik',

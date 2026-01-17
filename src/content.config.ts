@@ -14,7 +14,6 @@ const post = defineCollection({
     layout: z.string().default('post'),
     image: z.string().optional(),
     excerpt: z.string().optional(),
-    relatedPosts: z.array(z.string()).optional(),
   }),
 });
 
