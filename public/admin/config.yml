@@ -21,7 +21,7 @@ site_url: https://radio.org.tr
 display_url: https://radio.org.tr
 
 # Logo for admin login page
-logo_url: https://radio.org.tr/_astro/ARC_2024_bayrak_logo-Large-1-1024x1024.png
+logo_url: https://radio.org.tr/images/ARC_2024_bayrak_logo-Large-1-1024x1024.png
 
 collections:
   - name: 'post'
