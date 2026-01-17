@@ -10,7 +10,7 @@ export default config({
     post: collection({
       label: 'Blog Yazıları',
       slugField: 'title',
-      path: 'src/data/post/*.md',
+      path: 'src/data/post/*',
       format: {
         contentField: 'body',
         frontmatter: 'yaml',
