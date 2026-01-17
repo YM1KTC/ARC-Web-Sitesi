@@ -24,11 +24,9 @@ export default config({
         frontmatter: 'yaml',
       },
       schema: {
-        title: fields.slug({
-          name: {
-            label: 'Başlık',
-            description: 'Blog yazısının başlığı (URL\'de kullanılır)',
-          },
+        title: fields.text({
+          label: 'Başlık',
+          description: 'Blog yazısının başlığı (URL\'de kullanılır)',
         }),
         date: fields.datetime({
           label: 'Yayın Tarihi',
