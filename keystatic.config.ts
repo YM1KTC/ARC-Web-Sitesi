@@ -6,6 +6,14 @@ export default config({
     repo: 'YM1KTC/ARC-Web-Sitesi',
     branch: 'main',
   },
+  ui: {
+    brand: {
+      name: 'ARC CMS',
+    },
+    navigation: {
+      'İçerik': ['post'],
+    },
+  },
   collections: {
     post: collection({
       label: 'Blog Yazıları',
@@ -15,54 +23,60 @@ export default config({
         contentField: 'body',
         frontmatter: 'yaml',
       },
+      columns: ['title', 'date', 'author'],
       schema: {
         title: fields.slug({
           name: {
             label: 'Başlık',
-            description: 'Blog yazısının başlığı',
+            description: 'Blog yazısının başlığı (URL\'de kullanılır)',
           },
         }),
         date: fields.datetime({
           label: 'Yayın Tarihi',
-          description: 'Yazının yayınlanma tarihi',
+          description: 'Yazının yayınlanma tarihi ve saati',
         }),
         author: fields.text({
           label: 'Yazar',
-          description: 'Çağrı işareti veya yazar adı',
+          description: 'Çağrı işareti (örn: TA1SPH) veya yazar adı',
           default: 'TA1SPH',
         }),
         categories: fields.array(
           fields.text({
             label: 'Kategori',
+            description: 'Kategori adı',
           })
         , {
           label: 'Kategoriler',
-          description: 'Blog yazısının kategorileri',
+          description: 'Blog yazısını kategorize etmek için (örn: "Teknik", "Haberler")',
+          itemLabel: 'Kategori',
         }),
         tags: fields.array(
           fields.text({
             label: 'Etiket',
+            description: 'Etiket anahtar kelimesi',
           })
         , {
           label: 'Etiketler',
-          description: 'Blog yazısının etiketleri',
+          description: 'Arama ve filtreleme için etiketler (örn: "dmr", "antren")',
+          itemLabel: 'Etiket',
         }),
         layout: fields.text({
-          label: 'Düzen',
+          label: 'Sayfa Düzeni',
+          description: 'Kullanılacak sayfa layout\'u',
           default: 'post',
         }),
         image: fields.image({
           label: 'Öne Çıkan Görsel',
-          description: 'Blog yazısı için kapak görseli',
+          description: 'Blog yazısının kapak görseli (varsayılan: /images/logbook.png)',
         }),
         excerpt: fields.text({
-          label: 'Özet',
-          description: 'Blog yazısının kısa özeti',
+          label: 'Kısa Özet',
+          description: 'Blog listesinde gösterilecek özet (isteğe bağlı)',
           multiline: true,
         }),
         body: fields.markdoc({
           label: 'İçerik',
-          description: 'Blog yazısının ana içeriği',
+          description: 'Blog yazısının ana içeriği (Markdown formatında yazın)',
         }),
       },
     }),
