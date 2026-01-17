@@ -9,8 +9,6 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/build/entry.mjs"
-  status = 200
-  force = true
+# NOTE: When using output: 'server' with Netlify adapter,
+# routing is handled automatically by the adapter.
+# No manual redirect rules needed for SSR functionality.
