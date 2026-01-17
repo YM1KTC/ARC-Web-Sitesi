@@ -23,6 +23,7 @@ export default config({
         contentField: 'body',
         frontmatter: 'yaml',
       },
+      columns: ['title', 'date', 'author'],
       schema: {
         title: fields.text({
           label: 'Başlık',
