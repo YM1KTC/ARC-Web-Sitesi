@@ -17,6 +17,9 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehype
 
 import react from '@astrojs/react';
 
+import markdoc from '@astrojs/markdoc';
+import keystatic from '@keystatic/astro';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = true;
@@ -60,7 +63,7 @@ export default defineConfig({
     Logger: 1,
   }), astrowind({
     config: './src/config.yaml',
-  }), react()],
+  }), react(), markdoc(), ...(process.env.SKIP_KEYSTATIC ? [] : [keystatic()])],
 
   i18n: {
     defaultLocale: 'tr',
