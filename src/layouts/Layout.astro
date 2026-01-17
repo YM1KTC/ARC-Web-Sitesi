@@ -11,6 +11,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import OrganizationSchema from '~/components/structured-data/OrganizationSchema.astro';
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
@@ -35,6 +36,7 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <OrganizationSchema />
 
     <!-- Netlify Identity for Decap CMS -->
     <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

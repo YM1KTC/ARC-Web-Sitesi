@@ -8,6 +8,10 @@ backend:
 
 local_backend: true
 
+# Identity widget for external OAuth providers (Google, GitHub, etc.)
+identity_widget:
+  enable: true
+
 media_folder: 'src/assets/images'
 public_folder: '/images'
 
@@ -15,6 +19,9 @@ locale: 'tr'
 
 site_url: https://radio.org.tr
 display_url: https://radio.org.tr
+
+# Logo for admin login page
+logo_url: https://radio.org.tr/_astro/ARC_2024_bayrak_logo-Large-1-1024x1024.png
 
 collections:
   - name: 'post'

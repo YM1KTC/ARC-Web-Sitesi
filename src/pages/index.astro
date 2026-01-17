@@ -9,11 +9,35 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FaqSchema from '~/components/structured-data/FaqSchema.astro';
 
 const metadata = {
   title: 'Amatör Radyocular Derneği (ARC) - YM1KTC',
   ignoreTitleTemplate: true,
 };
+
+const faqData = [
+  {
+    question: 'Eğitim programlarına kimler katılabilir?',
+    answer: 'Eğitim programlarımıza amatör telsiz lisansı olan veya lisans almaya hazırlanan herkesi davet ediyoruz.'
+  },
+  {
+    question: 'Hangi frekans bantlarında faaliyet gösteriyorsunuz?',
+    answer: 'Derneğimiz VHF, UHF ve HF bantlarında faaliyet göstermektedir. Özellikle VHF/UHF röle sistemleri konusunda aktif çalışmalar yürütüyoruz.'
+  },
+  {
+    question: 'Eğitim programlarınıza nasıl katılabilirim?',
+    answer: 'Eğitim programları hakkında bilgi almak için web sitemizi takip edebilir veya bizimle iletişime geçebilirsiniz. Düzenli olarak temel ve ileri seviye kurslar düzenlenmektedir.'
+  },
+  {
+    question: 'Teknik projelerde nasıl yer alabilirim?',
+    answer: 'Teknik projelerimizde yer almak için bizimle iletişime geçin. Eğitim programlarımıza katılarak projelerimizde aktif rol alabilirsiniz.'
+  },
+  {
+    question: 'Derneğin röle sistemleri nasıl kullanılır?',
+    answer: 'Röle sistemlerimizin kullanımı hakkında bilgi almak için teknik dokümantasyonumuzu inceleyebilir veya eğitim etkinliklerimize katılabilirsiniz.'
+  }
+];
 ---
 
 <Layout metadata={metadata}>
@@ -29,7 +53,7 @@ const metadata = {
       },
       {
         text: 'Telegram',
-        href: 'https://t.me/telsizdernegi',
+        href: 'https://t.me/ym1ktc',
         icon: 'tabler:brand-telegram',
         target: '_blank',
       },
@@ -262,4 +286,6 @@ const metadata = {
       Bizimle iletişime geçin ve amatör radyo yolculuğunuza başlayın! 73 de YM1KTC
     </Fragment>
   </CallToAction>
+
+  <FaqSchema faqs={faqData} />
 </Layout>

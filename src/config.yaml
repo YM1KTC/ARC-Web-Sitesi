@@ -21,7 +21,19 @@ metadata:
       - url: '~/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png'
         width: 1024
         height: 1024
+        alt: 'Amatör Radyocular Derneği Logo'
     type: website
+  keywords:
+    - amatör radyo
+    - amatör telsiz
+    - telsizcilik
+    - amatör radyocular derneği
+    - ARC
+    - YM1KTC
+    - amatör telsiz eğitimi
+  author:
+    name: 'Amatör Radyocular Derneği (ARC)'
+    email: 'bilgi@radio.org.tr'
   twitter:
     handle: '@YM1KTC'
     site: '@YM1KTC'

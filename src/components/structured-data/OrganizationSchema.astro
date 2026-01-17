@@ -1,0 +1,26 @@
+---
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Amatör Radyocular Derneği (ARC)',
+  url: 'https://www.radio.org.tr',
+  logo: 'https://www.radio.org.tr/_astro/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
+  description: 'İstanbul merkezli kâr amacı gütmeyen bu dernek, amatör telsizciliği yaygınlaştırmak, eğitim vermek ve röle-beacon altyapıları işletmek amacıyla kurulmuştur.',
+  contactPoint: {
+    telephone: '+90-510-220-5024',
+    contactType: 'customer service'
+  },
+  sameAs: [
+    'https://t.me/ym1ktc',
+    'https://twitter.com/YM1KTC',
+    'https://facebook.com/ym1ktc',
+    'https://www.youtube.com/@YM1KTC',
+    'https://www.instagram.com/ym1ktc',
+    'https://www.linkedin.com/company/arctr/'
+  ]
+};
+---
+
+<script define:vars={{ schema }} type="application/ld+json">
+  {JSON.stringify(schema, null, 2)}
+</script>
