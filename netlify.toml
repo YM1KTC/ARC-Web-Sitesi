@@ -8,3 +8,9 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/build/entry.mjs"
+  status = 200
+  force = true
