@@ -11,7 +11,10 @@ export default config({
       label: 'Blog Yazıları',
       slugField: 'title',
       path: 'src/data/post/*',
-      format: { contentField: 'body' },
+      format: {
+        contentField: 'body',
+        frontmatter: 'yaml',
+      },
       schema: {
         title: fields.slug({
           name: {
@@ -51,10 +54,6 @@ export default config({
         image: fields.image({
           label: 'Öne Çıkan Görsel',
           description: 'Blog yazısı için kapak görseli',
-        }),
-        publishDate: fields.datetime({
-          label: 'Yayınlanma Tarihi',
-          description: 'Content collection için yayın tarihi',
         }),
         excerpt: fields.text({
           label: 'Özet',
