@@ -28,7 +28,7 @@ export const headerData = {
       target: '_blank',
     },
     {
-      text: 'DMR Editor',
+      text: 'DMR İndir',
       href: 'https://dmr.radio.org.tr/',
       target: '_blank',
     },
@@ -51,7 +51,7 @@ export const footerData = {
         { text: 'Kategoriler', href: getPermalink('/kategoriler') },
         { text: 'Etiketler', href: getPermalink('/etiketler') },
         { text: 'Sınav Hazırlık', href: 'https://sinav.radio.org.tr/', target: '_blank' },
-        { text: 'DMR Editor', href: 'https://dmr.radio.org.tr/', target: '_blank' },
+        { text: 'DMR İndir', href: 'https://dmr.radio.org.tr/', target: '_blank' },
         { text: 'İletişim', href: getPermalink('/iletisim') },
       ],
     },
