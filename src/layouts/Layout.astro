@@ -38,9 +38,6 @@ const { language, textDirection } = I18N;
     <Analytics />
     <OrganizationSchema />
 
-    <!-- Netlify Identity for Decap CMS -->
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
@@ -49,30 +46,5 @@ const { language, textDirection } = I18N;
     <slot />
 
     <BasicScripts />
-
-    <!-- Netlify Identity initialization -->
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', (user) => {
-          // Check if we're on a page that needs authentication handling
-          const currentPath = window.location.pathname;
-          const hasAuthTokens = window.location.hash.includes('confirmation_token') || 
-                               window.location.hash.includes('recovery_token') || 
-                               window.location.hash.includes('invite_token');
-          
-          // If we have auth tokens and we're not on the auth page, redirect to auth page
-          if (hasAuthTokens && currentPath !== '/auth') {
-            window.location.href = '/auth' + window.location.hash;
-            return;
-          }
-          
-          if (!user) {
-            window.netlifyIdentity?.on('login', () => {
-              document.location.href = '/admin/';
-            });
-          }
-        });
-      }
-    </script>
   </body>
 </html>
