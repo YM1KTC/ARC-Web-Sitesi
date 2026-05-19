@@ -223,15 +223,30 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
     return [];
   }
 
+  // Check if this is a Directus image - if so, skip Astro optimization
+  // Directus has its own built-in image optimization
+  if (typeof image === 'string' && image.includes('directus.radio.org.tr/assets/')) {
+    return [];
+  }
+
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const result = await getImage({ src: image, width: w, inferSize: true, ...(format ? { format: format } : {}) });
+      try {
+        const result = await getImage({ src: image, width: w, inferSize: true, ...(format ? { format: format } : {}) });
 
-      return {
-        src: result?.src,
-        width: result?.attributes?.width ?? w,
-        height: result?.attributes?.height,
-      };
+        return {
+          src: result?.src,
+          width: result?.attributes?.width ?? w,
+          height: result?.attributes?.height,
+        };
+      } catch (error) {
+        // If image probing fails, return the original URL
+        return {
+          src: String(image),
+          width: w,
+          height: undefined,
+        };
+      }
     })
   );
 };

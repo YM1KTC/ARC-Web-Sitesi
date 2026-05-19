@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -18,9 +19,10 @@ import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehype
 import react from '@astrojs/react';
 
 import markdoc from '@astrojs/markdoc';
-import keystatic from '@keystatic/astro';
 
 import netlify from '@astrojs/netlify';
+
+import sanity from '@sanity/astro';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -65,7 +67,12 @@ export default defineConfig({
     Logger: 1,
   }), astrowind({
     config: './src/config.yaml',
-  }), react(), markdoc(), keystatic()],
+  }), sanity({
+    projectId: process.env.PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.PUBLIC_SANITY_DATASET ?? 'production',
+    useCdn: true,
+    studioBasePath: '/admin',
+  }), react(), markdoc()],
 
   i18n: {
     defaultLocale: 'tr',
@@ -73,7 +80,19 @@ export default defineConfig({
   },
 
   image: {
-    domains: ['cdn.pixabay.com'],
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
 
   markdown: {

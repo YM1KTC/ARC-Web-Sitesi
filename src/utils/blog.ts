@@ -1,9 +1,14 @@
 import type { PaginateFunction } from 'astro';
-import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
+import {
+  getPosts as getSanityPosts,
+  getPostBySlug as getSanityPostBySlug,
+  portableTextToHtml,
+  imageUrlFromRef,
+  type SanityPost,
+} from '~/lib/sanity';
 
 const generatePermalink = async ({
   id,
@@ -40,84 +45,46 @@ const generatePermalink = async ({
     .join('/');
 };
 
-const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
-  const { id, data } = post;
-  const { Content, remarkPluginFrontmatter } = await render(post);
+const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> => {
+  const publishDate = new Date(sanityPost.date);
+  const slug = sanityPost.slug?.current ?? '';
 
-  const {
-    date: rawPublishDate = new Date(),
-    publishDate: rawPublishDateAlt,
-    updateDate: rawUpdateDate,
-    title,
-    excerpt,
-    image,
-    tags: rawTags = [],
-    category: rawCategory,
-    categories: rawCategories = [],
-    author,
-    draft = false,
-    metadata = {},
-  } = data;
-
-  const slug = cleanSlug(id); // cleanSlug(rawSlug.split('/').pop());
-  const publishDate = new Date(rawPublishDate);
-  const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
-
-  // Handle both category (singular) and categories (plural array) formats
-  const categoryTitle = rawCategory || (rawCategories.length > 0 ? rawCategories[0] : undefined);
+  const categoryTitle = sanityPost.categories?.[0];
   const category = categoryTitle
-    ? {
-        slug: cleanSlug(categoryTitle),
-        title: categoryTitle,
-      }
+    ? { slug: cleanSlug(categoryTitle), title: categoryTitle }
     : undefined;
 
-  const tags = rawTags.map((tag: string) => ({
+  const tags = (sanityPost.tags || []).map((tag) => ({
     slug: cleanSlug(tag),
     title: tag,
   }));
 
   return {
-    id: id,
-    slug: slug,
-    permalink: await generatePermalink({ id, slug, publishDate, category: category?.slug }),
+    id: sanityPost._id,
+    slug,
+    permalink: await generatePermalink({ id: sanityPost._id, slug, publishDate, category: category?.slug }),
 
-    publishDate: publishDate,
-    updateDate: updateDate,
+    publishDate,
+    updateDate: undefined,
 
-    title: title,
-    excerpt: excerpt,
-    image: image,
+    title: sanityPost.title,
+    excerpt: sanityPost.excerpt,
+    image: imageUrlFromRef(sanityPost.image),
 
-    category: category,
-    tags: tags,
-    author: author,
+    category,
+    tags,
+    author: sanityPost.author,
 
-    draft: draft,
+    draft: sanityPost.status === 'draft',
 
-    metadata,
+    metadata: {},
 
-    Content: Content,
-    // or 'content' in case you consume from API
-
-    readingTime: remarkPluginFrontmatter?.readingTime,
+    Content: undefined,
+    content: portableTextToHtml(sanityPost.body),
+    readingTime: undefined,
   };
 };
 
-const load = async function (): Promise<Array<Post>> {
-  const posts = await getCollection('post');
-  const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
-
-  const results = (await Promise.all(normalizedPosts))
-    .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
-    .filter((post) => !post.draft);
-
-  return results;
-};
-
-let _posts: Array<Post>;
-
-/** */
 export const isBlogEnabled = APP_BLOG.isEnabled;
 export const isRelatedPostsEnabled = APP_BLOG.isRelatedPostsEnabled;
 export const isBlogListRouteEnabled = APP_BLOG.list.isEnabled;
@@ -132,52 +99,50 @@ export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 
-/** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
-  if (!_posts) {
-    _posts = await load();
+  try {
+    const sanityPosts = await getSanityPosts();
+    return Promise.all(sanityPosts.map(convertSanityPostToPost));
+  } catch (error) {
+    console.error('Error fetching posts from Sanity:', error);
+    return [];
   }
-
-  return _posts;
 };
 
-/** */
+export const fetchPostBySlug = async (slug: string): Promise<Post | undefined> => {
+  try {
+    const sanityPost = await getSanityPostBySlug(slug);
+    return sanityPost ? await convertSanityPostToPost(sanityPost) : undefined;
+  } catch (error) {
+    console.error('Error fetching post from Sanity:', error);
+    return undefined;
+  }
+};
+
 export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(slugs)) return [];
-
   const posts = await fetchPosts();
-
-  return slugs.reduce(function (r: Array<Post>, slug: string) {
-    posts.some(function (post: Post) {
-      return slug === post.slug && r.push(post);
-    });
+  return slugs.reduce((r: Array<Post>, slug: string) => {
+    posts.some((post: Post) => slug === post.slug && r.push(post));
     return r;
   }, []);
 };
 
-/** */
 export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
   if (!Array.isArray(ids)) return [];
-
   const posts = await fetchPosts();
-
-  return ids.reduce(function (r: Array<Post>, id: string) {
-    posts.some(function (post: Post) {
-      return id === post.id && r.push(post);
-    });
+  return ids.reduce((r: Array<Post>, id: string) => {
+    posts.some((post: Post) => id === post.id && r.push(post));
     return r;
   }, []);
 };
 
-/** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
   const _count = count || 4;
   const posts = await fetchPosts();
-
   return posts ? posts.slice(0, _count) : [];
 };
 
-/** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
@@ -186,18 +151,14 @@ export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateF
   });
 };
 
-/** */
 export const getStaticPathsBlogPost = async () => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   return (await fetchPosts()).flatMap((post) => ({
-    params: {
-      blog: post.permalink,
-    },
+    params: { blog: post.permalink },
     props: { post },
   }));
 };
 
-/** */
 export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
@@ -221,7 +182,6 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
   );
 };
 
-/** */
 export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
@@ -247,7 +207,6 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
   );
 };
 
-/** */
 export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
   const allPosts = await fetchPosts();
   const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);

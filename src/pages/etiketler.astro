@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import { fetchPosts } from '~/utils/blog';
 import { TAG_BASE } from '~/utils/permalinks';
 
-export const prerender = true;
+// No prerender - let it be server-rendered on demand
 
 const posts = await fetchPosts();
 
