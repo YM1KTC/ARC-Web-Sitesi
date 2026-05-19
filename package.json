@@ -54,7 +54,6 @@
     "react-dom": "^19.2.3",
     "react-is": "^19.2.6",
     "sanity": "^5.25.1",
-    "sanity-plugin-tags": "^2.1.1",
     "styled-components": "^6.4.1",
     "undici": "^7.18.2",
     "unpic": "^4.1.2"

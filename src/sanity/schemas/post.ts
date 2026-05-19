@@ -235,18 +235,9 @@ export const post = defineType({
       type: 'array',
       group: 'taxonomy',
       description:
-        'Yazmaya başlayın — önceden kullanılan etiketler önerilecek. Tekrarı önlemek için varolan etiketleri tercih edin.',
-      of: [{ type: 'tag' }],
-      options: {
-        predefinedTags: async (client: { fetch: <T = unknown>(q: string) => Promise<T> }) => {
-          const allTags = await client.fetch<unknown[]>(
-            `array::unique(*[_type == "post"].tags[])`
-          );
-          return (allTags ?? [])
-            .filter((t): t is string => typeof t === 'string' && t.length > 0)
-            .map((t) => ({ label: t, value: t }));
-        },
-      } as Record<string, unknown>,
+        'Yazıyı tanımlayan kısa anahtar kelimeler. Tekrarı önlemek için varolan yazılardaki etiketleri tutarlı yazın (örn: "amatör anten projeleri", "röle kullanımı").',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
     }),
   ],
   orderings: [

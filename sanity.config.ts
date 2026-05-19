@@ -2,7 +2,6 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
-import { tags } from 'sanity-plugin-tags';
 import { schemaTypes } from './src/sanity/schemas';
 
 export default defineConfig({
@@ -38,7 +37,6 @@ export default defineConfig({
           ]),
     }),
     codeInput(),
-    tags(),
     visionTool(),
   ],
   schema: { types: schemaTypes },
