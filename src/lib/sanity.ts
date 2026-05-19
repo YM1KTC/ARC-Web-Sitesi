@@ -66,13 +66,59 @@ export const getPostBySlug = async (slug: string): Promise<SanityPost | null> =>
   );
 };
 
+const escapeHtml = (s: string): string =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+const youtubeIdFromUrl = (url: string): string | null => {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'youtu.be') return u.pathname.slice(1) || null;
+    if (u.hostname.includes('youtube.com')) {
+      if (u.pathname === '/watch') return u.searchParams.get('v');
+      const m = u.pathname.match(/^\/(embed|shorts)\/([^/]+)/);
+      if (m) return m[2];
+    }
+  } catch {
+    return null;
+  }
+  return null;
+};
+
+const renderImage = (
+  value: { asset?: unknown; alt?: string; caption?: string; alignment?: string } | undefined
+): string => {
+  if (!value?.asset) return '';
+  const url = urlForImage(value).width(1200).fit('max').auto('format').url();
+  const alt = escapeHtml(value.alt ?? '');
+  const caption = value.caption ? escapeHtml(value.caption) : '';
+  const alignment = value.alignment ?? 'full';
+  const img = `<img src="${url}" alt="${alt}" loading="lazy" />`;
+  if (!caption && alignment === 'full') return img;
+  return `<figure class="align-${alignment}">${img}${
+    caption ? `<figcaption>${caption}</figcaption>` : ''
+  }</figure>`;
+};
+
 const portableTextComponents: Partial<PortableTextHtmlComponents> = {
   types: {
-    image: ({ value }) => {
-      if (!value?.asset) return '';
-      const url = urlForImage(value).width(1200).fit('max').auto('format').url();
-      const alt = value?.alt ?? '';
-      return `<img src="${url}" alt="${alt}" loading="lazy" />`;
+    image: ({ value }) => renderImage(value),
+    inlineImage: ({ value }) => renderImage(value),
+    youtube: ({ value }) => {
+      const id = youtubeIdFromUrl(value?.url ?? '');
+      if (!id) return '';
+      const src = `https://www.youtube-nocookie.com/embed/${id}`;
+      return `<div class="aspect-video"><iframe src="${src}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" frameborder="0" style="width:100%;height:100%"></iframe></div>`;
+    },
+    code: ({ value }) => {
+      const code = escapeHtml(value?.code ?? '');
+      const lang = value?.language ?? 'text';
+      return `<pre><code class="language-${lang}">${code}</code></pre>`;
     },
   },
   marks: {

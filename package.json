@@ -34,6 +34,7 @@
     "@sanity/astro": "^3.4.0",
     "@sanity/block-tools": "^3.70.0",
     "@sanity/client": "^7.22.0",
+    "@sanity/code-input": "^7.1.1",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.25.1",
     "@types/markdown-it": "^14.1.2",
@@ -53,6 +54,7 @@
     "react-dom": "^19.2.3",
     "react-is": "^19.2.6",
     "sanity": "^5.25.1",
+    "sanity-plugin-tags": "^2.1.1",
     "styled-components": "^6.4.1",
     "undici": "^7.18.2",
     "unpic": "^4.1.2"
