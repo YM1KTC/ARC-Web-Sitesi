@@ -21,11 +21,11 @@
     "fix:prettier": "prettier -w ."
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.15.10",
-    "@astrojs/netlify": "^6.6.4",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.3.0",
+    "@astrojs/markdoc": "^1.0.5",
+    "@astrojs/netlify": "^7.0.10",
+    "@astrojs/react": "^5.0.5",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.2.5",
@@ -34,7 +34,7 @@
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "ajv": "^8.17.1",
-    "astro": "^5.7.3",
+    "astro": "^6.3.7",
     "astro-embed": "^0.9.0",
     "astro-icon": "^1.1.5",
     "limax": "4.1.0",
@@ -44,10 +44,10 @@
     "unpic": "^4.1.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.4",
-    "@astrojs/partytown": "^2.1.4",
-    "@astrojs/tailwind": "^5.1.5",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/tailwind": "^6.0.2",
     "@eslint/js": "^9.24.0",
     "@iconify-json/flat-color-icons": "^1.2.1",
     "@iconify-json/tabler": "^1.2.17",
@@ -67,11 +67,18 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "reading-time": "^1.5.0",
-    "sharp": "0.34.1",
+    "sharp": "^0.34.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
     "unist-util-visit": "^5.0.0"
-  }
+  },
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.1.113:3001/suphicakir/ARC-Web-Sitesi.git"
+  },
+  "author": "",
+  "license": "ISC"
 }
