@@ -8,7 +8,7 @@ RUN npm install
 FROM base AS build
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm install --legacy-peer-deps
 
 FROM nginx:stable-alpine AS deploy
 COPY --from=build /app/dist /usr/share/nginx/html
