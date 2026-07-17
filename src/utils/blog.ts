@@ -1,14 +1,9 @@
 import type { PaginateFunction } from 'astro';
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
-import {
-  getPosts as getSanityPosts,
-  getPostBySlug as getSanityPostBySlug,
-  portableTextToHtml,
-  imageUrlFromRef,
-  type SanityPost,
-} from '~/lib/sanity';
 
 const generatePermalink = async ({
   id,
@@ -45,43 +40,64 @@ const generatePermalink = async ({
     .join('/');
 };
 
-const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> => {
-  const publishDate = new Date(sanityPost.date);
-  const slug = sanityPost.slug?.current ?? '';
+const getNormalizedPost = async (post: CollectionEntry<'blogs'>): Promise<Post> => {
+  const { id, data } = post;
+  const { Content, remarkPluginFrontmatter } = await render(post);
 
-  const categoryTitle = sanityPost.categories?.[0];
-  const category = categoryTitle
-    ? { slug: cleanSlug(categoryTitle), title: categoryTitle }
+  const {
+    publishDate: rawPublishDate = new Date(),
+    updateDate: rawUpdateDate,
+    title,
+    slug: rawSlug,
+    excerpt,
+    image,
+    tags: rawTags = [],
+    category: rawCategoryField,
+    categories: rawCategories,
+    author,
+    draft = false,
+    metadata = {},
+  } = data;
+
+  const slug = cleanSlug(rawSlug || id);
+  const publishDate = new Date(rawPublishDate);
+  const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
+
+  const rawCategory = rawCategoryField || rawCategories?.[0];
+  const category = rawCategory
+    ? {
+        slug: cleanSlug(rawCategory),
+        title: rawCategory,
+      }
     : undefined;
 
-  const tags = (sanityPost.tags || []).map((tag) => ({
+  const tags = rawTags.map((tag: string) => ({
     slug: cleanSlug(tag),
     title: tag,
   }));
 
   return {
-    id: sanityPost._id,
+    id,
     slug,
-    permalink: await generatePermalink({ id: sanityPost._id, slug, publishDate, category: category?.slug }),
+    permalink: await generatePermalink({ id, slug, publishDate, category: category?.slug }),
 
     publishDate,
-    updateDate: undefined,
+    updateDate,
 
-    title: sanityPost.title,
-    excerpt: sanityPost.excerpt,
-    image: imageUrlFromRef(sanityPost.image),
+    title,
+    excerpt,
+    image,
 
     category,
     tags,
-    author: sanityPost.author,
+    author,
 
-    draft: sanityPost.status === 'draft',
+    draft,
 
-    metadata: {},
+    metadata,
 
-    Content: undefined,
-    content: portableTextToHtml(sanityPost.body),
-    readingTime: undefined,
+    Content,
+    readingTime: remarkPluginFrontmatter?.readingTime,
   };
 };
 
@@ -99,24 +115,28 @@ export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 
+let _posts: Array<Post>;
+
+const load = async (): Promise<Array<Post>> => {
+  const posts = await getCollection('blogs');
+  const normalizedPosts = posts.map((post) => getNormalizedPost(post));
+
+  return (await Promise.all(normalizedPosts))
+    .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
+    .filter((post) => !post.draft);
+};
+
 export const fetchPosts = async (): Promise<Array<Post>> => {
-  try {
-    const sanityPosts = await getSanityPosts();
-    return Promise.all(sanityPosts.map(convertSanityPostToPost));
-  } catch (error) {
-    console.error('Error fetching posts from Sanity:', error);
-    return [];
+  if (!_posts) {
+    _posts = await load();
   }
+
+  return _posts;
 };
 
 export const fetchPostBySlug = async (slug: string): Promise<Post | undefined> => {
-  try {
-    const sanityPost = await getSanityPostBySlug(slug);
-    return sanityPost ? await convertSanityPostToPost(sanityPost) : undefined;
-  } catch (error) {
-    console.error('Error fetching post from Sanity:', error);
-    return undefined;
-  }
+  const posts = await fetchPosts();
+  return posts.find((post) => post.slug === slug);
 };
 
 export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {

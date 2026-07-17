@@ -22,8 +22,6 @@ import markdoc from '@astrojs/markdoc';
 
 import netlify from '@astrojs/netlify';
 
-import sanity from '@sanity/astro';
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = true;
@@ -67,11 +65,6 @@ export default defineConfig({
     Logger: 1,
   }), astrowind({
     config: './src/config.yaml',
-  }), sanity({
-    projectId: process.env.PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.PUBLIC_SANITY_DATASET ?? 'production',
-    useCdn: true,
-    studioBasePath: '/admin',
   }), react(), markdoc()],
 
   i18n: {
@@ -87,10 +80,6 @@ export default defineConfig({
       {
         protocol: 'https',
         hostname: 'cdn.pixabay.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
       },
     ],
   },
