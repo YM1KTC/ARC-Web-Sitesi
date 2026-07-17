@@ -1,7 +1,13 @@
 [build]
   publish = "dist"
   command = "npm run build"
-  ignore = "git log -1 --pretty=format:'%ae' | grep -v 'bcanata@hotmail.com'"
+  # Build kuralı:
+  # 1) Sanity webhook (build hook) tetiklemeli build'leri ATLA — arka plandaki her
+  #    içerik/taslak değişikliği tam build tetiklemesin. (INCOMING_HOOK_TITLE, hook
+  #    tetiklemeli build'lerde set edilir.)
+  # 2) Git push'larda ise yalnızca bcanata@hotmail.com yazarlı commit'lerde build al.
+  # İçeriği canlıya almak için: bcanata ile git push, veya Netlify'da "Trigger deploy".
+  ignore = "if [ -n \"$INCOMING_HOOK_TITLE\" ]; then exit 0; fi; git log -1 --pretty=format:'%ae' | grep -v 'bcanata@hotmail.com'"
 [build.processing.html]
   pretty_urls = false
 [[headers]]
