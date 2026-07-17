@@ -18,7 +18,7 @@ export default config({
     post: collection({
       label: 'Blog Yazıları',
       slugField: 'title',
-      path: 'src/data/post/*',
+      path: 'src/content/post/*',
       format: {
         contentField: 'body',
         frontmatter: 'yaml',
@@ -45,6 +45,8 @@ export default config({
         }),
         image: fields.image({
           label: 'Öne Çıkan Görsel',
+          directory: 'public/images/blogs',
+          publicPath: '/images/blogs/',
         }),
         excerpt: fields.text({
           label: 'Kısa Özet',
@@ -52,6 +54,7 @@ export default config({
         }),
         body: fields.markdoc({
           label: 'İçerik',
+          extension: 'md',
         }),
       },
     }),
