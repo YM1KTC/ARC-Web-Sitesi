@@ -223,12 +223,6 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
     return [];
   }
 
-  // Check if this is a Directus image - if so, skip Astro optimization
-  // Directus has its own built-in image optimization
-  if (typeof image === 'string' && image.includes('directus.radio.org.tr/assets/')) {
-    return [];
-  }
-
   return Promise.all(
     breakpoints.map(async (w: number) => {
       try {

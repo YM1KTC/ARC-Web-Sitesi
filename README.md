@@ -1,6 +1,6 @@
 # 📡 Amatör Radyocular Derneği (ARC)
 
-<img src="/public/images/2024/12/ARC_2024_bayrak_logo-Large-150x150.png" align="right" alt="ARC Logo" width="150">
+<img src="/src/assets/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png" align="right" alt="ARC Logo" width="150">
 
 **Amatör Radyocular Derneği (ARC)** resmi web sitesi, amatör telsiz topluluğumuz için **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)** kullanılarak geliştirilmiştir. Bu platform, amatör telsiz meraklıları için kaynaklar, etkinlik bilgileri ve iletişim araçları sunan bir merkez görevi görmektedir.
 
@@ -15,8 +15,6 @@
 - 📊 **SEO Optimizasyonu** - Hızlı yükleme süreleri ve arama motoru dostu yapı
 
 <br>
-
-![ARC Website Screenshot](https://radio.org.tr/images/2024/12/ARC_2024_bayrak_logo-Large-1-1024x1024.png)
 
 > 📸 Website ekran görüntüsü yakında güncellenecek
 

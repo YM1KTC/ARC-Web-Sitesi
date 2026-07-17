@@ -6,7 +6,6 @@ import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
@@ -17,8 +16,6 @@ import astrowind from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 import react from '@astrojs/react';
-
-import markdoc from '@astrojs/markdoc';
 
 import netlify from '@astrojs/netlify';
 
@@ -35,7 +32,7 @@ export default defineConfig({
 
   integrations: [tailwind({
     applyBaseStyles: false,
-  }), sitemap(), mdx(), icon({
+  }), sitemap(), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': [
@@ -72,7 +69,7 @@ export default defineConfig({
     dataset: process.env.PUBLIC_SANITY_DATASET ?? 'production',
     useCdn: true,
     studioBasePath: '/admin',
-  }), react(), markdoc()],
+  }), react()],
 
   i18n: {
     defaultLocale: 'tr',

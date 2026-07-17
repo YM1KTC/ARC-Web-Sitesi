@@ -42,14 +42,6 @@ export interface Post {
 
   /**  */
   readingTime?: number;
-
-  /** Image gallery from Directus Posts Files junction */
-  gallery?: Array<{
-    id: string;
-    url: string;
-    filename: string;
-    type: string;
-  }>;
 }
 
 export interface Taxonomy {
@@ -150,26 +142,6 @@ export interface Item {
   href?: string;
 }
 
-export interface Price {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  price?: number | string;
-  period?: string;
-  items?: Array<Item>;
-  callToAction?: CallToAction;
-  hasRibbon?: boolean;
-  ribbonTitle?: string;
-}
-
-export interface Testimonial {
-  title?: string;
-  testimonial?: string;
-  name?: string;
-  job?: string;
-  image?: string | unknown;
-}
-
 export interface Input {
   type: HTMLInputTypeAttribute;
   name: string;
@@ -234,20 +206,6 @@ export interface Team extends Omit<Headline, 'classes'>, Widget {
 
 export interface Stats extends Omit<Headline, 'classes'>, Widget {
   stats?: Array<Stat>;
-}
-
-export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
-}
-
-export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
-  testimonials?: Array<Testimonial>;
-  callToAction?: CallToAction;
-}
-
-export interface Brands extends Omit<Headline, 'classes'>, Widget {
-  icons?: Array<string>;
-  images?: Array<Image>;
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {

@@ -78,18 +78,6 @@ export const adaptOpenGraphImages = async (
 
         let _image: { src: string; width?: number; height?: number } | undefined;
 
-        // For Directus images, use them directly without optimization
-        if (
-          typeof resolvedImage === 'string' &&
-          resolvedImage.includes('directus.radio.org.tr/assets/')
-        ) {
-          return {
-            url: resolvedImage,
-            width: image.width || defaultWidth,
-            height: image.height || defaultHeight,
-          };
-        }
-
         if (
           typeof resolvedImage === 'string' &&
           (resolvedImage.startsWith('http://') || resolvedImage.startsWith('https://')) &&

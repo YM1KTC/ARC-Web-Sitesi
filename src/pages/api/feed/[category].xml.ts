@@ -1,74 +1,43 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getRssString } from '@astrojs/rss';
+import type { APIRoute } from 'astro';
 
-// Helper to slugify Turkish categories
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/ş/g, 's')
-    .replace(/ı/g, 'i')
-    .replace(/ğ/g, 'g')
-    .replace(/ü/g, 'u')
-    .replace(/ö/g, 'o')
-    .replace(/ç/g, 'c')
-    .replace(/[^a-z0-9]+/g, '-');
-}
+import { SITE, APP_BLOG } from 'astrowind:config';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('post');
+export const GET: APIRoute = async ({ params }) => {
+  if (!APP_BLOG.isEnabled || !APP_BLOG.category.isEnabled) {
+    return new Response(null, { status: 404, statusText: 'Not found' });
+  }
 
-  // Extract all unique categories and create slugified paths
-  const categoryMap = new Map<string, string>();
-  posts.forEach(post => {
-    if (post.data.categories) {
-      post.data.categories.forEach(cat => {
-        if (!categoryMap.has(cat)) {
-          categoryMap.set(cat, slugify(cat));
-        }
-      });
-    }
-    if (post.data.category) {
-      if (!categoryMap.has(post.data.category)) {
-        categoryMap.set(post.data.category, slugify(post.data.category));
-      }
-    }
-  });
+  const categorySlug = params.category;
+  const posts = await fetchPosts();
+  const categoryPosts = posts.filter((post) => post.category?.slug === categorySlug);
 
-  // Return paths with both original category name and slug
-  return Array.from(categoryMap.entries()).map(([category, slug]) => ({
-    params: { category: slug },
-    props: { originalCategory: category },
-  }));
-}
+  if (categoryPosts.length === 0) {
+    return new Response(null, { status: 404, statusText: 'Not found' });
+  }
 
-export async function GET(context) {
-  const posts = await getCollection('post');
+  const categoryTitle = categoryPosts[0].category?.title ?? categorySlug;
 
-  // Get the original category name from props
-  const originalCategory = context.props.originalCategory as string;
+  const rss = await getRssString({
+    title: `${SITE.name} - ${categoryTitle}`,
+    description: `${categoryTitle} kategorisindeki blog yazıları`,
+    site: import.meta.env.SITE,
 
-  // Filter posts by category
-  const filteredPosts = posts
-    .filter(post =>
-      post.data.categories?.includes(originalCategory) || post.data.category === originalCategory
-    )
-    .filter(post => post.data.publishDate) // Only include posts with publishDate
-    .sort((a, b) => {
-      const aDate = a.data.publishDate || new Date(0);
-      const bDate = b.data.publishDate || new Date(0);
-      return bDate.valueOf() - aDate.valueOf();
-    })
-    .slice(0, 20); // Limit to 20 most recent posts
-
-  return rss({
-    title: `ARC - ${originalCategory} Blog Yazıları`,
-    description: `Amatör Radyocular Derneği - ${originalCategory} kategorisindeki blog yazıları`,
-    site: context.site?.toString() || 'https://radio.org.tr',
-    items: filteredPosts.map(post => ({
-      title: post.data.title,
-      pubDate: post.data.publishDate!,
-      description: post.data.excerpt || '',
-      link: `/blog/${post.slug}/`,
+    items: categoryPosts.map((post) => ({
+      link: getPermalink(post.permalink, 'post'),
+      title: post.title,
+      description: post.excerpt,
+      pubDate: post.publishDate,
     })),
+
+    trailingSlash: SITE.trailingSlash,
   });
-}
+
+  return new Response(rss, {
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  });
+};

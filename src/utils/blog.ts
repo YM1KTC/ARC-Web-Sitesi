@@ -45,6 +45,22 @@ const generatePermalink = async ({
     .join('/');
 };
 
+// Sanity posts have no excerpt field populated, so derive a plain-text summary
+// from the rendered body for use in RSS descriptions and SEO meta tags.
+const stripToExcerpt = (html: string, maxLength = 160): string => {
+  const text = html
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (text.length <= maxLength) return text;
+  return text.slice(0, text.lastIndexOf(' ', maxLength)).trim() + '…';
+};
+
 const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> => {
   const publishDate = new Date(sanityPost.date);
   const slug = sanityPost.slug?.current ?? '';
@@ -59,6 +75,9 @@ const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> =>
     title: tag,
   }));
 
+  const content = portableTextToHtml(sanityPost.body);
+  const excerpt = sanityPost.excerpt || stripToExcerpt(content) || undefined;
+
   return {
     id: sanityPost._id,
     slug,
@@ -68,7 +87,7 @@ const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> =>
     updateDate: undefined,
 
     title: sanityPost.title,
-    excerpt: sanityPost.excerpt,
+    excerpt,
     image: imageUrlFromRef(sanityPost.image),
 
     category,
@@ -80,7 +99,7 @@ const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> =>
     metadata: {},
 
     Content: undefined,
-    content: portableTextToHtml(sanityPost.body),
+    content,
     readingTime: undefined,
   };
 };
