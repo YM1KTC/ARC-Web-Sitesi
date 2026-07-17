@@ -30,6 +30,14 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'server',
 
+  redirects: {
+    // Digi Voice yazısının eski (mükerrer taslak) slug'ı kanonik adrese yönlensin.
+    '/digi-voice-nedir-telsizsiz-dmr-baglantisi-icin-android-kurulum-rehberi': {
+      status: 301,
+      destination: '/digi-voice-app',
+    },
+  },
+
   integrations: [tailwind({
     applyBaseStyles: false,
   }), sitemap(), icon({

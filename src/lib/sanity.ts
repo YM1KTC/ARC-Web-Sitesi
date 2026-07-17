@@ -15,6 +15,10 @@ export const sanityClient = createClient({
   apiVersion: '2024-01-01',
   useCdn: !token,
   token,
+  // Canlı site YALNIZCA Sanity'de yayınlanmış belgeleri görsün. Aksi halde (varsayılan
+  // 'raw' perspektifi) status alanı "published" olan bir TASLAK da siteye sızar —
+  // Studio'da yayınlanmamış içeriğin canlıda görünmesine yol açardı.
+  perspective: 'published',
 });
 
 // Studio'nun Sunum (Presentation) aracı için: taslakları anlık gösterir ve
