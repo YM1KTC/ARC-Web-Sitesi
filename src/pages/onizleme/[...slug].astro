@@ -1,0 +1,47 @@
+---
+import { stegaClean } from '@sanity/client/stega';
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import { VisualEditing } from '@sanity/astro/visual-editing';
+import { fetchPostBySlugPreview } from '~/utils/blog';
+import { getLatestPostSlugPreview } from '~/lib/sanity';
+
+// Studio'nun Sunum (Presentation) aracına özel taslak önizleme rotası.
+// Çerez /api/preview'da secret doğrulandıktan sonra yazılır — URL'yi bilen
+// rastgele biri taslakları göremez.
+
+const isPreview = Astro.cookies.get('__sanity_preview')?.value === 'true';
+if (!isPreview) {
+  return new Response('Önizleme etkin değil. Studio üzerinden Sunum aracını kullanın.', { status: 401 });
+}
+
+const slug = Astro.params.slug;
+
+// Slug'sız girişte en son düzenlenen yazıya yönlendir.
+if (!slug) {
+  const latest = await getLatestPostSlugPreview();
+  if (latest) return Astro.redirect(`/onizleme/${latest}`);
+  return new Response('Önizlenecek yazı bulunamadı.', { status: 404 });
+}
+
+const post = await fetchPostBySlugPreview(slug);
+if (!post) {
+  return new Response('Yazı bulunamadı.', { status: 404 });
+}
+
+const metadata = {
+  // stegaClean: başlığa gömülen görünmez düzenleme meta verisini <title>'dan arındır.
+  title: `Önizleme: ${stegaClean(post.title)}`,
+  robots: { index: false, follow: false },
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="bg-amber-100 dark:bg-amber-900/40 border-b border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 text-center text-sm py-2 px-4">
+    👁️ Önizleme modu — taslak içerik gösteriliyor. Yayınlamadan siteye yansımaz.
+  </div>
+  <SinglePost post={{ ...post, image: post.image }} url={Astro.url}>
+    <Fragment set:html={post.content || ''} />
+  </SinglePost>
+  <VisualEditing enabled={true} />
+</Layout>

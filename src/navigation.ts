@@ -22,6 +22,11 @@ export const headerData = {
       text: 'Etiketler',
       href: getPermalink('/etiketler'),
     },
+    // Şimdilik pasif — ilk etkinlik girildiğinde açın. Sayfa /etkinlikler adresinde hazır.
+    // {
+    //   text: 'Etkinlikler',
+    //   href: getPermalink('/etkinlikler'),
+    // },
     {
       text: 'Sınav Hazırlık',
       href: 'https://sinav.radio.org.tr/',
@@ -50,6 +55,8 @@ export const footerData = {
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Kategoriler', href: getPermalink('/kategoriler') },
         { text: 'Etiketler', href: getPermalink('/etiketler') },
+        // { text: 'Etkinlikler', href: getPermalink('/etkinlikler') }, // Şimdilik pasif
+
         { text: 'Sınav Hazırlık', href: 'https://sinav.radio.org.tr/', target: '_blank' },
         { text: 'DMR İndir', href: 'https://dmr.radio.org.tr/', target: '_blank' },
         { text: 'İletişim', href: getPermalink('/iletisim') },

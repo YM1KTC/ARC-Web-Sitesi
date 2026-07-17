@@ -18,6 +18,4 @@ const schema = {
 };
 ---
 
-<script define:vars={{ schema }} type="application/ld+json">
-  {JSON.stringify(schema, null, 2)}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

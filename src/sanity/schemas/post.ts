@@ -1,4 +1,6 @@
+import { createElement } from 'react';
 import { defineField, defineType } from 'sanity';
+import { H2Preview, H3Preview, H4Preview, QuotePreview, NormalPreview } from '../components/blockPreviews';
 
 const CATEGORY_OPTIONS = [
   'Temel Amatör Telsiz Bilgisi',
@@ -62,11 +64,17 @@ export const post = defineType({
       group: 'content',
       rows: 3,
       description:
-        'Listeleme sayfalarında ve arama sonuçlarında görünür. 50–160 karakter ideal.',
-      validation: (Rule) =>
-        Rule.min(50)
-          .max(160)
-          .warning('50–160 karakter arası tutmaya çalışın.'),
+        'Listeleme sayfalarında, arama motoru sonuçlarında ve RSS akışında görünür. 50–160 karakter ideal.',
+      validation: (Rule) => [
+        Rule.custom((value, context) => {
+          const doc = context.document as { status?: string } | undefined;
+          if (doc?.status === 'published' && !value) {
+            return 'Yayınlanan yazılar için özet gereklidir.';
+          }
+          return true;
+        }),
+        Rule.min(50).max(160).warning('50–160 karakter arası tutmaya çalışın.'),
+      ],
     }),
     defineField({
       name: 'body',
@@ -77,11 +85,11 @@ export const post = defineType({
         {
           type: 'block',
           styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'Başlık 2', value: 'h2' },
-            { title: 'Başlık 3', value: 'h3' },
-            { title: 'Başlık 4', value: 'h4' },
-            { title: 'Alıntı', value: 'blockquote' },
+            { title: 'Normal', value: 'normal', component: NormalPreview },
+            { title: 'Başlık 2', value: 'h2', component: H2Preview },
+            { title: 'Başlık 3', value: 'h3', component: H3Preview },
+            { title: 'Başlık 4', value: 'h4', component: H4Preview },
+            { title: 'Alıntı', value: 'blockquote', component: QuotePreview },
           ],
           lists: [
             { title: 'Madde Listesi', value: 'bullet' },
@@ -153,7 +161,16 @@ export const post = defineType({
           preview: {
             select: { title: 'url' },
             prepare({ title }) {
-              return { title: title || 'YouTube Videosu', subtitle: '▶︎' };
+              // Editörde video küçük resmi göster — URL'den video kimliğini çıkar.
+              const match = (title || '').match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([\w-]{11})/);
+              const media = match
+                ? createElement('img', {
+                    src: `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`,
+                    alt: 'Video önizlemesi',
+                    style: { objectFit: 'cover', width: '100%', height: '100%' },
+                  })
+                : undefined;
+              return { title: 'YouTube Videosu', subtitle: title || '', media };
             },
           },
         },

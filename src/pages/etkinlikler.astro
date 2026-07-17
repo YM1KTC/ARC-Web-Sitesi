@@ -1,0 +1,126 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getEvents, type SanityEvent } from '~/lib/sanity';
+
+// No prerender - server-rendered so Studio edits appear instantly
+
+const EVENT_TYPE_LABELS: Record<SanityEvent['eventType'], string> = {
+  net: '📻 Çevrim',
+  meeting: '🤝 Toplantı',
+  training: '🎓 Eğitim',
+  exam: '📝 Sınav',
+  contest: '🏆 Yarışma',
+  other: '📅 Etkinlik',
+};
+
+let events: SanityEvent[] = [];
+try {
+  events = await getEvents();
+} catch (error) {
+  console.error('Error fetching events from Sanity:', error);
+}
+
+const recurring = events.filter((e) => e.isRecurring);
+const upcoming = events.filter((e) => !e.isRecurring);
+
+const formatDate = (iso?: string) =>
+  iso
+    ? new Date(iso).toLocaleString('tr-TR', {
+        dateStyle: 'full',
+        timeStyle: 'short',
+        timeZone: 'Europe/Istanbul',
+      })
+    : '';
+
+const metadata = {
+  title: '📅 Etkinlikler',
+  description:
+    'Amatör Radyocular Derneği etkinlik takvimi - haftalık çevrimler, toplantılar, eğitimler ve sınavlar.',
+  robots: {
+    // Şimdilik navigasyonda pasif; etkinlikler girilip menü açıldığında index: true yapın.
+    index: false,
+    follow: true,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <div class="mb-8 md:mb-16 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+        📅 Etkinlikler
+      </h1>
+      <p class="text-muted text-lg">📡 Çevrimler, toplantılar, eğitimler ve daha fazlası - 73!</p>
+    </div>
+
+    {
+      recurring.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 font-heading">🔁 Düzenli Etkinlikler</h2>
+          <div class="grid gap-6">
+            {recurring.map((event) => (
+              <div class="p-6 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="text-xs font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-400">
+                    {EVENT_TYPE_LABELS[event.eventType] ?? '📅 Etkinlik'}
+                  </span>
+                  <span class="text-sm font-medium text-gray-600 dark:text-gray-300">{event.recurrenceNote}</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{event.title}</h3>
+                {event.description && <p class="text-muted text-sm mb-3 whitespace-pre-line">{event.description}</p>}
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+                  {event.frequency && <span>📶 {event.frequency}</span>}
+                  {event.location && <span>📍 {event.location}</span>}
+                  {event.link && (
+                    <a href={event.link} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+                      🔗 Detaylar
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      upcoming.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 font-heading">🗓️ Yaklaşan Etkinlikler</h2>
+          <div class="grid gap-6">
+            {upcoming.map((event) => (
+              <div class="p-6 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="text-xs font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-400">
+                    {EVENT_TYPE_LABELS[event.eventType] ?? '📅 Etkinlik'}
+                  </span>
+                  <span class="text-sm font-medium text-gray-600 dark:text-gray-300">{formatDate(event.date)}</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{event.title}</h3>
+                {event.description && <p class="text-muted text-sm mb-3 whitespace-pre-line">{event.description}</p>}
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+                  {event.frequency && <span>📶 {event.frequency}</span>}
+                  {event.location && <span>📍 {event.location}</span>}
+                  {event.link && (
+                    <a href={event.link} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+                      🔗 Detaylar
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      events.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-muted text-lg">📻 Şu anda planlanmış etkinlik bulunmamaktadır. Takipte kalın! QRX!</p>
+        </div>
+      )
+    }
+  </section>
+</Layout>

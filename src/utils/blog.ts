@@ -5,6 +5,7 @@ import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE,
 import {
   getPosts as getSanityPosts,
   getPostBySlug as getSanityPostBySlug,
+  getPostBySlugPreview as getSanityPostBySlugPreview,
   portableTextToHtml,
   imageUrlFromRef,
   type SanityPost,
@@ -134,6 +135,17 @@ export const fetchPostBySlug = async (slug: string): Promise<Post | undefined> =
     return sanityPost ? await convertSanityPostToPost(sanityPost) : undefined;
   } catch (error) {
     console.error('Error fetching post from Sanity:', error);
+    return undefined;
+  }
+};
+
+/** Studio Sunum aracının /onizleme rotası için: taslak sürümü, stega meta verisiyle. */
+export const fetchPostBySlugPreview = async (slug: string): Promise<Post | undefined> => {
+  try {
+    const sanityPost = await getSanityPostBySlugPreview(slug);
+    return sanityPost ? await convertSanityPostToPost(sanityPost) : undefined;
+  } catch (error) {
+    console.error('Error fetching preview post from Sanity:', error);
     return undefined;
   }
 };

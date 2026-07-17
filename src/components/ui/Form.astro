@@ -5,7 +5,8 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'İletişim', description = '' } = Astro.props;
 ---
 
-<form method="POST" data-netlify="true" name="contact-form" action="/iletisim?success=true" netlify-honeypot="bot-field">
+<form method="POST" name="contact-form" action="/iletisim?success=true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contact-form" />
   <!-- Hidden honeypot field for spam protection -->
   <div style="display: none;">
     <label>
@@ -13,7 +14,7 @@ const { inputs, textarea, disclaimer, button = 'İletişim', description = '' } 
       <input name="bot-field" />
     </label>
   </div>
-  
+
   {
     inputs &&
       inputs.map(
@@ -31,6 +32,7 @@ const { inputs, textarea, disclaimer, button = 'İletişim', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                required={name === 'name' || name === 'email'}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>
@@ -49,6 +51,7 @@ const { inputs, textarea, disclaimer, button = 'İletişim', description = '' } 
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
+          required
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
       </div>
@@ -93,3 +96,25 @@ const { inputs, textarea, disclaimer, button = 'İletişim', description = '' } 
     )
   }
 </form>
+
+<script>
+  // The /iletisim page is server-rendered, so Netlify Forms can't intercept a
+  // plain POST to it. Submit via fetch to the static /__forms.html definition
+  // instead, then reuse the page's ?success / ?error message UI.
+  const form = document.querySelector<HTMLFormElement>('form[name="contact-form"]');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (button) button.disabled = true;
+    try {
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+      });
+      window.location.href = response.ok ? '/iletisim?success=true' : '/iletisim?error=true';
+    } catch {
+      window.location.href = '/iletisim?error=true';
+    }
+  });
+</script>

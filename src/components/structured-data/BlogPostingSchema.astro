@@ -1,0 +1,43 @@
+---
+import type { Post } from '~/types';
+
+export interface Props {
+  post: Post;
+  url: string | URL;
+  image?: string;
+}
+
+const { post, url, image } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': String(url),
+  },
+  headline: post.title,
+  ...(post.excerpt ? { description: post.excerpt } : {}),
+  ...(image ? { image } : {}),
+  datePublished: post.publishDate?.toISOString(),
+  ...(post.updateDate ? { dateModified: post.updateDate.toISOString() } : {}),
+  author: {
+    '@type': 'Person',
+    name: post.author || 'Amatör Radyocular Derneği (ARC)',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Amatör Radyocular Derneği (ARC)',
+    url: 'https://www.radio.org.tr',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.radio.org.tr/_astro/ARC_2024_bayrak_logo-Large-1-1024x1024.png',
+    },
+  },
+  inLanguage: 'tr',
+  ...(post.category?.title ? { articleSection: post.category.title } : {}),
+  ...(post.tags?.length ? { keywords: post.tags.map((tag) => tag.title).join(', ') } : {}),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

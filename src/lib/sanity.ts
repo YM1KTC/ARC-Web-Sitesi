@@ -17,6 +17,29 @@ export const sanityClient = createClient({
   token,
 });
 
+// Studio'nun Sunum (Presentation) aracı için: taslakları anlık gösterir ve
+// metinlere tıkla-düzenle (stega) meta verisi gömer. Sadece /onizleme rotası kullanır.
+export const previewClient = createClient({
+  projectId,
+  dataset,
+  apiVersion: '2024-01-01',
+  useCdn: false,
+  token,
+  perspective: 'drafts',
+  stega: {
+    enabled: true,
+    studioUrl: '/admin',
+    filter: (props) => {
+      // Link/slug üretiminde kullanılan alanlara görünmez stega karakteri gömme —
+      // aksi halde önizlemedeki bağlantılar bozulur.
+      const path = props.sourcePath;
+      const skip = ['slug', 'date', 'status', 'author', 'categories', 'tags', 'url', 'href', 'alignment', 'language'];
+      if (path.some((seg) => typeof seg === 'string' && skip.includes(seg))) return false;
+      return props.filterDefault(props);
+    },
+  },
+});
+
 const builder = imageUrlBuilder(sanityClient);
 export const urlForImage = (source: unknown) => builder.image(source as never);
 
@@ -63,6 +86,39 @@ export const getPostBySlug = async (slug: string): Promise<SanityPost | null> =>
   return sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug && status == "published"][0] ${postProjection}`,
     { slug }
+  );
+};
+
+// Önizleme: status filtresi yok (taslak durumundaki yazılar da görülebilmeli).
+export const getPostBySlugPreview = async (slug: string): Promise<SanityPost | null> => {
+  return previewClient.fetch(`*[_type == "post" && slug.current == $slug][0] ${postProjection}`, { slug });
+};
+
+export const getLatestPostSlugPreview = async (): Promise<string | null> => {
+  return previewClient.fetch(`*[_type == "post"] | order(_updatedAt desc)[0].slug.current`);
+};
+
+export type SanityEvent = {
+  _id: string;
+  title: string;
+  eventType: 'net' | 'meeting' | 'training' | 'exam' | 'contest' | 'other';
+  isRecurring?: boolean;
+  recurrenceNote?: string;
+  date?: string;
+  location?: string;
+  frequency?: string;
+  description?: string;
+  link?: string;
+};
+
+export const getEvents = async (): Promise<SanityEvent[]> => {
+  // Exclude Studio drafts (the authenticated client would otherwise return them).
+  // Recurring events always show; one-off events only until they're a day past.
+  return sanityClient.fetch(
+    `*[_type == "event" && !(_id in path("drafts.**")) && (isRecurring == true || dateTime(date) > dateTime(now()) - 60*60*24)]
+      | order(coalesce(isRecurring, false) desc, date asc) {
+      _id, title, eventType, isRecurring, recurrenceNote, date, location, frequency, description, link
+    }`
   );
 };
 

@@ -1,0 +1,20 @@
+<!--
+  Static form definition for Netlify Forms build-time detection.
+  The live form on /iletisim is server-rendered, so Netlify's scanner
+  can't see it there — this file registers the form and receives the
+  AJAX POST. Field names must stay in sync with src/components/ui/Form.astro.
+-->
+<html>
+  <head><title>contact-form</title></head>
+  <body>
+    <form name="contact-form" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact-form" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="callsign" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="disclaimer" />
+    </form>
+  </body>
+</html>

@@ -12,6 +12,7 @@ import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
+import BlogPostingSchema from '~/components/structured-data/BlogPostingSchema.astro';
 
 export const prerender = true;
 
@@ -46,6 +47,7 @@ const metadata = merge(
 ---
 
 <Layout metadata={metadata}>
+  <BlogPostingSchema post={post} url={url} image={typeof image === 'string' ? image : image?.src} />
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
