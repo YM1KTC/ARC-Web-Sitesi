@@ -8,6 +8,9 @@
   # 2) Git push'larda ise yalnızca bcanata@hotmail.com yazarlı commit'lerde build al.
   # İçeriği canlıya almak için: bcanata ile git push, veya Netlify'da "Trigger deploy".
   ignore = "if [ -n \"$INCOMING_HOOK_TITLE\" ]; then exit 0; fi; git log -1 --pretty=format:'%ae' | grep -v 'bcanata@hotmail.com'"
+[build.environment]
+  # Astro 7 en az Node 22.23.4 ister; Netlify'da Node 24 (LTS) kullan.
+  NODE_VERSION = "24"
 [build.processing.html]
   pretty_urls = false
 [[headers]]

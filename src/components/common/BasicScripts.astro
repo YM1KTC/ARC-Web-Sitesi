@@ -3,6 +3,9 @@ import { UI } from 'astrowind:config';
 ---
 
 <script is:inline define:vars={{ defaultTheme: UI.theme }}>
+  // Astro 7'nin Rust derleyicisi betik gövdesinde üst düzey `return`'e izin vermiyor;
+  // erken çıkış için gövde açıkça bir fonksiyona sarıldı.
+  (function () {
   if (window.basic_script) {
     return;
   }
@@ -159,6 +162,7 @@ import { UI } from 'astrowind:config';
     onLoad();
     onPageShow();
   });
+  })();
 </script>
 
 <script is:inline>

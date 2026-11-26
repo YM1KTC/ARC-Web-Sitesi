@@ -13,10 +13,12 @@ const {
   ...rest
 } = Astro.props;
 
+// btn-tertiary zaten `btn`'i @apply ile içeriyor; Tailwind v4'te ayrıca `btn` sınıfı
+// eklenirse `.btn` kuralları sonra geldiği için tertiary renklerini eziyordu.
 const variants = {
   primary: 'btn-primary',
   secondary: 'btn-secondary',
-  tertiary: 'btn btn-tertiary',
+  tertiary: 'btn-tertiary',
   link: 'cursor-pointer hover:text-primary',
 };
 ---

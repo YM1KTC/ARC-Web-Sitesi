@@ -21,6 +21,8 @@ import netlify from '@astrojs/netlify';
 
 import sanity from '@sanity/astro';
 
+import { unified } from '@astrojs/markdown-remark';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = true;
@@ -29,6 +31,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'server',
+
+  // Astro 7'de varsayılan 'jsx' oldu (satır içi öğeler arasındaki boşluğu siler);
+  // mevcut HTML çıktısını korumak için eski davranış.
+  compressHTML: true,
 
   redirects: {
     // Digi Voice yazısının eski (mükerrer taslak) slug'ı kanonik adrese yönlensin.
@@ -108,8 +114,11 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    // Astro 7'nin varsayılan işlemcisi Sätteri; remark/rehype eklentileri için unified'da kal.
+    processor: unified({
+      remarkPlugins: [readingTimeRemarkPlugin],
+      rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    }),
   },
 
   vite: {

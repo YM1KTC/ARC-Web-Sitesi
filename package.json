@@ -1,10 +1,10 @@
 {
   "name": "arc-astro",
   "version": "1.0.0-beta.52",
-  "description": "AstroWind: A free template using Astro 5.0 and Tailwind CSS. Astro starter theme.",
+  "description": "ARC (Amatör Radyocular Derneği) web sitesi — Astro 7 + Sanity + Netlify.",
   "type": "module",
   "engines": {
-    "node": "^18.17.1 || ^20.3.0 || >= 21.0.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
     "dev": "astro dev",
@@ -21,23 +21,24 @@
     "fix:prettier": "prettier -w ."
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.6.4",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.3.0",
+    "@astrojs/markdown-remark": "^7.3.10",
+    "@astrojs/netlify": "^8.2.14",
+    "@astrojs/react": "^7.1.9",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.6",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.2.5",
     "@portabletext/to-html": "^5.0.2",
-    "@sanity/astro": "^3.4.0",
-    "@sanity/client": "^7.22.0",
+    "@sanity/astro": "^4.1.1",
+    "@sanity/client": "^8.17.0",
     "@sanity/code-input": "^7.1.1",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.25.1",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.7.3",
-    "astro-icon": "^1.1.5",
+    "astro": "^7.4.13",
+    "astro-icon": "^1.2.0",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "react": "^19.2.3",
@@ -48,8 +49,8 @@
     "unpic": "^4.1.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/partytown": "^2.1.9",
     "@eslint/js": "^9.24.0",
     "@iconify-json/flat-color-icons": "^1.2.1",
     "@iconify-json/tabler": "^1.2.17",
@@ -59,7 +60,7 @@
     "@types/lodash.merge": "^4.6.9",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
     "@typescript-eslint/parser": "^8.30.1",
-    "astro-compress": "2.3.8",
+    "astro-compress": "^2.4.3",
     "astro-eslint-parser": "^1.2.2",
     "dotenv": "^17.4.2",
     "eslint": "^9.24.0",
@@ -70,11 +71,27 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "reading-time": "^1.5.0",
-    "sharp": "0.34.1",
+    "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.1",
     "tailwindcss": "^4.3.5",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
     "unist-util-visit": "^5.0.0"
+  },
+  "overrides": {
+    "@astrolib/seo": {
+      "astro": "$astro"
+    },
+    "@astrolib/analytics": {
+      "astro": "$astro"
+    },
+    "adm-zip": "^0.6.1",
+    "@vercel/frameworks": {
+      "js-yaml": "^3.15.2"
+    },
+    "astro-compress": {
+      "sharp": "$sharp",
+      "svgo": "^4.1.0"
+    }
   }
 }
