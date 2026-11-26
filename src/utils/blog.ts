@@ -90,6 +90,7 @@ const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> =>
     title: sanityPost.title,
     excerpt,
     image: imageUrlFromRef(sanityPost.image),
+    imageAlt: sanityPost.image?.alt || undefined,
 
     category,
     tags,

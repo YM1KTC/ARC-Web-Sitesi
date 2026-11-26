@@ -22,6 +22,8 @@ export interface Post {
   excerpt?: string;
   /**  */
   image?: ImageMetadata | string;
+  /** Kapak görselinin alternatif metni (Sanity image.alt). */
+  imageAlt?: string;
 
   /**  */
   category?: Taxonomy;
