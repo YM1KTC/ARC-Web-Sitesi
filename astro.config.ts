@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
@@ -44,9 +44,7 @@ export default defineConfig({
     '/locater-locater-grid-map': { status: 301, destination: '/qth-locator-maidenhead-grid-square' },
   },
 
-  integrations: [tailwind({
-    applyBaseStyles: false,
-  }), sitemap({
+  integrations: [sitemap({
     // noindex etiket sayfaları, boş etkinlik sayfası ve önizleme/API rotaları sitemap'e girmesin.
     filter: (page) => !/\/(etiket|onizleme|api)\/|\/etkinlikler\/?$/.test(page),
   }), icon({
@@ -115,6 +113,8 @@ export default defineConfig({
   },
 
   vite: {
+    // Tailwind v4: @astrojs/tailwind entegrasyonu yerine resmî Vite eklentisi.
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
