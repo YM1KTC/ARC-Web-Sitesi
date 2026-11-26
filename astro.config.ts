@@ -36,11 +36,20 @@ export default defineConfig({
       status: 301,
       destination: '/digi-voice-app',
     },
+    // Kaldırılan demo sayfası (sabit, gerçek olmayan röle verisi gösteriyordu).
+    '/repeater-durumu': { status: 301, destination: '/' },
+    // Yazım hatalı eski slug'lar düzeltilmiş adreslere yönlensin.
+    '/arzimut-haritasi-anten-yonlendirme': { status: 301, destination: '/azimut-haritasi-anten-yonlendirme' },
+    '/dmr-dijital-mobisle-radio-nedir': { status: 301, destination: '/dmr-digital-mobile-radio-nedir' },
+    '/locater-locater-grid-map': { status: 301, destination: '/qth-locator-maidenhead-grid-square' },
   },
 
   integrations: [tailwind({
     applyBaseStyles: false,
-  }), sitemap(), icon({
+  }), sitemap({
+    // noindex etiket sayfaları, boş etkinlik sayfası ve önizleme/API rotaları sitemap'e girmesin.
+    filter: (page) => !/\/(etiket|onizleme|api)\/|\/etkinlikler\/?$/.test(page),
+  }), icon({
     include: {
       tabler: ['*'],
       'flat-color-icons': [

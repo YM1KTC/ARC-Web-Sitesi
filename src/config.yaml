@@ -1,6 +1,6 @@
 site:
   name: Amatör Radyocular Derneği (ARC)
-  site: 'https://www.radio.org.tr'
+  site: 'https://radio.org.tr'
   base: '/'
   trailingSlash: false
 
