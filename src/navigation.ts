@@ -65,10 +65,11 @@ export const footerData = {
     {
       title: 'Hizmetler',
       links: [
-        { text: 'Eğitim Programları', href: getPermalink('/iletisim') },
-        { text: 'Lisans Sınavı Hazırlığı', href: getPermalink('/iletisim') },
-        { text: 'Teknik Destek', href: getPermalink('/iletisim') },
-        { text: 'Acil Haberleşme', href: getPermalink('/iletisim') },
+        // Her bağlantı gerçek bir sayfaya gitsin; hepsi /iletisim'e çıkıyordu.
+        { text: 'Eğitim Yazıları', href: getBlogPermalink() },
+        { text: 'Lisans Sınavı Hazırlığı', href: 'https://sinav.radio.org.tr/', target: '_blank' },
+        { text: 'DMR Kullanıcı Listesi', href: 'https://dmr.radio.org.tr/', target: '_blank' },
+        { text: 'Teknik Destek ve Acil Haberleşme', href: getPermalink('/iletisim') },
       ],
     },
     {
@@ -94,6 +95,6 @@ export const footerData = {
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    © 2024 Amatör Radyocular Derneği (ARC) - YM1KTC. Tüm hakları saklıdır.
+    © 2024–${new Date().getFullYear()} Amatör Radyocular Derneği (ARC) - YM1KTC. Tüm hakları saklıdır.
   `,
 };
