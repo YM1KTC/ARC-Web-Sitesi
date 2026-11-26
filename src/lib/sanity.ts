@@ -7,7 +7,9 @@ const projectId =
   import.meta.env.PUBLIC_SANITY_PROJECT_ID ?? process.env.PUBLIC_SANITY_PROJECT_ID;
 const dataset =
   import.meta.env.PUBLIC_SANITY_DATASET ?? process.env.PUBLIC_SANITY_DATASET ?? 'production';
-const token = import.meta.env.SANITY_API_TOKEN ?? process.env.SANITY_API_TOKEN;
+// Astro 6+ import.meta.env değerlerini derlemede koda gömer; gizli token paketin içine
+// yazılmasın diye yalnızca çalışma anında process.env'den okunur.
+const token = process.env.SANITY_API_TOKEN;
 
 export const sanityClient = createClient({
   projectId,
