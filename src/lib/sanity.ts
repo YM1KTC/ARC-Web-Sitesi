@@ -17,9 +17,8 @@ export const sanityClient = createClient({
   apiVersion: '2024-01-01',
   useCdn: !token,
   token,
-  // Canlı site YALNIZCA Sanity'de yayınlanmış belgeleri görsün. Aksi halde (varsayılan
-  // 'raw' perspektifi) status alanı "published" olan bir TASLAK da siteye sızar —
-  // Studio'da yayınlanmamış içeriğin canlıda görünmesine yol açardı.
+  // Canlı site YALNIZCA Sanity'de yayınlanmış belgeleri görsün. Taslak/yayın ayrımını
+  // tek başına bu perspektif yapar; Studio'da Publish edilmemiş içerik siteye sızmaz.
   perspective: 'published',
 });
 
@@ -65,7 +64,6 @@ export type SanityPost = {
   excerpt?: string;
   image?: SanityImageRef | null;
   body?: PortableTextBlock[];
-  status?: 'published' | 'draft';
 };
 
 const postProjection = `{
@@ -78,24 +76,23 @@ const postProjection = `{
   tags,
   excerpt,
   image,
-  body,
-  status
+  body
 }`;
 
 export const getPosts = async (): Promise<SanityPost[]> => {
   return sanityClient.fetch(
-    `*[_type == "post" && status == "published"] | order(date desc) ${postProjection}`
+    `*[_type == "post"] | order(date desc) ${postProjection}`
   );
 };
 
 export const getPostBySlug = async (slug: string): Promise<SanityPost | null> => {
   return sanityClient.fetch(
-    `*[_type == "post" && slug.current == $slug && status == "published"][0] ${postProjection}`,
+    `*[_type == "post" && slug.current == $slug][0] ${postProjection}`,
     { slug }
   );
 };
 
-// Önizleme: status filtresi yok (taslak durumundaki yazılar da görülebilmeli).
+// Önizleme: drafts perspektifi, yayınlanmamış taslakları da gösterir.
 export const getPostBySlugPreview = async (slug: string): Promise<SanityPost | null> => {
   return previewClient.fetch(`*[_type == "post" && slug.current == $slug][0] ${postProjection}`, { slug });
 };

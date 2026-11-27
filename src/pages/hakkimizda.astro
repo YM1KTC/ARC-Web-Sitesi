@@ -9,6 +9,9 @@ import Layout from '~/layouts/PageLayout.astro';
 const metadata = {
   title: '📻 Hakkımızda - ARC YM1KTC',
 };
+
+// Statik derlenir; içerik değişince Sanity webhook'u siteyi yeniden derler.
+export const prerender = true;
 ---
 
 <Layout metadata={metadata}>
@@ -25,7 +28,7 @@ const metadata = {
   >
     <Fragment slot="title">
       📻 Amatör radyo dünyasında <br />
-      <span class="text-accent dark:text-white"> Güçlü bir topluluk</span>
+      <span class="text-accent dark:text-white"> birlikte öğreniyoruz</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -38,27 +41,27 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="📈 Derneğimizle ilgili istatistikler - QSL"
+    title="📈 Kısaca ARC"
     stats={[
-      { title: 'Kuruluş Yılı', amount: '2024' },
-      { title: 'Aktif Üye', amount: '100+' },
-      { title: 'Eğitim Programı', amount: '25+' },
-      { title: 'Teknik Proje', amount: '10+' },
+      { title: 'Kuruluş', amount: '2024' },
+      { title: 'Çağrı İşareti', amount: 'YM1KTC' },
+      { title: 'DMR Konuşma Grubu (TG)', amount: '28690' },
+      { title: 'Merkez', amount: 'İstanbul' },
     ]}
   />
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="📡 Faaliyet Alanlarımız"
-    subtitle="Amatör radyo dünyasında geniş bir yelpazede hizmet sunan derneğimiz, üyelerimize kapsamlı destek sağlamaktadır."
+    title="📡 Amaçlarımız ve Çalışma Alanlarımız"
+    subtitle="Derneğimizin kuruluş amaçları ve bugün herkese açık olarak sunduğu kaynaklar."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: '📚 Eğitim ve Öğretim',
+        title: '📚 Eğitim',
         description:
-          'Amatör telsiz lisans sınavlarına hazırlık, teknik eğitim programları ve sürekli gelişim kursları düzenliyoruz.',
+          'Amatör telsizciliği öğrenmek isteyenler için ücretsiz eğitim yazıları yayımlıyor, lisans sınavına hazırlananlara sınav hazırlık uygulaması sunuyoruz.',
         icon: 'tabler:school',
         callToAction: {
           text: 'Sınav Hazırlık Sitesi',
@@ -67,14 +70,14 @@ const metadata = {
         },
       },
       {
-        title: '📡 Teknik Altyapı',
-        description: 'VHF/UHF röle sistemleri, beacon istasyonları ve teknik altyapı projeleri geliştirip işletiyoruz.',
+        title: '📡 Röle ve Beacon Altyapısı',
+        description: 'Amatör radyocuların haberleşmesini kolaylaştıracak röle ve beacon altyapıları kurup işletmek kuruluş amaçlarımız arasında.',
         icon: 'tabler:antenna',
       },
       {
-        title: '🚨 Acil Haberleşme',
+        title: '🚨 Acil Durum Haberleşmesi',
         description:
-          'Acil durumlarda güvenilir haberleşme sistemleri geliştirerek toplumsal sorumluluğumuzu yerine getiriyoruz.',
+          'Amatör telsizin acil durumlarda haberleşmeye katkısını yaygınlaştırmayı ve bu konuda bilinç oluşturmayı amaçlıyoruz.',
         icon: 'tabler:phone-call',
       },
     ]}
@@ -87,43 +90,28 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: '🔬 Araştırma ve Geliştirme',
-        description:
-          'Amatör radyo teknolojileri üzerine araştırma projeleri yürütüyor ve yenilikçi çözümler geliştiriyoruz.',
-        icon: 'tabler:microscope',
-      },
-      {
-        title: '🎉 Topluluk Etkinlikleri',
-        description:
-          'Yarışmalar, sergiler, seminerler ve sosyal etkinlikler düzenleyerek amatör radyocuları bir araya getiriyoruz.',
-        icon: 'tabler:users',
-      },
-      {
-        title: '🌍 Uluslararası İşbirliği',
-        description: "Dünya çapında amatör radyo kuruluşlarıyla işbirliği yaparak Türkiye'yi temsil ediyoruz.",
-        icon: 'tabler:world',
-      },
-      {
-        title: '👨‍👩‍👧‍👦 Genç Radyocular',
-        description:
-          'Gençlerin amatör radyo dünyasına katılımını teşvik eden özel programlar ve etkinlikler düzenliyoruz.',
-        icon: 'tabler:user-plus',
-      },
-      {
-        title: '⚙️ Teknik Danışmanlık',
-        description:
-          'Anten kurulumu, ekipman seçimi ve teknik konularda üyelerimize uzman danışmanlık hizmeti sunuyoruz.',
-        icon: 'tabler:tool',
-      },
-      {
         title: '📶 Dijital Modlar',
-        description: 'DMR, APRS, FT8 gibi dijital mod teknolojileri konusunda eğitim ve uygulama desteği sağlıyoruz.',
+        description: 'DMR, APRS ve diğer dijital modları anlatan yazılar hazırlıyor, DMR konuşma grubumuz TG 28690’da bir araya geliyoruz.',
         icon: 'tabler:device-laptop',
         callToAction: {
-          text: 'DMR İndir',
+          text: 'DMR Kullanıcı Listesi',
           href: 'https://dmr.radio.org.tr/',
           target: '_blank',
         },
+      },
+      {
+        title: '🔧 Teknik Projeler',
+        description:
+          'Üyelerimizin geliştirdiği uygulamalar, firmware ve araçlar gibi amatör radyo projelerini destekliyor ve tanıtıyoruz.',
+        icon: 'tabler:tool',
+        callToAction: { text: 'Blog', href: '/blog' },
+      },
+      {
+        title: '💬 Topluluk',
+        description:
+          'Telegram ve WhatsApp gruplarımızda yeni başlayanlarla deneyimli operatörleri bir araya getiriyoruz.',
+        icon: 'tabler:users',
+        callToAction: { text: 'İletişim', href: '/iletisim' },
       },
     ]}
   />
@@ -132,54 +120,22 @@ const metadata = {
 
   <Steps2
     title="✨ Değerlerimiz"
-    subtitle="Derneğimizin temel değerleri, tüm faaliyetlerimizin ve üyelerimizle ilişkilerimizin temelini oluşturmaktadır."
+    subtitle="Çalışmalarımızda bağlı kaldığımız ilkeler."
     items={[
       {
-        title: '🎯 Üye Odaklı Yaklaşım',
+        title: '🎯 Herkese açık bilgi',
         description:
-          'Üyelerimizin ihtiyaçlarını önceleyerek, onların gelişimini desteklemek ve amatör radyo yolculuklarında rehberlik etmek en önemli amacımızdır.',
+          'Hazırladığımız eğitim içeriklerini ve araçları ücretsiz ve üyelik şartı olmadan herkesle paylaşıyoruz.',
       },
       {
-        title: '📈 Sürekli Gelişim',
+        title: '📈 Sürekli gelişim',
         description:
-          'Teknolojideki gelişmeleri takip ederek, eğitim programlarımızı ve hizmetlerimizi sürekli güncelliyor ve geliştiriyoruz.',
+          'Teknolojideki gelişmeleri takip ediyor, içeriklerimizi ve araçlarımızı güncel tutmaya çalışıyoruz.',
       },
       {
-        title: '🌟 Etik Değerler',
+        title: '🌟 Amatör radyo etiği',
         description:
-          'Amatör radyo etiğini benimser, şeffaflık, dürüstlük ve toplumsal sorumluluk bilinciyle hareket ederiz.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="🏆 Başarılarımız"
-    subtitle="Kurulduğumuz günden bu yana elde ettiğimiz başarılar ve topluma katkılarımız."
-    isReversed={true}
-    callToAction={{
-      text: 'Daha fazla bilgi',
-      href: '/iletisim',
-    }}
-    items={[
-      {
-        title: '🇹🇷 Türkiye çapında erişim',
-        description:
-          'Röle sistemlerimiz ve eğitim programlarımız ile Türkiye genelinde amatör radyoculara hizmet veriyoruz.',
-        icon: 'tabler:map-pin',
-      },
-      {
-        title: '😊 Pozitif üye geri bildirimleri',
-        description:
-          'Üyelerimizden aldığımız olumlu geri bildirimler ve yüksek memnuniyet oranları bizi motive ediyor.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: '🏅 Sektörel tanınırlık',
-        description:
-          'Amatör radyo camiasında saygın bir konuma sahip olup, diğer kuruluşlar tarafından referans alınıyoruz.',
-        icon: 'tabler:award',
+          'Amatör radyo etiğini benimser; şeffaflık, dürüstlük ve toplumsal sorumluluk bilinciyle hareket ederiz.',
       },
     ]}
   />

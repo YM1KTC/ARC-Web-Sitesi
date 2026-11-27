@@ -96,7 +96,8 @@ const convertSanityPostToPost = async (sanityPost: SanityPost): Promise<Post> =>
     tags,
     author: sanityPost.author,
 
-    draft: sanityPost.status === 'draft',
+    // Siteye yalnızca Sanity'de yayınlanmış yazılar gelir (published perspektifi).
+    draft: false,
 
     metadata: {},
 

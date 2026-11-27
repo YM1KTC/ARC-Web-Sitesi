@@ -22,7 +22,8 @@ export default defineConfig({
               .child(
                 S.documentList()
                   .title('Taslaklar')
-                  .filter('_type == "post" && status == "draft"')
+                  // Hiç yayınlanmamış ya da yayınlanmamış değişikliği olan yazılar
+                  .filter('_type == "post" && _id in path("drafts.**")')
                   .defaultOrdering([{ field: 'date', direction: 'desc' }])
               ),
             S.listItem()
@@ -30,7 +31,7 @@ export default defineConfig({
               .child(
                 S.documentList()
                   .title('Yayında')
-                  .filter('_type == "post" && status == "published"')
+                  .filter('_type == "post" && !(_id in path("drafts.**"))')
                   .defaultOrdering([{ field: 'date', direction: 'desc' }])
               ),
             S.divider(),

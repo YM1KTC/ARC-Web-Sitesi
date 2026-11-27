@@ -65,14 +65,9 @@ export const post = defineType({
       rows: 3,
       description:
         'Listeleme sayfalarında, arama motoru sonuçlarında ve RSS akışında görünür. 50–160 karakter ideal.',
+      // Yayınlanan her yazının özeti olmalı (Studio, eksikse Publish'e izin vermez).
       validation: (Rule) => [
-        Rule.custom((value, context) => {
-          const doc = context.document as { status?: string } | undefined;
-          if (doc?.status === 'published' && !value) {
-            return 'Yayınlanan yazılar için özet gereklidir.';
-          }
-          return true;
-        }),
+        Rule.required().error('Yayınlanan yazılar için özet gereklidir.'),
         Rule.min(50).max(160).warning('50–160 karakter arası tutmaya çalışın.'),
       ],
     }),
@@ -195,23 +190,8 @@ export const post = defineType({
       ],
     }),
 
-    defineField({
-      name: 'status',
-      title: 'Durum',
-      type: 'string',
-      group: 'publishing',
-      description:
-        "Yeni yazılar taslak olarak başlar. Yayına almak için bunu 'Yayında' yapın.",
-      options: {
-        list: [
-          { title: '📝 Taslak', value: 'draft' },
-          { title: '✓ Yayında', value: 'published' },
-        ],
-        layout: 'radio',
-      },
-      initialValue: 'draft',
-      validation: (Rule) => Rule.required(),
-    }),
+    // Not: Ayrı bir 'status' alanı yok. Taslak/yayın ayrımını Sanity'nin kendi
+    // Publish düğmesi yapar; yayınlanan yazı webhook ile siteye otomatik çıkar.
     defineField({
       name: 'date',
       title: 'Yayın Tarihi',
@@ -265,13 +245,12 @@ export const post = defineType({
     },
   ],
   preview: {
-    select: { title: 'title', date: 'date', status: 'status', media: 'image' },
-    prepare({ title, date, status, media }) {
-      const badge = status === 'draft' ? '📝 Taslak' : '✓ Yayında';
+    select: { title: 'title', date: 'date', author: 'author', media: 'image' },
+    prepare({ title, date, author, media }) {
       const dateStr = date ? new Date(date).toLocaleDateString('tr-TR') : '';
       return {
         title,
-        subtitle: dateStr ? `${badge} · ${dateStr}` : badge,
+        subtitle: [dateStr, author].filter(Boolean).join(' · '),
         media,
       };
     },

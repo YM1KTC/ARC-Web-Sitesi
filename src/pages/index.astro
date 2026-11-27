@@ -16,28 +16,42 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
+import { fetchPosts } from '~/utils/blog';
+
+// Blog yazısı sayısı istatistikte gerçek veriden gösterilir.
+const postCount = (await fetchPosts()).length;
+
+// SSS: yalnızca doğrulanabilir bilgiler. Görünen SSS ve FAQPage şeması bu tek listeden beslenir.
 const faqData = [
   {
-    question: 'Eğitim programlarına kimler katılabilir?',
-    answer: 'Eğitim programlarımıza amatör telsiz lisansı olan veya lisans almaya hazırlanan herkesi davet ediyoruz.'
+    question: 'Amatör telsizci olmak için ne yapmam gerekiyor?',
+    answer:
+      'Amatör telsiz kullanmak için sınavı geçip amatör telsizci belgesi ve çağrı işareti almanız gerekir. Süreci blogumuzdaki "Amatör Telsizciliğe Başlangıç" ve "Amatör Telsiz Lisansları" yazılarında adım adım anlattık.',
   },
   {
-    question: 'Hangi frekans bantlarında faaliyet gösteriyorsunuz?',
-    answer: 'Derneğimiz VHF, UHF ve HF bantlarında faaliyet göstermektedir. Özellikle VHF/UHF röle sistemleri konusunda aktif çalışmalar yürütüyoruz.'
+    question: 'Sınava nasıl hazırlanabilirim?',
+    answer:
+      'sinav.radio.org.tr adresindeki ücretsiz sınav hazırlık uygulamamızda üye olmadan soru çalışabilir ve gerçek sınav düzeninde deneme sınavı çözebilirsiniz.',
   },
   {
-    question: 'Eğitim programlarınıza nasıl katılabilirim?',
-    answer: 'Eğitim programları hakkında bilgi almak için web sitemizi takip edebilir veya bizimle iletişime geçebilirsiniz. Düzenli olarak temel ve ileri seviye kurslar düzenlenmektedir.'
+    question: 'DMR ağında sizi nerede bulabilirim?',
+    answer:
+      'DMR konuşma grubumuz TG 28690. Telsizinize güncel Türkiye DMR kullanıcı listesini yüklemek için dmr.radio.org.tr adresindeki listeyi kullanabilirsiniz.',
   },
   {
-    question: 'Teknik projelerde nasıl yer alabilirim?',
-    answer: 'Teknik projelerimizde yer almak için bizimle iletişime geçin. Eğitim programlarımıza katılarak projelerimizde aktif rol alabilirsiniz.'
+    question: 'Derneğe nasıl üye olabilirim?',
+    answer:
+      'Üyelik ve dernek faaliyetleri hakkında bilgi almak için iletişim sayfamızdaki formu doldurabilir, Telegram veya WhatsApp üzerinden bize yazabilirsiniz.',
   },
   {
-    question: 'Derneğin röle sistemleri nasıl kullanılır?',
-    answer: 'Röle sistemlerimizin kullanımı hakkında bilgi almak için teknik dokümantasyonumuzu inceleyebilir veya eğitim etkinliklerimize katılabilirsiniz.'
-  }
+    question: 'Bloga yazı ya da düzeltme gönderebilir miyim?',
+    answer:
+      'Evet. Yazı önerilerinizi ve gördüğünüz hataları iletişim sayfamızdan bize iletebilirsiniz; uygun bulunan içerikler yazar adıyla yayımlanır.',
+  },
 ];
+
+// Statik derlenir; içerik değişince Sanity webhook'u siteyi yeniden derler.
+export const prerender = true;
 ---
 
 <Layout metadata={metadata}>
@@ -116,20 +130,21 @@ const faqData = [
 
   <Features
     id="features"
-    tagline="📡 Hizmetlerimiz"
-    title="QSL - ARC ile Neler Yapabilirsiniz"
-    subtitle="Amatör radyocular derneği olarak sunduğumuz hizmetler ve faaliyet alanlarımız hakkında bilgi edinebilirsiniz. 73!"
+    tagline="📡 Neler Yapıyoruz"
+    title="ARC ile Neler Yapabilirsiniz"
+    subtitle="Derneğimizin herkese açık kaynakları ve faaliyet alanları."
     items={[
       {
-        title: '📚 Amatör Telsiz Eğitimi',
+        title: '📚 Eğitim Yazıları',
         description:
-          'Amatör telsizciliğe yeni başlayanlar için temel eğitim programları ve ileri seviye teknik kurslar düzenliyoruz.',
+          'Blogumuzda telsiz temellerinden anten yapımına, dijital modlardan mevzuata kadar ücretsiz eğitim içerikleri yayımlıyoruz.',
         icon: 'tabler:school',
+        callToAction: { text: 'Bloga Git', href: '/blog' },
       },
       {
         title: '📋 Lisans Sınavı Hazırlığı',
         description:
-          'Amatör telsiz lisans sınavlarına hazırlık kursları ve deneme sınavları ile üyelerimizi destekliyoruz.',
+          'Ücretsiz sınav hazırlık uygulamamızda üye olmadan soru çalışabilir, gerçek sınav düzeninde deneme sınavı çözebilirsiniz.',
         icon: 'tabler:certificate',
         callToAction: {
           text: 'Sınav Sitesine Git',
@@ -138,30 +153,33 @@ const faqData = [
         },
       },
       {
-        title: '📡 Röle ve Beacon İşletmeciliği',
+        title: '📇 DMR Kullanıcı Listesi',
         description:
-          'VHF/UHF röle sistemi ve beacon altyapıları kurarak amatör radyocuların haberleşmesini kolaylaştırıyoruz.',
-        icon: 'tabler:antenna',
-      },
-      {
-        title: '🌐 Akıllı İletişim',
-        description: 'Modern ve yenilikçi iletişim çözümleri geliştiriyoruz.',
-        icon: 'tabler:phone-call',
+          'Türkiye DMR kullanıcılarının güncel listesini telsiz markanıza uygun CSV dosyası olarak indirebilirsiniz.',
+        icon: 'tabler:address-book',
         callToAction: {
-          text: 'DMR Editor',
+          text: 'Listeyi İndir',
           href: 'https://dmr.radio.org.tr/',
           target: '_blank',
         },
       },
       {
-        title: '⚙️ Teknik Projeler',
-        description: 'Amatör radyo teknolojileri üzerine araştırma ve geliştirme projeleri yürütüyoruz.',
-        icon: 'tabler:settings',
+        title: '🎙️ DMR TG 28690',
+        description: 'DMR konuşma grubumuzda bir araya geliyor, dijital modlarda görüşmeler yapıyoruz.',
+        icon: 'tabler:microphone',
       },
       {
-        title: '🏆 Etkinlik ve Yarışmalar',
-        description: 'Amatör radyocular arası bağları güçlendirmek için yarışmalar ve sosyal etkinlikler düzenliyoruz.',
-        icon: 'tabler:trophy',
+        title: '📡 Röle ve Beacon',
+        description:
+          'Röle ve beacon altyapıları kurup işletmek, derneğimizin kuruluş amaçları arasında yer alıyor.',
+        icon: 'tabler:antenna',
+      },
+      {
+        title: '💬 Topluluk',
+        description:
+          'Telegram ve WhatsApp gruplarımızda soru sorabilir, deneyimlerinizi paylaşabilir, telsizcilerle tanışabilirsiniz.',
+        icon: 'tabler:users',
+        callToAction: { text: 'İletişim', href: '/iletisim' },
       },
     ]}
   />
@@ -171,20 +189,21 @@ const faqData = [
   <Content
     isReversed
     tagline="📻 Hakkımızda"
-    title="ARC'nin Temelleri: QSO Gelişim ve İşbirliği!"
+    title="ARC Hakkında"
     items={[
       {
         title: '📅 31 Mayıs 2024 tarihinde kuruldu',
         description:
-          'İstanbul merkezli derneğimiz, amatör telsizciliği yaygınlaştırmak amacıyla modern bir yaklaşımla kurulmuştur.',
+          'İstanbul merkezli, kâr amacı gütmeyen derneğimiz amatör telsizciliği yaygınlaştırmak ve eğitim vermek amacıyla kuruldu.',
       },
       {
         title: '📻 YM1KTC çağrı işareti',
-        description: 'Derneğimizin resmi çağrı işareti ile tüm amatör radyo faaliyetlerimizi sürdürmekteyiz.',
+        description: 'Derneğimizin amatör radyo faaliyetleri YM1KTC çağrı işaretiyle yürütülüyor.',
       },
       {
-        title: '🌐 Geniş üyelik ağı',
-        description: 'Türkiye genelinde amatör radyocularımızı bir araya getirerek güçlü bir topluluk oluşturmaktayız.',
+        title: '🤝 Herkese açık kaynaklar',
+        description:
+          'Blog yazılarımız, sınav hazırlık uygulamamız ve DMR kullanıcı listemiz üye olmadan, ücretsiz kullanılabilir.',
       },
     ]}
     image={{
@@ -196,9 +215,9 @@ const faqData = [
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        📡 Modern temeller üzerine kurulan derneğimiz
+        📡 Amatör telsizciliği birlikte öğrenelim
       </h3>
-      Amatör radyo dünyasında öncü bir yaklaşım benimsiyor, teknoloji ve geleneksel değerleri harmanlıyoruz.
+      Yeni başlayanlardan deneyimli operatörlere kadar herkesin faydalanabileceği içerik ve araçlar hazırlıyoruz.
     </Fragment>
 
     <Fragment slot="bg">
@@ -210,10 +229,7 @@ const faqData = [
 
   <BlogLatestPosts
     title="📖 Blog'umuzda Daha Fazla İçerik Keşfedin"
-    information={`Blog'umuzda amatör telsizciliğe dair güncel bilgiler, teknik makaleler ve eğitim içerikleri bulabilirsiniz.
-                        Her yeni makale, amatör radyo konusunda uzmanlaşmanız için önemli bir adım olacaktır.
-                        Amatör radyo dünyasındaki gelişmeleri takip etmek için blog'umuzu ziyaret edin.
-                `}
+    information={`Telsiz temelleri, frekanslar, antenler, dijital modlar ve mevzuat üzerine yazılarımızı blogumuzda bulabilirsiniz.`}
   />
 
   <!-- FAQs Widget ******************* -->
@@ -223,33 +239,7 @@ const faqData = [
     subtitle="ARC hakkında merak ettikleriniz ve amatör telsizciliği konusunda sık sorulan sorular ve cevapları."
     tagline="🔍 SSS"
     classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Eğitim programlarına kimler katılabilir?',
-        description:
-          'Eğitim programlarımıza amatör telsiz lisansı olan veya lisans almaya hazırlanan herkesi davet ediyoruz.',
-      },
-      {
-        title: 'Hangi frekans bantlarında faaliyet gösteriyorsunuz?',
-        description:
-          'Derneğimiz VHF, UHF ve HF bantlarında faaliyet göstermektedir. Özellikle VHF/UHF röle sistemleri konusunda aktif çalışmalar yürütüyoruz.',
-      },
-      {
-        title: 'Eğitim programlarınıza nasıl katılabilirim?',
-        description:
-          'Eğitim programları hakkında bilgi almak için web sitemizi takip edebilir veya bizimle iletişime geçebilirsiniz. Düzenli olarak temel ve ileri seviye kurslar düzenlenmektedir.',
-      },
-      {
-        title: 'Teknik projelerde nasıl yer alabilirim?',
-        description:
-          'Teknik projelerimizde yer almak için bizimle iletişime geçin. Eğitim programlarımıza katılarak projelerimizde aktif rol alabilirsiniz.',
-      },
-      {
-        title: 'Derneğin röle sistemleri nasıl kullanılır?',
-        description:
-          'Röle sistemlerimizin kullanımı hakkında bilgi almak için teknik dokümantasyonumuzu inceleyebilir veya eğitim etkinliklerimize katılabilirsiniz.',
-      },
-    ]}
+    items={faqData.map((f) => ({ title: f.question, description: f.answer }))}
   />
 
   <!-- Stats Widget ****************** -->
@@ -257,9 +247,9 @@ const faqData = [
   <Stats
     stats={[
       { title: 'Kuruluş Yılı', amount: '2024' },
-      { title: 'Aktif Üye', amount: '100+' },
-      { title: 'Eğitim Programı', amount: '25+' },
-      { title: 'Teknik Proje', amount: '10+' },
+      { title: 'Blog Yazısı', amount: String(postCount) },
+      { title: 'DMR Konuşma Grubu (TG)', amount: '28690' },
+      { title: 'Çağrı İşareti', amount: 'YM1KTC' },
     ]}
   />
 
@@ -280,10 +270,7 @@ const faqData = [
     </Fragment>
 
     <Fragment slot="subtitle">
-      Amatör radyo dünyasında yerinizi alın ve bizimle birlikte büyüyen toplulukta yer alın. <br
-        class="hidden md:inline"
-      />
-      Bizimle iletişime geçin ve amatör radyo yolculuğunuza başlayın! 73 de YM1KTC
+      Sorularınız, üyelik ya da işbirliği için bize yazın. 73 de YM1KTC
     </Fragment>
   </CallToAction>
 

@@ -21,6 +21,14 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// Logo görsellerinin arkasına gri zemin konmasın. image tipi 'unknown' olduğundan güvenli kontrol.
+const isLogo = (img: unknown): boolean => {
+  const i = img as { alt?: unknown; src?: unknown } | null;
+  const alt = typeof i?.alt === 'string' ? i.alt.toLowerCase() : '';
+  const src = typeof i?.src === 'string' ? i.src : '';
+  return alt.includes('logo') || src.includes('logo');
+};
 ---
 
 <WidgetWrapper
@@ -41,7 +49,7 @@ const {
             <Fragment set:html={image} />
           ) : (
             <Image
-              class={`w-full h-80 object-cover rounded-xl mx-auto shadow-lg ${image.alt?.toLowerCase().includes('logo') || image.src?.includes('logo') ? 'bg-transparent' : 'bg-gray-500'}`}
+              class={`w-full h-80 object-cover rounded-xl mx-auto shadow-lg ${isLogo(image) ? 'bg-transparent' : 'bg-gray-500'}`}
               width="auto"
               height={320}
               widths={[400, 768]}
