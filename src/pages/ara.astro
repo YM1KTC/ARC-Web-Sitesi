@@ -1,0 +1,50 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+// Pagefind arama sayfası. İndeks build sonunda `pagefind --site dist` ile üretilir
+// ve yalnızca blog yazılarını (data-pagefind-body) içerir.
+export const prerender = true;
+
+const metadata = {
+  title: 'Sitede Ara',
+  description: 'radio.org.tr blog yazılarında arama yapın.',
+  robots: { index: false, follow: true },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 mx-auto max-w-3xl">
+    <Headline>Sitede Ara</Headline>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <div id="arama"></div>
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', () => {
+        // eslint-disable-next-line no-undef
+        new PagefindUI({
+          element: '#arama',
+          showSubResults: true,
+          showImages: false,
+          translations: {
+            placeholder: 'Yazılarda ara (ör. röle, APRS, sınav)',
+            zero_results: '"[SEARCH_TERM]" için sonuç bulunamadı',
+            many_results: '"[SEARCH_TERM]" için [COUNT] sonuç',
+            one_result: '"[SEARCH_TERM]" için [COUNT] sonuç',
+            load_more: 'Daha fazla sonuç',
+            search_label: 'Sitede ara',
+            clear_search: 'Temizle',
+          },
+        });
+        const q = new URLSearchParams(location.search).get('q');
+        if (q) {
+          const input = document.querySelector('#arama input');
+          if (input) {
+            input.value = q;
+            input.dispatchEvent(new Event('input'));
+          }
+        }
+      });
+    </script>
+  </section>
+</Layout>

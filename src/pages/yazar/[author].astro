@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import { fetchPosts } from '~/utils/blog';
+import { AUTHORS, authorSlug } from '~/data/authors';
+import type { Post } from '~/types';
+
+// Statik derlenir; yazar listesi yayındaki yazılardan çıkarılır.
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const posts = await fetchPosts();
+  const byAuthor = new Map<string, Post[]>();
+  for (const post of posts) {
+    if (!post.author) continue;
+    const call = post.author.trim().toUpperCase();
+    byAuthor.set(call, [...(byAuthor.get(call) ?? []), post]);
+  }
+  return [...byAuthor.entries()].map(([call, list]) => ({
+    params: { author: authorSlug(call) },
+    props: { call, posts: list },
+  }));
+}) satisfies GetStaticPaths;
+
+const { call, posts } = Astro.props as { call: string; posts: Post[] };
+const name = AUTHORS[call]?.name;
+
+const metadata = {
+  title: name ? `${name} (${call}) yazıları` : `${call} yazıları`,
+  description: `${name ? name + ' (' + call + ')' : call} tarafından radio.org.tr blogunda yayımlanan yazılar.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline
+      subtitle={`${posts.length} yazı · <a class="underline" href="https://www.qrz.com/db/${call}" target="_blank" rel="noopener noreferrer">QRZ.com'da ${call}</a>`}
+    >
+      {name ? `${name} (${call})` : call}
+    </Headline>
+    <BlogList posts={posts} />
+  </section>
+</Layout>

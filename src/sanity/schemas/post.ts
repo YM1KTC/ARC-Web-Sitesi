@@ -170,6 +170,12 @@ export const post = defineType({
           },
         },
         {
+          type: 'table',
+          name: 'table',
+          title: 'Tablo',
+          description: 'İlk satır başlık satırı olarak gösterilir.',
+        },
+        {
           type: 'code',
           name: 'code',
           title: 'Kod Bloğu',

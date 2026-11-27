@@ -3,6 +3,7 @@ import { structureTool } from 'sanity/structure';
 import { presentationTool, defineDocuments, defineLocations } from 'sanity/presentation';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
+import { table } from '@sanity/table';
 import { schemaTypes } from './src/sanity/schemas';
 
 export default defineConfig({
@@ -72,6 +73,8 @@ export default defineConfig({
       },
     }),
     codeInput(),
+    // Yazı içinde düzenlenebilir tablo (ilk satır başlık olarak gösterilir)
+    table(),
     visionTool(),
   ],
   schema: { types: schemaTypes },

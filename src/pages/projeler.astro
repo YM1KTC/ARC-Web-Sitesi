@@ -1,0 +1,100 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+// Derneğin ve üyelerin amatör radyo projeleri. Alfabetik sıralı; karşılaştırma yapılmaz.
+export const prerender = true;
+
+const projects: { name: string; by: string; description: string; url: string; post?: string }[] = [
+  {
+    name: 'Amatör Telsiz Röle Rehberi (amatortelsizcilik.com.tr)',
+    by: 'TA1JS',
+    description: 'Türkiye röle rehberi: web sitesi, iOS ve Android uygulaması, Apple Watch ve Telegram botu.',
+    url: 'https://amatortelsizcilik.com.tr',
+    post: '/amatortelsizcilik-com-tr-ekosistemi',
+  },
+  {
+    name: 'Amatör Telsiz Sınavı uygulaması',
+    by: 'TA1JS',
+    description: 'Anlatımlı sorular ve aralıklı tekrarla sınav hazırlığı için iPhone ve Android uygulaması.',
+    url: 'https://amatortelsizsinavi.canata.dev',
+    post: '/amator-telsiz-sinav-uygulamasi',
+  },
+  {
+    name: 'APRSSwift',
+    by: 'TA1JS',
+    description: 'iPhone, iPad, Mac ve Apple Watch için APRS uygulaması.',
+    url: 'https://aprs.canata.dev',
+    post: '/aprsswift-ios-aprs-uygulamasi',
+  },
+  {
+    name: 'aprs.im',
+    by: 'TA1JS',
+    description: 'Dünya genelindeki APRS istasyonlarını gösteren canlı harita.',
+    url: 'https://aprs.im',
+    post: '/aprs-im-canli-aprs-haritasi',
+  },
+  {
+    name: 'Digi Voice',
+    by: 'TB1TFO',
+    description: 'Telsiz olmadan DMR ağlarına telefon ya da bilgisayardan bağlanmayı sağlayan yerli uygulama.',
+    url: 'https://radio.org.tr/digi-voice-app',
+    post: '/digi-voice-app',
+  },
+  {
+    name: 'DMR Kullanıcı Listesi (dmr.radio.org.tr)',
+    by: 'ARC',
+    description: 'Türkiye DMR kullanıcılarının güncel listesini telsiz markanıza uygun CSV olarak indirin.',
+    url: 'https://dmr.radio.org.tr',
+    post: '/dmr-liste-uygulamasi',
+  },
+  {
+    name: 'Sınav Hazırlık (sinav.radio.org.tr)',
+    by: 'ARC',
+    description: 'Üye olmadan soru çalışma ve gerçek sınav düzeninde deneme sınavı.',
+    url: 'https://sinav.radio.org.tr',
+    post: '/sinav-radio-org-tr',
+  },
+  {
+    name: 'UV-K5 APRS firmware ve iGate',
+    by: 'TA1JS',
+    description: 'Quansheng UV-K5 için APRS firmware’i, USB iGate/KISS TNC uygulaması ve web araçları.',
+    url: 'https://uvk5.canata.dev',
+    post: '/uv-k5-aprs-igate-ozel-firmware',
+  },
+];
+
+const metadata = {
+  title: 'Projeler: Derneğimizin ve Üyelerimizin Çalışmaları',
+  description: 'ARC ve üyelerinin geliştirdiği amatör radyo uygulamaları, siteleri ve araçları.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 mx-auto max-w-5xl">
+    <Headline subtitle="Derneğimizin ve üyelerimizin geliştirdiği, herkesin kullanabileceği amatör radyo araçları.">
+      Projeler
+    </Headline>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        projects.map((p) => (
+          <div class="rounded-lg border border-gray-200 dark:border-slate-700 p-5 flex flex-col">
+            <h2 class="text-xl font-bold font-heading">{p.name}</h2>
+            <p class="text-sm text-muted dark:text-slate-400 mb-2">{p.by}</p>
+            <p class="flex-grow">{p.description}</p>
+            <p class="mt-4 space-x-4">
+              <a class="text-primary hover:underline" href={p.url} target="_blank" rel="noopener noreferrer">
+                Siteye git
+              </a>
+              {p.post && (
+                <a class="text-primary hover:underline" href={p.post}>
+                  Tanıtım yazısı
+                </a>
+              )}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
