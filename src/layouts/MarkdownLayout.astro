@@ -6,6 +6,8 @@ import type { MetaData } from '~/types';
 export interface Props {
   frontmatter: {
     title?: string;
+    // true ise sayfa arama motorlarına kapalı olur (ör. iç rehberler)
+    noindex?: boolean;
   };
 }
 
@@ -13,6 +15,7 @@ const { frontmatter } = Astro.props;
 
 const metadata: MetaData = {
   title: frontmatter?.title,
+  ...(frontmatter?.noindex ? { robots: { index: false, follow: false } } : {}),
 };
 ---
 

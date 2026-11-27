@@ -52,8 +52,8 @@ export default defineConfig({
   },
 
   integrations: [sitemap({
-    // noindex etiket sayfaları, boş etkinlik sayfası ve önizleme/API rotaları sitemap'e girmesin.
-    filter: (page) => !/\/(etiket|onizleme|api)\/|\/etkinlikler\/?$/.test(page),
+    // noindex etiket sayfaları, boş etkinlik, arama ve yazar rehberi sayfaları ile önizleme/API rotaları sitemap'e girmesin.
+    filter: (page) => !/\/(etiket|onizleme|api)\/|\/(etkinlikler|ara|yazar-rehberi)\/?$/.test(page),
   }), icon({
     include: {
       tabler: ['*'],

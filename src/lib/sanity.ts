@@ -174,6 +174,17 @@ const portableTextComponents: Partial<PortableTextHtmlComponents> = {
       const src = `https://www.youtube-nocookie.com/embed/${id}`;
       return `<div class="aspect-video"><iframe src="${src}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" frameborder="0" style="width:100%;height:100%"></iframe></div>`;
     },
+    // @sanity/table: ilk satır başlık, geri kalanlar gövde
+    table: ({ value }) => {
+      const rows: { cells?: string[] }[] = value?.rows ?? [];
+      if (rows.length === 0) return '';
+      const [head, ...body] = rows;
+      const th = (head.cells ?? []).map((c) => `<th>${escapeHtml(c ?? '')}</th>`).join('');
+      const trs = body
+        .map((r) => `<tr>${(r.cells ?? []).map((c) => `<td>${escapeHtml(c ?? '')}</td>`).join('')}</tr>`)
+        .join('');
+      return `<div class="overflow-x-auto"><table><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table></div>`;
+    },
     code: ({ value }) => {
       const code = escapeHtml(value?.code ?? '');
       const lang = value?.language ?? 'text';

@@ -1,0 +1,112 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
+
+// "Buradan başlayın": blog yazılarını yeni başlayan için sıralı bir yola dizer.
+// Listede olup henüz yayında olmayan yazılar otomatik atlanır.
+export const prerender = true;
+
+const sections: { title: string; intro: string; slugs: string[] }[] = [
+  {
+    title: '1. Amatör telsizciliğe ilk adım',
+    intro: 'Amatör telsizcilik nedir, belge nasıl alınır, sınava nasıl hazırlanılır?',
+    slugs: [
+      'amator-telsizcilige-baslangic',
+      'amator-telsiz-lisanslari',
+      'amator-telsiz-sinavi-basvuru-ve-ucretler',
+      'sinav-radio-org-tr',
+      'amator-telsiz-sinav-uygulamasi',
+      'sinav-cevap-anahtarindaki-hatali-sorular',
+    ],
+  },
+  {
+    title: '2. İlk telsiz ve frekanslar',
+    intro: 'Belgenizi aldıktan sonra telsizinizi hazırlayın, bantları ve röleleri tanıyın.',
+    slugs: [
+      'yeni-baslayanlar-icin-telsiz-ekipmani',
+      'amator-telsizlere-role-ve-simplex-frekansi-ekleme-rehberi',
+      'amator-band-plani-vhf-very-high-frequency',
+      'amator-band-plani-uhf-ultra-high-frequency',
+      'simplex-ve-role-gorusmeleri',
+      'vhf-ve-uhf-role-sistemleri-nedir',
+      'el-telsizi-menzili-vhf-uhf-hf',
+      'wide-narrow-bant-genisligi-ayari',
+    ],
+  },
+  {
+    title: '3. Havada konuşmak',
+    intro: 'Görüşme kuralları, fonetik alfabe, Q kodları ve çevrimler.',
+    slugs: [
+      'amator-telsizle-dogru-ve-etik-konusma-usulleri',
+      'fonetik-alfabe-amator-telsizcilikte-turkce-ve-nato-kodlari',
+      'amator-telsiz-q-kodlari',
+      'rst-raporu',
+      'amator-telsizcilikte-seventy-three-73-ifadesinin-anlami-kullanimi-ve-kokeni',
+      'amator-telsizcilikte-cevrim-nedir',
+    ],
+  },
+  {
+    title: '4. Çağrı işareti ve kayıtlar',
+    intro: 'Çağrı işaretinizle ilgili işlemler, QSO kaydı ve rehberler.',
+    slugs: [
+      'cagri-isareti-adres-degisikligi-ve-kart-yenileme',
+      'qrz-com-ve-ta-callbook-kaydi',
+      'logbook-nedir',
+      'ta-bolge-haritasi',
+      'amator-telsiz-belgesi-iptali-ve-yasaklar',
+    ],
+  },
+  {
+    title: '5. Dijital modlar',
+    intro: 'DMR, APRS ve diğer dijital modlarla tanışın.',
+    slugs: [
+      'dmr-digital-mobile-radio-nedir',
+      'dmr-tg-28690-nasil-baglanilir',
+      'dijital-ses-modlari-dmr-dstar-fusion-m17',
+      'dmr-liste-uygulamasi',
+      'aprs-nedir',
+      'cep-telefonundan-aprs-aprsdroid',
+    ],
+  },
+];
+
+const posts = await fetchPosts();
+const bySlug = new Map(posts.map((p) => [p.slug, p]));
+const filled = sections
+  .map((s) => ({ ...s, posts: s.slugs.map((slug) => bySlug.get(slug)).filter((p) => !!p) }))
+  .filter((s) => s.posts.length > 0);
+
+const metadata = {
+  title: 'Buradan Başlayın: Amatör Telsizciliğe Adım Adım',
+  description:
+    'Amatör telsizciliğe yeni başlayanlar için blog yazılarımızı sırayla okuyabileceğiniz bir yol: belge, ilk telsiz, görüşme kuralları ve dijital modlar.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 mx-auto max-w-3xl">
+    <Headline subtitle="Yazılarımızı yeni başlayan biri için sıraya dizdik. Baştan sona okuyabilir ya da ihtiyacınız olan bölüme atlayabilirsiniz.">
+      Buradan Başlayın
+    </Headline>
+    {
+      filled.map((s) => (
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold font-heading mb-1">{s.title}</h2>
+          <p class="text-muted dark:text-slate-400 mb-4">{s.intro}</p>
+          <ol class="space-y-3 list-decimal pl-6">
+            {s.posts.map((p) => (
+              <li>
+                <a class="font-semibold hover:underline" href={getPermalink(p.permalink, 'post')}>
+                  {p.title}
+                </a>
+                {p.excerpt && <p class="text-sm text-muted dark:text-slate-400">{p.excerpt}</p>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))
+    }
+  </section>
+</Layout>

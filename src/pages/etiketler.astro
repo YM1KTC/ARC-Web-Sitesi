@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import { fetchPosts } from '~/utils/blog';
 import { TAG_BASE } from '~/utils/permalinks';
 
-// No prerender - let it be server-rendered on demand
 
 const posts = await fetchPosts();
 
@@ -26,8 +25,9 @@ posts.forEach(post => {
   }
 });
 
-// Sort tags by count (descending) then by title
-const tags = Array.from(tagsMap.values()).sort((a, b) => {
+// Yalnızca birden fazla yazıda geçen etiketler listelensin; tek yazılık etiketler
+// (çoğu arama ifadesi) sayfayı kalabalıklaştırıyordu. Yazıdaki etiket linkleri yine çalışır.
+const tags = Array.from(tagsMap.values()).filter((t) => t.count >= 2).sort((a, b) => {
   if (b.count !== a.count) {
     return b.count - a.count;
   }

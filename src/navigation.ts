@@ -2,45 +2,16 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    {
-      text: 'Ana Sayfa',
-      href: getPermalink('/'),
-    },
-    {
-      text: 'Hakkımızda',
-      href: getPermalink('/hakkimizda'),
-    },
-    {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
-    {
-      text: 'Kategoriler',
-      href: getPermalink('/kategoriler'),
-    },
-    {
-      text: 'Etiketler',
-      href: getPermalink('/etiketler'),
-    },
-    // Şimdilik pasif — ilk etkinlik girildiğinde açın. Sayfa /etkinlikler adresinde hazır.
-    // {
-    //   text: 'Etkinlikler',
-    //   href: getPermalink('/etkinlikler'),
-    // },
-    {
-      text: 'Sınav Hazırlık',
-      href: 'https://sinav.radio.org.tr/',
-      target: '_blank',
-    },
-    {
-      text: 'DMR İndir',
-      href: 'https://dmr.radio.org.tr/',
-      target: '_blank',
-    },
-    {
-      text: 'İletişim',
-      href: getPermalink('/iletisim'),
-    },
+    { text: 'Ana Sayfa', href: getPermalink('/') },
+    // Yeni başlayanlar için sıralı okuma yolu
+    { text: 'Başlangıç', href: getPermalink('/baslangic') },
+    { text: 'Blog', href: getBlogPermalink() },
+    { text: 'Projeler', href: getPermalink('/projeler') },
+    { text: 'Sınav Hazırlık', href: 'https://sinav.radio.org.tr/', target: '_blank' },
+    { text: 'DMR İndir', href: 'https://dmr.radio.org.tr/', target: '_blank' },
+    { text: 'Hakkımızda', href: getPermalink('/hakkimizda') },
+    { text: 'İletişim', href: getPermalink('/iletisim') },
+    { text: 'Ara', href: getPermalink('/ara') },
   ],
   actions: [{ text: 'İletişim', href: getPermalink('/iletisim'), icon: 'tabler:mail' }],
 };
@@ -55,6 +26,8 @@ export const footerData = {
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Kategoriler', href: getPermalink('/kategoriler') },
         { text: 'Etiketler', href: getPermalink('/etiketler') },
+        { text: 'Başlangıç', href: getPermalink('/baslangic') },
+        { text: 'Projeler', href: getPermalink('/projeler') },
         // { text: 'Etkinlikler', href: getPermalink('/etkinlikler') }, // Şimdilik pasif
 
         { text: 'Sınav Hazırlık', href: 'https://sinav.radio.org.tr/', target: '_blank' },
