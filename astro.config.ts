@@ -25,7 +25,8 @@ import { unified } from '@astrojs/markdown-remark';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const hasExternalScripts = true;
+// Google Analytics kimliği tanımlı değil; Partytown boşuna yükleniyordu. GA eklenirse true yapın.
+const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 

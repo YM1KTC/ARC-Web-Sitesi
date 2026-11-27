@@ -3,7 +3,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import { fetchPosts } from '~/utils/blog';
 import { CATEGORY_BASE } from '~/utils/permalinks';
 
-// No prerender - let it be server-rendered on demand
+// Statik derlenir; içerik değişince Sanity webhook'u siteyi yeniden derler.
+export const prerender = true;
 
 const posts = await fetchPosts();
 

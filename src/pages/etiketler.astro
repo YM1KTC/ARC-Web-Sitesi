@@ -42,6 +42,9 @@ const metadata = {
     follow: true,
   },
 };
+
+// Statik derlenir; içerik değişince Sanity webhook'u siteyi yeniden derler.
+export const prerender = true;
 ---
 
 <Layout metadata={metadata}>

@@ -4,6 +4,9 @@ import { getHomePermalink } from '~/utils/permalinks';
 import { Icon } from 'astro-icon/components';
 
 const title = `Hata 404`;
+
+// Statik derlenir; içerik değişince Sanity webhook'u siteyi yeniden derler.
+export const prerender = true;
 ---
 
 <Layout metadata={{ title }}>
